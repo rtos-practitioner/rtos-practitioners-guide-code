@@ -1,0 +1,5 @@
+ Publisher A ---\                       /--> Subscriber X
+                 \   +--------------+  /
+ Publisher B ----->  | Event Broker | ----->  Subscriber Y
+                 /   +--------------+  \
+ Publisher C ---/                       \--> Subscriber Z

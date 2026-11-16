@@ -1,0 +1,12 @@
+/* Zephyr: devicetree-based UART access */
+const struct device *uart_dev =
+    DEVICE_DT_GET(DT_NODELABEL(usart2));
+
+if (!device_is_ready(uart_dev)) {
+    LOG_ERR("UART device not ready");
+    return -1;
+}
+
+/* Zephyr UART API */
+uart_irq_callback_set(uart_dev, uart_isr_callback);
+uart_irq_rx_enable(uart_dev);

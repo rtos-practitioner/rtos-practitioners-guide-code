@@ -1,0 +1,3 @@
+CFSR [31:16] = UFSR (UsageFault Status Register)
+CFSR [15:8]  = BFSR (BusFault Status Register)
+CFSR [7:0]   = MMFSR (MemManage Fault Status Register)

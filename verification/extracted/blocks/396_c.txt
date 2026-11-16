@@ -1,0 +1,6 @@
+/* SMP critical section — same API as single-core FreeRTOS */
+taskENTER_CRITICAL();
+/* Local interrupts masked AND the kernel spinlocks held,
+   so no other core can be inside a critical section */
+shared_counter++;
+taskEXIT_CRITICAL();

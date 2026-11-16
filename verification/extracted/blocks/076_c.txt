@@ -1,0 +1,7 @@
+QueueHandle_t xMailbox = xQueueCreate( 1, sizeof( SystemStatus_t ) );
+
+/* Writer: always overwrites with the latest status */
+xQueueOverwrite( xMailbox, &xCurrentStatus );
+
+/* Reader: peeks to get the latest without removing it */
+xQueuePeek( xMailbox, &xStatusCopy, portMAX_DELAY );

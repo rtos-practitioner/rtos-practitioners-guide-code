@@ -1,0 +1,65 @@
+/*
+ * SMP Task Affinity Example — FreeRTOS on RP2040
+ *
+ * Demonstrates pinning tasks to specific cores for
+ * deterministic placement alongside freely migrating tasks.
+ */
+
+/* Core affinity masks */
+#define CORE_0_MASK    (1 << 0)    /* 0b01 — core 0 only  */
+#define CORE_1_MASK    (1 << 1)    /* 0b10 — core 1 only  */
+#define ANY_CORE_MASK  (0x03)      /* 0b11 — either core   */
+
+static void vSensorTask(void *pvParameters)
+{
+    /* This task is pinned to core 0, which owns the SPI peripheral */
+    for (;;) {
+        int16_t sample = sensor_read_spi();
+        xQueueSend(xSensorQueue, &sample, portMAX_DELAY);
+    }
+}
+
+static void vControlTask(void *pvParameters)
+{
+    /* This task is pinned to core 0 for deterministic latency */
+    int16_t sample;
+    for (;;) {
+        xQueueReceive(xSensorQueue, &sample, portMAX_DELAY);
+        pid_update(&controller, sample);
+        actuator_write(controller.output);
+    }
+}
+
+static void vLoggingTask(void *pvParameters)
+{
+    /* This task may run on either core — load-balanced by scheduler */
+    for (;;) {
+        LogEntry_t entry;
+        xQueueReceive(xLogQueue, &entry, portMAX_DELAY);
+        sd_card_write(&entry, sizeof(entry));
+    }
+}
+
+int main(void)
+{
+    hardware_init();
+
+    xSensorQueue = xQueueCreate(16, sizeof(int16_t));
+    xLogQueue    = xQueueCreate(64, sizeof(LogEntry_t));
+
+    TaskHandle_t xSensorHandle, xControlHandle, xLogHandle;
+
+    xTaskCreate(vSensorTask,  "Sensor",  256, NULL, 3, &xSensorHandle);
+    xTaskCreate(vControlTask, "Control", 256, NULL, 4, &xControlHandle);
+    xTaskCreate(vLoggingTask, "Log",     512, NULL, 1, &xLogHandle);
+
+    /* Pin sensor and control tasks to core 0 */
+    vTaskCoreAffinitySet(xSensorHandle,  CORE_0_MASK);
+    vTaskCoreAffinitySet(xControlHandle, CORE_0_MASK);
+
+    /* Allow logging task to migrate freely */
+    vTaskCoreAffinitySet(xLogHandle, ANY_CORE_MASK);
+
+    vTaskStartScheduler();
+    for (;;) {}
+}

@@ -1,0 +1,15 @@
+# third-party sources (fetched by verification/tools/fetch_deps.sh) and build output
+verification/deps/
+verification/build/
+__pycache__/
+*.pyc
+
+# fresh harness output (the committed reference run lives in verification/results/reference-run-*)
+verification/results/results.json
+verification/results/RESULTS.md
+verification/results/summary.json
+
+# the book itself is not part of the repository
+*.docx
+*.pdf
+*.epub

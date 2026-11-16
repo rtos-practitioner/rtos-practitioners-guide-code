@@ -1,0 +1,2 @@
+/* Defined in the heap_N.c file you select */
+static uint8_t ucHeap[configTOTAL_HEAP_SIZE];

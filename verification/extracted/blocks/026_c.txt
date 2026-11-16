@@ -1,0 +1,1 @@
+#define configASSERT(x)  if (!(x)) { taskDISABLE_INTERRUPTS(); for(;;); }

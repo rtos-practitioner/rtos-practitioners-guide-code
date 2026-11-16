@@ -1,0 +1,70 @@
+/*
+ * Real-Time Operating Systems: A Practitioner's Guide to FreeRTOS, QNX, and Zephyr
+ * Chapter 11: Clock Configuration, Timing, and Temporal Determinism
+ * 11.4 Hardware Timers for Precise Timing > 11.4.3 Input Capture Mode
+ * Verification: executed
+ * SPDX-License-Identifier: MIT
+ */
+#include "stm32f4xx.h"
+#include <stdio.h>
+
+/*
+ * TIM2 Channel 1 Input Capture — Frequency Measurement
+ *
+ * Timer input clock: 84 MHz (APB1 timer clock = 2 * PCLK1)
+ * Prescaler: 0 (no division) => counter at 84 MHz
+ * Resolution: 1 / 84 MHz = 11.905 ns per count
+ * Max measurable period: 2^32 / 84 MHz = 51.13 s (min freq ~0.02 Hz)
+ */
+
+static volatile uint32_t capture_prev = 0;
+static volatile uint32_t capture_period = 0;
+static volatile uint8_t  capture_ready = 0;
+
+void TIM2_freq_init(void) {
+    /* Enable clocks */
+    RCC->APB1ENR |= RCC_APB1ENR_TIM2EN;
+    RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
+
+    /* PA0 -> AF1 (TIM2_CH1) */
+    GPIOA->MODER  &= ~GPIO_MODER_MODER0;
+    GPIOA->MODER  |=  GPIO_MODER_MODER0_1;    /* Alternate function  */
+    GPIOA->AFR[0] &= ~(0xFUL << 0);
+    GPIOA->AFR[0] |=  (0x1UL << 0);           /* AF1 = TIM2          */
+
+    /* Timer base: no prescaler, full 32-bit range */
+    TIM2->PSC = 0;
+    TIM2->ARR = 0xFFFFFFFF;
+
+    /* Channel 1: input capture on rising edge, no filter, no prescaler */
+    TIM2->CCMR1 &= ~TIM_CCMR1_CC1S;
+    TIM2->CCMR1 |=  TIM_CCMR1_CC1S_0;        /* CC1 mapped to TI1   */
+    TIM2->CCMR1 &= ~(TIM_CCMR1_IC1F | TIM_CCMR1_IC1PSC);
+    TIM2->CCER  &= ~(TIM_CCER_CC1P | TIM_CCER_CC1NP); /* Rising edge */
+    TIM2->CCER  |=  TIM_CCER_CC1E;            /* Enable capture       */
+
+    /* Enable capture interrupt */
+    TIM2->DIER |= TIM_DIER_CC1IE;
+    NVIC_SetPriority(TIM2_IRQn, 5);
+    NVIC_EnableIRQ(TIM2_IRQn);
+
+    /* Start timer */
+    TIM2->CR1 |= TIM_CR1_CEN;
+}
+
+void TIM2_IRQHandler(void) {
+    if (TIM2->SR & TIM_SR_CC1IF) {
+        TIM2->SR = ~TIM_SR_CC1IF;             /* Clear flag           */
+        uint32_t capture_now = TIM2->CCR1;
+        capture_period = capture_now - capture_prev;  /* Handles wrap  */
+        capture_prev = capture_now;
+        capture_ready = 1;
+    }
+}
+
+float TIM2_get_frequency_Hz(void) {
+    if (!capture_ready || capture_period == 0) return 0.0f;
+    capture_ready = 0;
+    /* Timer clock = 84 MHz */
+    return 84000000.0f / (float)capture_period;
+}

@@ -1,0 +1,5 @@
+#define configTOTAL_HEAP_SIZE           ((size_t)(40 * 1024))  /* 40 KB */
+#define configCHECK_FOR_STACK_OVERFLOW  2
+#define configUSE_TRACE_FACILITY        1
+#define configUSE_STATS_FORMATTING_FUNCTIONS 1
+#define configRECORD_STACK_HIGH_ADDRESS  1

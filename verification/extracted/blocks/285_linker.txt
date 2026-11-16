@@ -1,0 +1,4 @@
+.backup_sram (NOLOAD) :
+{
+    *(.backup_sram)
+} >BKPSRAM

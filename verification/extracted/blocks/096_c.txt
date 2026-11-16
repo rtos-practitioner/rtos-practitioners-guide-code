@@ -1,0 +1,4 @@
+taskENTER_CRITICAL();
+/* Access shared resource -- keep this VERY short */
+g_shared_register |= ENABLE_BIT;
+taskEXIT_CRITICAL();

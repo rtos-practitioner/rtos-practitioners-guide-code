@@ -1,0 +1,9 @@
+# Configure (run once or when CMakeLists.txt changes)
+cmake -B build -G Ninja -DCMAKE_TOOLCHAIN_FILE=cmake/arm-none-eabi.cmake
+
+# Build
+cmake --build build
+
+# Flash via OpenOCD
+openocd -f openocd/stm32f4discovery.cfg \
+    -c "program build/app.elf verify reset exit"

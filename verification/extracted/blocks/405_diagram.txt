@@ -1,0 +1,12 @@
++---------------------------+---------------------------+
+|        Cortex-M7          |        Cortex-M4          |
+|   Linux / connectivity    |   FreeRTOS / real-time    |
+|   - TCP/IP, MQTT, HTTPS   |   - Motor control (FOC)   |
+|   - OTA firmware update   |   - Safety monitoring     |
+|   - Cloud telemetry       |   - Watchdog management   |
++---------------------------+---------------------------+
+|   Shared bus matrix with access control               |
+|   - MPU per core (memory isolation)                   |
+|   - Bus matrix filtering (peripheral isolation)       |
+|   - Independent watchdog per core (IWDG1, IWDG2)     |
++-------------------------------------------------------+

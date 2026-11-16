@@ -1,0 +1,12 @@
+  +-------------------------------+  <- SP after hardware push
+  |  R14 (EXC_RETURN)             |
+  |  R11                          |
+  |  R10                          |
+  |  R9                           |
+  |  R8                           |
+  |  R7                           |
+  |  R6                           |
+  |  R5                           |
+  |  R4                           |
+  +-------------------------------+  <- pxTopOfStack (stored in TCB)
+                                       (9 words = 36 bytes)

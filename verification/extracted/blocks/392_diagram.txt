@@ -1,0 +1,16 @@
+ System Requirements ──────────────────────── Acceptance Testing
+       \                                          /
+        \   [RTOS selection, SIL/ASIL            /
+         \   allocation, FFI strategy]          /
+  Software Requirements ──────────────── System Testing
+           \                                  /
+            \   [Task design, scheduling     /
+             \   analysis, IPC design]      /
+    Architectural Design ────────── Integration Testing
+               \                          /
+                \   [Stack sizing,       /
+                 \   MISRA compliance]  /
+      Detailed Design ────────── Unit Testing
+                 \                  /
+                  \               /
+                   Implementation

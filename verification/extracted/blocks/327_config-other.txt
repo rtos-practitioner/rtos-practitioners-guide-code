@@ -1,0 +1,55 @@
+# .github/workflows/firmware-ci.yml
+name: Firmware CI
+
+on: [push, pull_request]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        build_type: [Debug, Release]
+        heap_impl: [heap_1, heap_4]
+        trace: [ON, OFF]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install ARM toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-arm-none-eabi
+
+      - name: Build firmware
+        run: |
+          mkdir build && cd build
+          cmake -DCMAKE_TOOLCHAIN_FILE=../arm-none-eabi.cmake \
+                -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
+                -DHEAP_IMPL=${{ matrix.heap_impl }} \
+                -DENABLE_TRACE=${{ matrix.trace }} ..
+          cmake --build . -- -j$(nproc)
+
+      - name: Build and run unit tests
+        run: |
+          mkdir build_tests && cd build_tests
+          cmake -DBUILD_TESTS=ON ..
+          cmake --build . -- -j$(nproc)
+          ctest --output-on-failure
+
+      - name: Coverage report
+        run: |
+          cd build_tests
+          lcov --capture --directory . --output-file cov.info
+          lcov --remove cov.info '*/external/*' --output-file cov.info
+          genhtml cov.info --output-directory coverage
+        if: matrix.build_type == 'Debug' && matrix.heap_impl == 'heap_4'
+
+      - name: Static analysis
+        run: cppcheck --enable=all --error-exitcode=1 src/
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: firmware-${{ matrix.build_type }}-${{ matrix.heap_impl }}
+          path: build/*.elf

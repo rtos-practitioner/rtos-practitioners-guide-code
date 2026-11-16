@@ -1,0 +1,6 @@
+Priority 5: [Control Task] ← Highest priority ready task runs
+Priority 4: [Sensor Task]
+Priority 3: (empty)
+Priority 2: [Comms Task] → [Logging Task]
+Priority 1: (empty)
+Priority 0: [Idle Task]

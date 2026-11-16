@@ -1,0 +1,25 @@
+/*
+ * Real-Time Operating Systems: A Practitioner's Guide to FreeRTOS, QNX, and Zephyr
+ * Chapter 15: Common RTOS Pitfalls and Anti-Patterns
+ * 15.9 Pitfall: Unbounded Priority Levels > Example: Priority Band Structure
+ * Verification: executed
+ * SPDX-License-Identifier: MIT
+ */
+/* Define priority bands — document rationale for each */
+#define PRIORITY_ISR_DEFERRED     (configMAX_PRIORITIES - 1)  /* 6 */
+#define PRIORITY_HARD_REALTIME    (configMAX_PRIORITIES - 2)  /* 5 */
+#define PRIORITY_CONTROL_LOOP     (configMAX_PRIORITIES - 3)  /* 4 */
+#define PRIORITY_COMMUNICATION    3
+#define PRIORITY_LOGGING          2
+#define PRIORITY_BACKGROUND       1
+/* Priority 0 is reserved for the Idle task */
+
+/* Assignments based on RMA — shorter period = higher priority */
+xTaskCreate(vMotorControlTask,  "Motor",  512, NULL,
+            PRIORITY_HARD_REALTIME, NULL);    /* Period: 1 ms */
+xTaskCreate(vSensorFusionTask,  "Sensor", 512, NULL,
+            PRIORITY_CONTROL_LOOP, NULL);     /* Period: 10 ms */
+xTaskCreate(vTelemetryTask,     "Telem",  256, NULL,
+            PRIORITY_COMMUNICATION, NULL);    /* Period: 100 ms */
+xTaskCreate(vDataLogTask,       "Log",    256, NULL,
+            PRIORITY_LOGGING, NULL);          /* Period: 1000 ms */

@@ -1,0 +1,18 @@
+  +------------------+     +-------------------+
+  | Sensor Manager   |---->| Event Broker      |
+  | (Active Object)  |     | (Pub-Sub Router)  |
+  +------------------+     +-------------------+
+                               |         |
+                    +----------+         +----------+
+                    v                               v
+  +------------------+                 +------------------+
+  | Data Processor   |                 | Comm Manager     |
+  | (Active Object)  |                 | (Active Object)  |
+  +------------------+                 | (State Machine)  |
+          |                            +------------------+
+          v                                     |
+  +------------------+                          v
+  | UI Controller    |                    UART TX/RX
+  | (Active Object)  |
+  | LED + Button     |
+  +------------------+

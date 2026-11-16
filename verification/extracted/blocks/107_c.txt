@@ -1,0 +1,4 @@
+EventBits_t xEventGroupSync(EventGroupHandle_t xEventGroup,
+                              const EventBits_t uxBitsToSet,
+                              const EventBits_t uxBitsToWaitFor,
+                              TickType_t xTicksToWait);

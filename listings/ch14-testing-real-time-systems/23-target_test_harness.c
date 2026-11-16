@@ -1,0 +1,51 @@
+/*
+ * Real-Time Operating Systems: A Practitioner's Guide to FreeRTOS, QNX, and Zephyr
+ * Chapter 14: Testing Real-Time Systems
+ * 14.11 Lab 14: Building a Test Pipeline > Part 4: On-Target Test Harness
+ * Verification: changed since the reference run - re-run tools/run_suite.py
+ * SPDX-License-Identifier: MIT
+ */
+/* src/target_test_harness.c */
+#include <stdbool.h>
+#include <stdio.h>
+#include "bsp.h"   /* LED_GPIO_PORT, LED_GREEN_PIN, LED_RED_PIN */
+
+typedef struct {
+    const char *name;
+    bool (*func)(void);
+} TargetTest;
+
+bool test_adc_range(void);
+bool test_uart_loopback(void);
+bool test_spi_flash(void);
+bool test_gpio_timing(void);
+
+static const TargetTest target_tests[] = {
+    {"test_adc_reads_within_range",  test_adc_range},
+    {"test_uart_loopback",           test_uart_loopback},
+    {"test_spi_flash_write_read",    test_spi_flash},
+    {"test_gpio_toggle_timing",      test_gpio_timing},
+};
+#define NUM_TARGET_TESTS \
+    ((int)(sizeof(target_tests) / sizeof(target_tests[0])))
+
+void target_test_harness_run(void) {
+    int pass = 0, fail = 0;
+    for (int i = 0; i < NUM_TARGET_TESTS; i++) {
+        bool result = target_tests[i].func();
+        if (result) {
+            printf("[PASS] %s\r\n", target_tests[i].name);
+            pass++;
+        } else {
+            printf("[FAIL] %s\r\n", target_tests[i].name);
+            fail++;
+        }
+    }
+    printf("RESULTS: %d passed, %d failed\r\n", pass, fail);
+
+    /* GPIO indicator */
+    HAL_GPIO_WritePin(LED_GPIO_PORT, LED_GREEN_PIN,
+                      (fail == 0) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(LED_GPIO_PORT, LED_RED_PIN,
+                      (fail > 0) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+}

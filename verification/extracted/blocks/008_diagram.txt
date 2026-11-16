@@ -1,0 +1,17 @@
+                    ┌──────────┐
+          ┌────────>│  Ready   │<────────┐
+          │         └────┬─────┘         │
+          │              │               │
+     Event/Timeout  Scheduler       Task preempted
+          │          selects            │
+          │              │               │
+          │         ┌────▼─────┐         │
+          │         │ Running  │─────────┘
+          │         └────┬─────┘
+          │              │
+          │    Block on queue/         vTaskSuspend()
+          │    semaphore/delay              │
+          │              │                  │
+     ┌────┴─────┐       │          ┌───────▼──────┐
+     │ Blocked  │<──────┘          │  Suspended   │
+     └──────────┘                  └──────────────┘

@@ -1,0 +1,43 @@
+/*
+ * Real-Time Operating Systems: A Practitioner's Guide to FreeRTOS, QNX, and Zephyr
+ * Chapter 9: Device Driver Architecture and Peripheral Abstraction
+ * 9.3 UART Driver Case Study > 9.3.4 Layer 4: Application Interface
+ * Verification: executed (helper functions called with test arguments)
+ * SPDX-License-Identifier: MIT
+ */
+/* uart_api.c -- Routes to per-port RTOS driver */
+#include "uart_api.h"
+#include "uart_rtos.h"
+
+int uart_init(uart_port_t port, uint32_t baudrate)
+{
+    switch (port) {
+    case UART_PORT_DEBUG:
+        return uart_rtos_init(baudrate);
+    /* Additional ports follow the same pattern */
+    default:
+        return -1;
+    }
+}
+
+int uart_write(uart_port_t port, const uint8_t *data,
+               size_t len, uint32_t timeout_ms)
+{
+    switch (port) {
+    case UART_PORT_DEBUG:
+        return uart_rtos_write(data, len, timeout_ms);
+    default:
+        return -1;
+    }
+}
+
+int uart_read(uart_port_t port, uint8_t *buf,
+              size_t len, uint32_t timeout_ms)
+{
+    switch (port) {
+    case UART_PORT_DEBUG:
+        return uart_rtos_read(buf, len, timeout_ms);
+    default:
+        return -1;
+    }
+}

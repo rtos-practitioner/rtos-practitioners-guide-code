@@ -1,0 +1,3 @@
+__disable_irq();
+g_count++;
+__enable_irq();

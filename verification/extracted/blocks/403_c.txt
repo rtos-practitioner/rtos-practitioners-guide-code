@@ -1,0 +1,60 @@
+/*
+ * Lock-Free SPSC Ring Buffer for Inter-Core Communication
+ *
+ * Producer: Core 0 (M7)    Consumer: Core 1 (M4)
+ * Buffer resides in shared non-cacheable SRAM3.
+ * Memory barriers ensure cross-core visibility.
+ */
+
+#include <stdint.h>
+#include <string.h>
+
+#define RING_SIZE    256   /* Must be power of 2 */
+#define RING_MASK    (RING_SIZE - 1)
+
+typedef struct {
+    volatile uint32_t write_idx;   /* Modified only by producer */
+    volatile uint32_t read_idx;    /* Modified only by consumer */
+    uint8_t           buffer[RING_SIZE];
+} SPSC_Ring_t;
+
+/* Producer (Core 0): push one byte */
+static inline int ring_push(SPSC_Ring_t *ring, uint8_t data)
+{
+    uint32_t w = ring->write_idx;
+    uint32_t next_w = (w + 1) & RING_MASK;
+
+    if (next_w == ring->read_idx) {
+        return -1;  /* Full */
+    }
+
+    /* Consumer must have finished with the slot before we overwrite it */
+    __DMB();
+    ring->buffer[w] = data;
+
+    /* Ensure data is written before index update is visible */
+    __DMB();
+    ring->write_idx = next_w;
+
+    return 0;
+}
+
+/* Consumer (Core 1): pop one byte */
+static inline int ring_pop(SPSC_Ring_t *ring, uint8_t *data)
+{
+    uint32_t r = ring->read_idx;
+
+    if (r == ring->write_idx) {
+        return -1;  /* Empty */
+    }
+
+    /* Acquire: load write_idx before reading the slot it publishes */
+    __DMB();
+    *data = ring->buffer[r];
+
+    /* Ensure data is read before index update is visible */
+    __DMB();
+    ring->read_idx = (r + 1) & RING_MASK;
+
+    return 0;
+}

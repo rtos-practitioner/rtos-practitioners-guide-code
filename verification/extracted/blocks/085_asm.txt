@@ -1,0 +1,3 @@
+LDR   R0, [R1]      ; Read current value
+ADDS  R0, R0, #1    ; Modify (increment)
+STR   R0, [R1]      ; Write back

@@ -1,0 +1,24 @@
+/* rtos_hooks.c - FreeRTOS callback implementations */
+
+void vApplicationStackOverflowHook(TaskHandle_t xTask, char *pcTaskName) {
+    (void)xTask;
+    /* Log or signal the fault */
+    printf("STACK OVERFLOW: %s\r\n", pcTaskName);
+    /* Enter safe state */
+    taskDISABLE_INTERRUPTS();
+    for (;;) {}
+}
+
+void vApplicationMallocFailedHook(void) {
+    printf("MALLOC FAILED\r\n");
+    taskDISABLE_INTERRUPTS();
+    for (;;) {}
+}
+
+void vApplicationIdleHook(void) {
+    /* Optional: enter low-power mode or collect statistics */
+}
+
+void vApplicationTickHook(void) {
+    /* Optional: called from tick interrupt context */
+}

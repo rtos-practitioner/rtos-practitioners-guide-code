@@ -1,0 +1,1 @@
+#define configCHECK_FOR_STACK_OVERFLOW  2

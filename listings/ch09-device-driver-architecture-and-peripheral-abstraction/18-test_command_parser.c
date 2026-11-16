@@ -1,0 +1,36 @@
+/*
+ * Real-Time Operating Systems: A Practitioner's Guide to FreeRTOS, QNX, and Zephyr
+ * Chapter 9: Device Driver Architecture and Peripheral Abstraction
+ * 9.7 The Fake HAL Pattern for Testing > 9.7.4 Test Example
+ * Verification: executed
+ * SPDX-License-Identifier: MIT
+ */
+/* test/test_command_parser.c */
+#include "unity.h"
+#include "uart_api.h"
+#include "command_parser.h"
+#include <string.h>
+
+/* Provided by fake HAL */
+extern void     fake_uart_inject_rx(const uint8_t *data, uint16_t len);
+extern uint16_t fake_uart_get_tx(uint8_t *buf, uint16_t max_len);
+
+void setUp(void)
+{
+    uart_init(UART_PORT_DEBUG, 115200);
+}
+
+void test_ping_command_responds_pong(void)
+{
+    const char *cmd = "PING\r\n";
+    fake_uart_inject_rx((const uint8_t *)cmd, strlen(cmd));
+
+    /* Run the parser -- it reads from UART, processes, and writes reply */
+    command_parser_tick();
+
+    uint8_t response[64];
+    uint16_t len = fake_uart_get_tx(response, sizeof(response) - 1);
+    response[len] = '\0';
+
+    TEST_ASSERT_EQUAL_STRING("PONG\r\n", (char *)response);
+}

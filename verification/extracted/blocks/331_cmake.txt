@@ -1,0 +1,19 @@
+# tests/integration/CMakeLists.txt
+add_executable(test_pipeline
+    test_pipeline.c
+    ../../src/circular_buffer.c
+)
+
+target_include_directories(test_pipeline PRIVATE
+    ${FREERTOS_SOURCE}/include
+    ${FREERTOS_SOURCE}/portable/ThirdParty/GCC/Posix
+    ../../src
+)
+
+target_link_libraries(test_pipeline
+    freertos_posix   # FreeRTOS POSIX port library
+    unity
+    pthread
+)
+
+add_test(NAME integration_pipeline COMMAND test_pipeline)

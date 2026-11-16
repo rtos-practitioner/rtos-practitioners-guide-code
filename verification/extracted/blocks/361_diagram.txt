@@ -1,0 +1,9 @@
+Immutable First-Stage Bootloader
+(flash sectors 0-1, write-protected + RDP Level 2,
+ holds the vendor public key)
+    │  verifies ECDSA signature of ──►
+    ▼
+Application Firmware
+    │  verifies integrity of ──►
+    ▼
+Configuration / Calibration Data

@@ -1,0 +1,14 @@
++------------------------------------------------------------------+
+|                    STM32H755 Memory Map (AMP)                    |
++------------------------------------------------------------------+
+|  Region           | Address Range       | Assigned To            |
++-------------------+---------------------+------------------------+
+|  Flash Bank 1     | 0x0800_0000–07FFFF  | Cortex-M7 firmware     |
+|  Flash Bank 2     | 0x0810_0000–17FFFF  | Cortex-M4 firmware     |
+|  DTCM-RAM         | 0x2000_0000–1FFFF   | Cortex-M7 only (128K)  |
+|  AXI-SRAM         | 0x2400_0000–7FFFF   | Cortex-M7 heap (512K)  |
+|  SRAM1            | 0x3000_0000–1FFFF   | Cortex-M4 data (128K)  |
+|  SRAM2            | 0x3002_0000–1FFFF   | Cortex-M4 heap (128K)  |
+|  SRAM3            | 0x3004_0000–7FFF    | Shared IPC buffer (32K)|
+|  SRAM4            | 0x3800_0000–FFFF    | Cortex-M4 BSS (64K)   |
++------------------------------------------------------------------+

@@ -1,0 +1,1 @@
+ISR --> xSemaphoreGiveFromISR() --> Dedicated Task (blocks on semaphore)

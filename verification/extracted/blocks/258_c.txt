@@ -1,0 +1,236 @@
+#include "FreeRTOS.h"
+#include "task.h"
+#include "stm32f4xx.h"
+#include <stdio.h>
+#include <string.h>
+
+/* ------------------------------------------------------------------ */
+/*  DWT Initialization                                                 */
+/* ------------------------------------------------------------------ */
+void DWT_Init(void) {
+    CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
+    DWT->CYCCNT = 0;
+    DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
+}
+
+#define CYCLES_TO_US(c) ((uint32_t)((uint64_t)(c) * 1000000ULL / configCPU_CLOCK_HZ))
+
+/* ------------------------------------------------------------------ */
+/*  WCET Measurement Structure                                         */
+/* ------------------------------------------------------------------ */
+typedef struct {
+    uint32_t min_cycles;
+    uint32_t max_cycles;
+    uint64_t total_cycles;
+    uint32_t count;
+} wcet_stats_t;
+
+static void wcet_init(wcet_stats_t *s) {
+    s->min_cycles = UINT32_MAX;
+    s->max_cycles = 0;
+    s->total_cycles = 0;
+    s->count = 0;
+}
+
+static void wcet_record(wcet_stats_t *s, uint32_t start) {
+    uint32_t elapsed = DWT->CYCCNT - start;
+    if (elapsed < s->min_cycles) s->min_cycles = elapsed;
+    if (elapsed > s->max_cycles) s->max_cycles = elapsed;
+    s->total_cycles += elapsed;
+    s->count++;
+}
+
+static void wcet_print(const char *label, const wcet_stats_t *s) {
+    printf("%s  min: %lu cy (%lu us)  max: %lu cy (%lu us)  "
+           "avg: %lu us  n=%lu\r\n",
+           label,
+           s->min_cycles, CYCLES_TO_US(s->min_cycles),
+           s->max_cycles, CYCLES_TO_US(s->max_cycles),
+           CYCLES_TO_US((uint32_t)(s->total_cycles / s->count)),
+           s->count);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Simulated workload (replace with real application function)        */
+/* ------------------------------------------------------------------ */
+static volatile float workload_result;
+
+static void simulated_workload(void) {
+    float acc = 0.0f;
+    for (int i = 1; i <= 200; i++) {
+        acc += 1.0f / (float)i;     /* Harmonic series partial sum */
+    }
+    workload_result = acc;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Task 1: WCET measurement over 1000 iterations                     */
+/* ------------------------------------------------------------------ */
+static void vWCETTask(void *pvParameters) {
+    wcet_stats_t stats;
+    wcet_init(&stats);
+
+    for (uint32_t i = 0; i < 1000; i++) {
+        uint32_t t0 = DWT->CYCCNT;
+        simulated_workload();
+        wcet_record(&stats, t0);
+        vTaskDelay(pdMS_TO_TICKS(5));
+    }
+
+    printf("\r\n=== WCET Results (1000 iterations) ===\r\n");
+    wcet_print("  workload:", &stats);
+
+    vTaskDelete(NULL);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Task 2: vTaskDelayUntil jitter measurement                        */
+/* ------------------------------------------------------------------ */
+#define PERIOD_MS           10
+#define JITTER_SAMPLES      10000
+
+static void vDelayUntilJitterTask(void *pvParameters) {
+    uint32_t prev_cycle = DWT->CYCCNT;
+    uint32_t jitter_min = UINT32_MAX;
+    uint32_t jitter_max = 0;
+    uint64_t jitter_sum = 0;
+    uint32_t sample = 0;
+
+    const uint32_t expected_cycles = (configCPU_CLOCK_HZ / 1000UL) * PERIOD_MS;
+    TickType_t xLastWake = xTaskGetTickCount();
+
+    while (sample < JITTER_SAMPLES) {
+        vTaskDelayUntil(&xLastWake, pdMS_TO_TICKS(PERIOD_MS));
+        uint32_t now = DWT->CYCCNT;
+        uint32_t delta = now - prev_cycle;
+        int32_t err = (int32_t)(delta - expected_cycles);
+        uint32_t abs_err = (err < 0) ? (uint32_t)(-err) : (uint32_t)(err);
+
+        if (abs_err < jitter_min) jitter_min = abs_err;
+        if (abs_err > jitter_max) jitter_max = abs_err;
+        jitter_sum += abs_err;
+        sample++;
+        prev_cycle = now;
+    }
+
+    printf("\r\n=== vTaskDelayUntil Jitter (%d ms period, %d samples) ===\r\n",
+           PERIOD_MS, JITTER_SAMPLES);
+    printf("  min: %lu cy (%lu us)\r\n", jitter_min, CYCLES_TO_US(jitter_min));
+    printf("  max: %lu cy (%lu us)\r\n", jitter_max, CYCLES_TO_US(jitter_max));
+    printf("  avg: %lu us\r\n",
+           CYCLES_TO_US((uint32_t)(jitter_sum / JITTER_SAMPLES)));
+
+    vTaskDelete(NULL);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Task 3: vTaskDelay jitter measurement (for comparison)             */
+/* ------------------------------------------------------------------ */
+static void vDelayJitterTask(void *pvParameters) {
+    uint32_t prev_cycle = DWT->CYCCNT;
+    uint32_t jitter_min = UINT32_MAX;
+    uint32_t jitter_max = 0;
+    uint64_t jitter_sum = 0;
+    uint32_t sample = 0;
+
+    const uint32_t expected_cycles = (configCPU_CLOCK_HZ / 1000UL) * PERIOD_MS;
+
+    /* Skip first iteration (no previous timestamp) */
+    vTaskDelay(pdMS_TO_TICKS(PERIOD_MS));
+    prev_cycle = DWT->CYCCNT;
+
+    while (sample < JITTER_SAMPLES) {
+        simulated_workload();       /* Variable-length work before delay */
+        vTaskDelay(pdMS_TO_TICKS(PERIOD_MS));
+        uint32_t now = DWT->CYCCNT;
+        uint32_t delta = now - prev_cycle;
+        int32_t err = (int32_t)(delta - expected_cycles);
+        uint32_t abs_err = (err < 0) ? (uint32_t)(-err) : (uint32_t)(err);
+
+        if (abs_err < jitter_min) jitter_min = abs_err;
+        if (abs_err > jitter_max) jitter_max = abs_err;
+        jitter_sum += abs_err;
+        sample++;
+        prev_cycle = now;
+    }
+
+    printf("\r\n=== vTaskDelay Jitter (%d ms period, %d samples) ===\r\n",
+           PERIOD_MS, JITTER_SAMPLES);
+    printf("  min: %lu cy (%lu us)\r\n", jitter_min, CYCLES_TO_US(jitter_min));
+    printf("  max: %lu cy (%lu us)\r\n", jitter_max, CYCLES_TO_US(jitter_max));
+    printf("  avg: %lu us\r\n",
+           CYCLES_TO_US((uint32_t)(jitter_sum / JITTER_SAMPLES)));
+
+    vTaskDelete(NULL);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Task 4: TIM2 input capture frequency measurement                   */
+/* ------------------------------------------------------------------ */
+static volatile uint32_t cap_period = 0;
+static volatile uint8_t  cap_ready  = 0;
+
+void TIM2_IRQHandler(void) {
+    static uint32_t prev = 0;
+    if (TIM2->SR & TIM_SR_CC1IF) {
+        TIM2->SR = ~TIM_SR_CC1IF;
+        uint32_t now = TIM2->CCR1;
+        cap_period = now - prev;
+        prev = now;
+        cap_ready = 1;
+    }
+}
+
+static void TIM2_InputCapture_Init(void) {
+    RCC->APB1ENR |= RCC_APB1ENR_TIM2EN;
+    RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
+
+    GPIOA->MODER  = (GPIOA->MODER & ~GPIO_MODER_MODER0) | GPIO_MODER_MODER0_1;
+    GPIOA->AFR[0] = (GPIOA->AFR[0] & ~(0xFUL << 0)) | (0x1UL << 0);
+
+    TIM2->PSC = 0;
+    TIM2->ARR = 0xFFFFFFFF;
+    TIM2->CCMR1 = (TIM2->CCMR1 & ~TIM_CCMR1_CC1S) | TIM_CCMR1_CC1S_0;
+    TIM2->CCER  = (TIM2->CCER & ~(TIM_CCER_CC1P | TIM_CCER_CC1NP))
+                | TIM_CCER_CC1E;
+    TIM2->DIER |= TIM_DIER_CC1IE;
+    NVIC_SetPriority(TIM2_IRQn, 6);
+    NVIC_EnableIRQ(TIM2_IRQn);
+    TIM2->CR1 |= TIM_CR1_CEN;
+}
+
+static void vCaptureTask(void *pvParameters) {
+    TIM2_InputCapture_Init();
+    printf("\r\n=== TIM2 Input Capture (PA0) ===\r\n");
+
+    for (int i = 0; i < 20; i++) {
+        vTaskDelay(pdMS_TO_TICKS(500));
+        if (cap_ready && cap_period != 0) {
+            float freq = 84000000.0f / (float)cap_period;
+            float period_us = (float)cap_period / 84.0f;
+            printf("  period: %.2f us  freq: %.1f Hz\r\n", period_us, freq);
+            cap_ready = 0;
+        } else {
+            printf("  (no signal)\r\n");
+        }
+    }
+
+    printf("=== Capture complete ===\r\n");
+    vTaskDelete(NULL);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Main: create tasks                                                 */
+/* ------------------------------------------------------------------ */
+int main(void) {
+    SystemInit();       /* Configure clock to 168 MHz via HSE + PLL */
+    DWT_Init();
+
+    xTaskCreate(vWCETTask,            "WCET",    512, NULL, 2, NULL);
+    xTaskCreate(vDelayUntilJitterTask,"DUJitter",512, NULL, 3, NULL);
+    xTaskCreate(vDelayJitterTask,     "DJitter", 512, NULL, 3, NULL);
+    xTaskCreate(vCaptureTask,         "Capture", 512, NULL, 1, NULL);
+
+    vTaskStartScheduler();
+    for (;;);
+}

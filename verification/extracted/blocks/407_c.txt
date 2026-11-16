@@ -1,0 +1,3 @@
+/* Give each shared variable its own 32-byte cache line */
+__attribute__((aligned(32))) static uint32_t core0_counter;
+__attribute__((aligned(32))) static uint32_t core1_counter;

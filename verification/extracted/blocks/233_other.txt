@@ -1,0 +1,1 @@
+3V supply ---[Shunt/Monitor]--- JP1 pin --- STM32F407 VDD

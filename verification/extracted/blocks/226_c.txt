@@ -1,0 +1,2 @@
+/* Configure unused pins as analog to minimize leakage */
+GPIOC->MODER = 0xFFFFFFFF;  /* All pins analog mode (binary 11 per pin) */

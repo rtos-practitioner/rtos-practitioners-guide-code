@@ -1,0 +1,16 @@
+#include "trcRecorder.h"
+
+int main(void)
+{
+    HAL_Init();
+    SystemClock_Config();
+
+    vTraceEnable(TRC_START);   /* Initialize and start recording */
+
+    /* Create tasks, queues, etc. */
+    xTaskCreate(vMotorTask, "Motor", 256, NULL, 4, NULL);
+    xTaskCreate(vCommTask,  "Comm",  512, NULL, 2, NULL);
+
+    vTaskStartScheduler();
+    for (;;) {}
+}

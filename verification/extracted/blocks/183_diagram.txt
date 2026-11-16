@@ -1,0 +1,29 @@
++-----------------------------------------------------------+
+|  Layer 4: Application Interface                           |
+|  uart_write(), uart_read(), spi_transfer(), can_send()    |
+|  Hardware-independent. Mockable. Stable API.              |
++-----------------------------------------------------------+
+        |                       ^
+        v                       |
++-----------------------------------------------------------+
+|  Layer 3: RTOS-Aware Driver                               |
+|  Semaphores, queues, mutexes, task notifications, DMA     |
+|  FreeRTOS-specific. Owns ISR callbacks.                   |
++-----------------------------------------------------------+
+        |                       ^
+        v                       |
++-----------------------------------------------------------+
+|  Layer 2: Vendor HAL / LL Drivers                         |
+|  HAL_UART_Transmit_IT(), LL_SPI_TransmitData8()          |
+|  STM32-specific. Wraps register access.                   |
++-----------------------------------------------------------+
+        |                       ^
+        v                       |
++-----------------------------------------------------------+
+|  Layer 1: Hardware Registers (CMSIS)                      |
+|  USARTx->SR, SPIx->DR, GPIOx->ODR                        |
+|  Silicon-specific. Memory-mapped I/O.                     |
++-----------------------------------------------------------+
+        |                       ^
+        v                       |
+    [ Physical Peripheral Hardware ]

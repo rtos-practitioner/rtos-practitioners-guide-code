@@ -1,0 +1,19 @@
+project/
+  src/
+    drivers/
+      uart_rtos.c        <-- RTOS-aware layer (shared)
+      uart_api.c          <-- Application interface (shared)
+    app/
+      command_parser.c    <-- Application logic (shared)
+  hal/
+    target/
+      uart_hal.c          <-- Real STM32 HAL wrapper
+      stm32f4xx_hal.h     <-- Vendor header
+    fake/
+      uart_hal.c          <-- Fake HAL for host testing
+      stm32f4xx_hal.h     <-- Stub header with matching API
+  test/
+    test_command_parser.c <-- Unity test cases
+    test_main.c           <-- Test runner
+  Makefile.target         <-- Builds with hal/target/
+  Makefile.test           <-- Builds with hal/fake/

@@ -1,0 +1,20 @@
+static uint32_t monitor_count = 0;
+
+void vMonitorTask(void *pvParameters) {
+    (void)pvParameters;
+    TickType_t xLastWakeTime = xTaskGetTickCount();
+    const TickType_t xPeriod = pdMS_TO_TICKS(100);
+
+    for (;;) {
+        vTaskDelayUntil(&xLastWakeTime, xPeriod);
+        monitor_count++;
+        HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_15);  /* Blue LED */
+
+        if (monitor_count % 50 == 0) {
+            printf("[MON] count=%lu heap=%u tick=%lu\r\n",
+                   monitor_count,
+                   (unsigned)xPortGetFreeHeapSize(),
+                   (unsigned long)xTaskGetTickCount());
+        }
+    }
+}

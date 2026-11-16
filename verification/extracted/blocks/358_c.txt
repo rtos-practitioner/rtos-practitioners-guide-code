@@ -1,0 +1,13 @@
+void vMonitorTask(void *pvParam)
+{
+    for (;;) {
+        char cReport[2048];
+        snprintf(cReport, sizeof(cReport),
+                 "System Status: uptime=%lu ticks, free heap=%u bytes",
+                 (unsigned long)xTaskGetTickCount(),
+                 (unsigned)xPortGetFreeHeapSize());
+        vSendReport(cReport);
+        vTaskDelay(pdMS_TO_TICKS(5000));
+    }
+}
+/* Task created with: xTaskCreate(vMonitorTask, "Mon", 256, ...) */

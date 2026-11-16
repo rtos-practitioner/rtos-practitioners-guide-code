@@ -1,0 +1,2 @@
+$ arm-none-eabi-gcc --version
+arm-none-eabi-gcc (GNU Arm Embedded Toolchain 12.3.Rel1) 12.3.1 20230626

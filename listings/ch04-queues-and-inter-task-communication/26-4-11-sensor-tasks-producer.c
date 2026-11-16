@@ -1,0 +1,43 @@
+/*
+ * Real-Time Operating Systems: A Practitioner's Guide to FreeRTOS, QNX, and Zephyr
+ * Chapter 4: Queues and Inter-Task Communication
+ * 4.11 Lab 4: Multi-Channel Data Pipeline > Sensor Tasks (Producer)
+ * Verification: executed
+ * SPDX-License-Identifier: MIT
+ */
+static float fSimulateSensor( uint8_t ucID )
+{
+    /* Replace with actual ADC reads on real hardware */
+    TickType_t xT = xTaskGetTickCount();
+    switch( ucID )
+    {
+        case SENSOR_TEMP:     return 20.0f + ( float )( xT % 100 ) * 0.05f;
+        case SENSOR_PRESSURE: return 101.3f + ( float )( xT % 50 ) * 0.02f;
+        default:              return 0.0f;
+    }
+}
+
+void vSensorTask( void *pvParameters )
+{
+    uint8_t ucID = ( uint8_t )( uint32_t ) pvParameters;
+    TickType_t xPeriod = ( ucID == SENSOR_TEMP )
+                         ? pdMS_TO_TICKS( 100 )   /* 10 Hz */
+                         : pdMS_TO_TICKS( 200 );  /* 5 Hz  */
+    SensorCommand_t xCmd;
+    TickType_t xLastWake = xTaskGetTickCount();
+
+    for( ;; )
+    {
+        vTaskDelayUntil( &xLastWake, xPeriod );
+
+        xCmd.ucSensorID = ucID;
+        xCmd.fValue     = fSimulateSensor( ucID );
+        xCmd.xTimestamp = xTaskGetTickCount();
+
+        if( xQueueSend( xCommandQueue, &xCmd,
+                         pdMS_TO_TICKS( 10 ) ) != pdPASS )
+        {
+            ulTaskEnqueueFail++;
+        }
+    }
+}

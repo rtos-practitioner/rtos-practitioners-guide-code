@@ -1,0 +1,9 @@
+Safety Requirements (SRS)
+        ↕
+Architectural Design (SDD - Architecture)
+        ↕
+Detailed Design (SDD - Detailed)
+        ↕
+Source Code (Implementation)
+        ↕
+Test Cases (Unit, Integration, System)

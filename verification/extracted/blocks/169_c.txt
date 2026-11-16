@@ -1,0 +1,10 @@
+/* Simplified from portmacro.h for Cortex-M4 */
+static inline void vPortRaiseBASEPRI(void)
+{
+    __asm volatile(
+        "mov r0, %0      \n"
+        "msr basepri, r0  \n"
+        ::"i"(configMAX_SYSCALL_INTERRUPT_PRIORITY)
+        :"r0"
+    );
+}

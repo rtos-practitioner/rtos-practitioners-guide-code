@@ -1,0 +1,8 @@
+void vMyISR(void)
+{
+    UBaseType_t uxSavedInterruptStatus;
+
+    uxSavedInterruptStatus = taskENTER_CRITICAL_FROM_ISR();
+    /* Short critical region */
+    taskEXIT_CRITICAL_FROM_ISR(uxSavedInterruptStatus);
+}

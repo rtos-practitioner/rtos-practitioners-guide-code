@@ -1,0 +1,438 @@
+idx,kind,chapter,section,sub,lines,file
+1,c,How to Use This Book,,Conventions Used in This Book,6,blocks/001_c.txt
+2,diagram,Chapter 1: Real-Time Systems and RTOS Fundamentals,1.2 Core Timing Concepts,Latency,10,blocks/002_diagram.txt
+3,other,Chapter 1: Real-Time Systems and RTOS Fundamentals,1.2 Core Timing Concepts,Utilization,1,blocks/003_other.txt
+4,other,Chapter 1: Real-Time Systems and RTOS Fundamentals,1.2 Core Timing Concepts,Rate Monotonic Analysis,1,blocks/004_other.txt
+5,c,Chapter 1: Real-Time Systems and RTOS Fundamentals,1.3 Bare Metal vs RTOS vs Linux,Bare Metal (Superloop),10,blocks/005_c.txt
+6,c,Chapter 1: Real-Time Systems and RTOS Fundamentals,1.3 Bare Metal vs RTOS vs Linux,Real-Time Operating System (RTOS),18,blocks/006_c.txt
+7,other,Chapter 1: Real-Time Systems and RTOS Fundamentals,1.4 RTOS Kernel Architecture,The Scheduler,6,blocks/007_other.txt
+8,diagram,Chapter 1: Real-Time Systems and RTOS Fundamentals,1.4 RTOS Kernel Architecture,Task States,17,blocks/008_diagram.txt
+9,diagram,Chapter 1: Real-Time Systems and RTOS Fundamentals,1.5 FreeRTOS Architecture Overview,Source Tree Structure,29,blocks/009_diagram.txt
+10,c,Chapter 1: Real-Time Systems and RTOS Fundamentals,1.5 FreeRTOS Architecture Overview,The Configuration Model,25,blocks/010_c.txt
+11,c,Chapter 1: Real-Time Systems and RTOS Fundamentals,1.10 Lab 1: Baseline Timing Characterization,Implementation,119,blocks/011_c.txt
+12,shell,"Chapter 2: Development Environment, Project Layout, and Board Bring-Up",2.2 Toolchain Setup,ARM GCC Toolchain,2,blocks/012_shell.txt
+13,other,"Chapter 2: Development Environment, Project Layout, and Board Bring-Up",2.2 Toolchain Setup,Build System with CMake,9,blocks/013_other.txt
+14,other,"Chapter 2: Development Environment, Project Layout, and Board Bring-Up",2.3 Project Repository Structure,,43,blocks/014_other.txt
+15,c,"Chapter 2: Development Environment, Project Layout, and Board Bring-Up",2.4 The Boot Sequence Explained,Phase 2: C Runtime Initialization (Startup Assembly),28,blocks/015_c.txt
+16,c,"Chapter 2: Development Environment, Project Layout, and Board Bring-Up",2.4 The Boot Sequence Explained,Phase 3: System Initialization and main(),30,blocks/016_c.txt
+17,diagram,"Chapter 2: Development Environment, Project Layout, and Board Bring-Up",2.5 Clock Tree Configuration,,17,blocks/017_diagram.txt
+18,c,"Chapter 2: Development Environment, Project Layout, and Board Bring-Up",2.7 FreeRTOSConfig.h Deep Dive,Scheduling and Timing Configuration,1,blocks/018_c.txt
+19,c,"Chapter 2: Development Environment, Project Layout, and Board Bring-Up",2.7 FreeRTOSConfig.h Deep Dive,Scheduling and Timing Configuration,1,blocks/019_c.txt
+20,c,"Chapter 2: Development Environment, Project Layout, and Board Bring-Up",2.7 FreeRTOSConfig.h Deep Dive,Scheduling and Timing Configuration,1,blocks/020_c.txt
+21,c,"Chapter 2: Development Environment, Project Layout, and Board Bring-Up",2.7 FreeRTOSConfig.h Deep Dive,Scheduling and Timing Configuration,1,blocks/021_c.txt
+22,c,"Chapter 2: Development Environment, Project Layout, and Board Bring-Up",2.7 FreeRTOSConfig.h Deep Dive,Resource Limits,1,blocks/022_c.txt
+23,c,"Chapter 2: Development Environment, Project Layout, and Board Bring-Up",2.7 FreeRTOSConfig.h Deep Dive,Resource Limits,1,blocks/023_c.txt
+24,c,"Chapter 2: Development Environment, Project Layout, and Board Bring-Up",2.7 FreeRTOSConfig.h Deep Dive,Resource Limits,1,blocks/024_c.txt
+25,c,"Chapter 2: Development Environment, Project Layout, and Board Bring-Up",2.7 FreeRTOSConfig.h Deep Dive,Debug and Safety Configuration,1,blocks/025_c.txt
+26,c,"Chapter 2: Development Environment, Project Layout, and Board Bring-Up",2.7 FreeRTOSConfig.h Deep Dive,Debug and Safety Configuration,1,blocks/026_c.txt
+27,c,"Chapter 2: Development Environment, Project Layout, and Board Bring-Up",2.7 FreeRTOSConfig.h Deep Dive,Cortex-M Interrupt Configuration,7,blocks/027_c.txt
+28,c,"Chapter 2: Development Environment, Project Layout, and Board Bring-Up",2.8 First Two Tasks,Heartbeat Task (Priority 2),10,blocks/028_c.txt
+29,c,"Chapter 2: Development Environment, Project Layout, and Board Bring-Up",2.8 First Two Tasks,Monitor Task (Priority 4),20,blocks/029_c.txt
+30,c,"Chapter 2: Development Environment, Project Layout, and Board Bring-Up",2.10 FreeRTOS Hook Functions,,24,blocks/030_c.txt
+31,other-rtos,"Chapter 2: Development Environment, Project Layout, and Board Bring-Up",2.13 Zephyr Portability Note,,1,blocks/031_other-rtos.txt
+32,diagram,"Chapter 3: Tasks, Priorities, and the Scheduler",3.1 The Task Abstraction,3.1.2 Stack Frame Layout on Cortex-M4,10,blocks/032_diagram.txt
+33,diagram,"Chapter 3: Tasks, Priorities, and the Scheduler",3.1 The Task Abstraction,3.1.2 Stack Frame Layout on Cortex-M4,12,blocks/033_diagram.txt
+34,other,"Chapter 3: Tasks, Priorities, and the Scheduler",3.1 The Task Abstraction,3.1.3 Memory Footprint of a Task,2,blocks/034_other.txt
+35,diagram,"Chapter 3: Tasks, Priorities, and the Scheduler",3.2 Task States and Transitions,3.2.1 The Four States,27,blocks/035_diagram.txt
+36,c,"Chapter 3: Tasks, Priorities, and the Scheduler",3.3 Creating Tasks,3.3.1 xTaskCreate() — Dynamic Allocation,8,blocks/036_c.txt
+37,c,"Chapter 3: Tasks, Priorities, and the Scheduler",3.3 Creating Tasks,3.3.2 xTaskCreateStatic() — Static Allocation,9,blocks/037_c.txt
+38,c,"Chapter 3: Tasks, Priorities, and the Scheduler",3.3 Creating Tasks,3.3.4 Code Example: Creating Three Tasks,60,blocks/038_c.txt
+39,other,"Chapter 3: Tasks, Priorities, and the Scheduler",3.4 Priority Assignment Methodology,3.4.5 Practical Example: Automotive Engine Controller,3,blocks/039_other.txt
+40,other,"Chapter 3: Tasks, Priorities, and the Scheduler",3.6 Context Switch Internals,3.6.3 Step-by-Step Context Switch Sequence,29,blocks/040_other.txt
+41,c,"Chapter 3: Tasks, Priorities, and the Scheduler",3.6 Context Switch Internals,3.6.4 Measuring Context Switch Time,12,blocks/041_c.txt
+42,c,"Chapter 3: Tasks, Priorities, and the Scheduler",3.7 The Idle Task and Idle Hook,3.7.2 The Idle Hook,5,blocks/042_c.txt
+43,c,"Chapter 3: Tasks, Priorities, and the Scheduler",3.8 Runtime Statistics and Schedulability Analysis,3.8.1 vTaskGetRunTimeStats(),3,blocks/043_c.txt
+44,other,"Chapter 3: Tasks, Priorities, and the Scheduler",3.8 Runtime Statistics and Schedulability Analysis,3.8.1 vTaskGetRunTimeStats(),7,blocks/044_other.txt
+45,other,"Chapter 3: Tasks, Priorities, and the Scheduler",3.8 Runtime Statistics and Schedulability Analysis,3.8.2 Liu & Layland Utilization Bound,1,blocks/045_other.txt
+46,other,"Chapter 3: Tasks, Priorities, and the Scheduler",3.8 Runtime Statistics and Schedulability Analysis,3.8.3 Response Time Analysis (RTA),1,blocks/046_other.txt
+47,other,"Chapter 3: Tasks, Priorities, and the Scheduler",3.8 Runtime Statistics and Schedulability Analysis,3.8.3 Response Time Analysis (RTA),1,blocks/047_other.txt
+48,other,"Chapter 3: Tasks, Priorities, and the Scheduler",3.8 Runtime Statistics and Schedulability Analysis,3.8.4 Worked Example,3,blocks/048_other.txt
+49,other,"Chapter 3: Tasks, Priorities, and the Scheduler",3.8 Runtime Statistics and Schedulability Analysis,3.8.4 Worked Example,17,blocks/049_other.txt
+50,c,"Chapter 3: Tasks, Priorities, and the Scheduler",3.9 Starvation and Design Guidelines,3.9.1 How Starvation Occurs,10,blocks/050_c.txt
+51,c,"Chapter 3: Tasks, Priorities, and the Scheduler",3.12 Lab 3: Multi-Task Scheduling Analysis,Complete Code Listing,210,blocks/051_c.txt
+52,c,Chapter 4: Queues and Inter-Task Communication,4.2 Queue Fundamentals,Creating a Queue,2,blocks/052_c.txt
+53,c,Chapter 4: Queues and Inter-Task Communication,4.2 Queue Fundamentals,Creating a Queue,3,blocks/053_c.txt
+54,c,Chapter 4: Queues and Inter-Task Communication,4.2 Queue Fundamentals,Creating a Queue,8,blocks/054_c.txt
+55,other,Chapter 4: Queues and Inter-Task Communication,4.2 Queue Fundamentals,Memory Layout,1,blocks/055_other.txt
+56,other,Chapter 4: Queues and Inter-Task Communication,4.2 Queue Fundamentals,When to Send Pointers,3,blocks/056_other.txt
+57,c,Chapter 4: Queues and Inter-Task Communication,4.3 Sending and Receiving,Sending to a Queue,11,blocks/057_c.txt
+58,c,Chapter 4: Queues and Inter-Task Communication,4.3 Sending and Receiving,Sending to a Queue,5,blocks/058_c.txt
+59,c,Chapter 4: Queues and Inter-Task Communication,4.3 Sending and Receiving,Receiving from a Queue,7,blocks/059_c.txt
+60,c,Chapter 4: Queues and Inter-Task Communication,4.3 Sending and Receiving,Code Example: Sensor Producer-Consumer,52,blocks/060_c.txt
+61,c,Chapter 4: Queues and Inter-Task Communication,4.4 ISR-Safe Queue Operations,,7,blocks/061_c.txt
+62,c,Chapter 4: Queues and Inter-Task Communication,4.4 ISR-Safe Queue Operations,The pxHigherPriorityTaskWoken Parameter,1,blocks/062_c.txt
+63,c,Chapter 4: Queues and Inter-Task Communication,4.4 ISR-Safe Queue Operations,The pxHigherPriorityTaskWoken Parameter,1,blocks/063_c.txt
+64,c,Chapter 4: Queues and Inter-Task Communication,4.4 ISR-Safe Queue Operations,Code Example: UART RX Interrupt to Queue,31,blocks/064_c.txt
+65,c,Chapter 4: Queues and Inter-Task Communication,4.5 Queue Sets,,8,blocks/065_c.txt
+66,c,Chapter 4: Queues and Inter-Task Communication,4.5 Queue Sets,,21,blocks/066_c.txt
+67,c,Chapter 4: Queues and Inter-Task Communication,4.6 Message Buffers and Stream Buffers,Stream Buffers,4,blocks/067_c.txt
+68,c,Chapter 4: Queues and Inter-Task Communication,4.6 Message Buffers and Stream Buffers,Stream Buffers,9,blocks/068_c.txt
+69,c,Chapter 4: Queues and Inter-Task Communication,4.6 Message Buffers and Stream Buffers,Message Buffers,1,blocks/069_c.txt
+70,c,Chapter 4: Queues and Inter-Task Communication,4.6 Message Buffers and Stream Buffers,Message Buffers,9,blocks/070_c.txt
+71,c,Chapter 4: Queues and Inter-Task Communication,4.6 Message Buffers and Stream Buffers,Code Example: Logging Subsystem,43,blocks/071_c.txt
+72,c,Chapter 4: Queues and Inter-Task Communication,4.7 Task Notifications as Lightweight IPC,Lightweight Binary/Counting Semaphore,19,blocks/072_c.txt
+73,c,Chapter 4: Queues and Inter-Task Communication,4.7 Task Notifications as Lightweight IPC,General-Purpose Notification,3,blocks/073_c.txt
+74,c,Chapter 4: Queues and Inter-Task Communication,4.7 Task Notifications as Lightweight IPC,General-Purpose Notification,4,blocks/074_c.txt
+75,c,Chapter 4: Queues and Inter-Task Communication,4.8 Design Patterns and Best Practices,Command Queue Pattern,18,blocks/075_c.txt
+76,c,Chapter 4: Queues and Inter-Task Communication,4.8 Design Patterns and Best Practices,Mailbox Pattern,7,blocks/076_c.txt
+77,c,Chapter 4: Queues and Inter-Task Communication,4.8 Design Patterns and Best Practices,Timeout Strategy,5,blocks/077_c.txt
+78,diagram,Chapter 4: Queues and Inter-Task Communication,4.11 Lab 4: Multi-Channel Data Pipeline,System Architecture,22,blocks/078_diagram.txt
+79,c,Chapter 4: Queues and Inter-Task Communication,4.11 Lab 4: Multi-Channel Data Pipeline,Data Structures,23,blocks/079_c.txt
+80,c,Chapter 4: Queues and Inter-Task Communication,4.11 Lab 4: Multi-Channel Data Pipeline,Sensor Tasks (Producer),36,blocks/080_c.txt
+81,c,Chapter 4: Queues and Inter-Task Communication,4.11 Lab 4: Multi-Channel Data Pipeline,Timer ISR (Vibration Sensor at 1 kHz),40,blocks/081_c.txt
+82,c,Chapter 4: Queues and Inter-Task Communication,4.11 Lab 4: Multi-Channel Data Pipeline,Aggregator Task (Consumer),55,blocks/082_c.txt
+83,c,Chapter 4: Queues and Inter-Task Communication,4.11 Lab 4: Multi-Channel Data Pipeline,Application Entry Point,28,blocks/083_c.txt
+84,c,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.1 The Critical Section Problem,5.1.1 A Concrete Race: Read-Modify-Write,2,blocks/084_c.txt
+85,asm,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.1 The Critical Section Problem,5.1.1 A Concrete Race: Read-Modify-Write,3,blocks/085_asm.txt
+86,c,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.1 The Critical Section Problem,5.1.2 Why Disabling Interrupts Is Insufficient,3,blocks/086_c.txt
+87,c,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.2 Binary Semaphores,5.2.1 Creation and API,1,blocks/087_c.txt
+88,c,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.2 Binary Semaphores,5.2.1 Creation and API,4,blocks/088_c.txt
+89,c,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.2 Binary Semaphores,5.2.1 Creation and API,2,blocks/089_c.txt
+90,c,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.2 Binary Semaphores,5.2.2 Primary Use: ISR-to-Task Synchronization (Deferred Processing),41,blocks/090_c.txt
+91,c,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.3 Counting Semaphores,,2,blocks/091_c.txt
+92,c,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.3 Counting Semaphores,5.3.2 Use Case 2: Resource Pool Management,27,blocks/092_c.txt
+93,c,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.4 Mutexes and Priority Inheritance,5.4.1 Creation and API,1,blocks/093_c.txt
+94,other,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.4 Mutexes and Priority Inheritance,5.4.3 Priority Inheritance Protocol,18,blocks/094_other.txt
+95,c,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.4 Mutexes and Priority Inheritance,5.4.4 Recursive Mutexes,6,blocks/095_c.txt
+96,c,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.5 Critical Sections and Interrupt Masking,5.5.1 taskENTER_CRITICAL / taskEXIT_CRITICAL,4,blocks/096_c.txt
+97,c,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.5 Critical Sections and Interrupt Masking,5.5.1 taskENTER_CRITICAL / taskEXIT_CRITICAL,4,blocks/097_c.txt
+98,c,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.5 Critical Sections and Interrupt Masking,5.5.2 ISR Versions,8,blocks/098_c.txt
+99,c,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.5 Critical Sections and Interrupt Masking,5.5.3 Scheduler Suspension,4,blocks/099_c.txt
+100,diagram,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.6 Deadlock,5.6.2 The ABBA Deadlock Pattern,6,blocks/100_diagram.txt
+101,diagram,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.6 Deadlock,5.6.2 The ABBA Deadlock Pattern,10,blocks/101_diagram.txt
+102,c,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.6 Deadlock,5.6.3 Code Example: Deadlock and Its Fix,28,blocks/102_c.txt
+103,c,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.6 Deadlock,5.6.3 Code Example: Deadlock and Its Fix,27,blocks/103_c.txt
+104,c,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.6 Deadlock,5.6.4 Prevention Strategies,6,blocks/104_c.txt
+105,c,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.7 Event Groups,5.7.1 Creation,1,blocks/105_c.txt
+106,c,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.7 Event Groups,5.7.2 Setting and Waiting,12,blocks/106_c.txt
+107,c,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.7 Event Groups,5.7.3 Synchronization Rendezvous: xEventGroupSync,4,blocks/107_c.txt
+108,c,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.7 Event Groups,5.7.4 Use Case: Multi-Subsystem Initialization Barrier,50,blocks/108_c.txt
+109,diagram,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.8 Design Patterns,5.8.1 Gatekeeper Task Pattern,12,blocks/109_diagram.txt
+110,other,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.8 Design Patterns,5.8.3 Double Buffering (Ping-Pong),4,blocks/110_other.txt
+111,other,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.8 Design Patterns,5.8.4 Choosing the Right Mechanism: Decision Flowchart,17,blocks/111_other.txt
+112,c,"Chapter 5: Semaphores, Mutexes, and Resource Sharing",5.11 Lab 5: Priority Inversion Demonstration and Cure,Complete Code Listing,125,blocks/112_c.txt
+113,c,Chapter 6: Software Timers and Deferred Execution,6.1 The Need for Timed Actions,,7,blocks/113_c.txt
+114,diagram,Chapter 6: Software Timers and Deferred Execution,6.2 FreeRTOS Software Timer Architecture,The Timer Command Queue,7,blocks/114_diagram.txt
+115,c,Chapter 6: Software Timers and Deferred Execution,6.3 Creating and Managing Timers,Timer Creation,7,blocks/115_c.txt
+116,c,Chapter 6: Software Timers and Deferred Execution,6.3 Creating and Managing Timers,Timer Creation,1,blocks/116_c.txt
+117,c,Chapter 6: Software Timers and Deferred Execution,6.3 Creating and Managing Timers,Timer Creation,8,blocks/117_c.txt
+118,other,Chapter 6: Software Timers and Deferred Execution,6.3 Creating and Managing Timers,One-Shot vs. Auto-Reload Timers,15,blocks/118_other.txt
+119,c,Chapter 6: Software Timers and Deferred Execution,6.3 Creating and Managing Timers,"Starting, Stopping, and Modifying Timers",13,blocks/119_c.txt
+120,c,Chapter 6: Software Timers and Deferred Execution,6.3 Creating and Managing Timers,"Starting, Stopping, and Modifying Timers",9,blocks/120_c.txt
+121,c,Chapter 6: Software Timers and Deferred Execution,6.3 Creating and Managing Timers,Timer ID Access,2,blocks/121_c.txt
+122,c,Chapter 6: Software Timers and Deferred Execution,6.3 Creating and Managing Timers,Code Example: Three Timer Patterns,61,blocks/122_c.txt
+123,c,Chapter 6: Software Timers and Deferred Execution,6.4 Timer Callback Rules and Restrictions,Rule 3: Delegate Long Work to a Worker Task,9,blocks/123_c.txt
+124,c,Chapter 6: Software Timers and Deferred Execution,6.5 Timing Accuracy and Jitter,Measuring Timer Jitter,5,blocks/124_c.txt
+125,c,Chapter 6: Software Timers and Deferred Execution,6.5 Timing Accuracy and Jitter,Measuring Timer Jitter,17,blocks/125_c.txt
+126,c,Chapter 6: Software Timers and Deferred Execution,6.6 Deferred Interrupt Processing Pattern,xTimerPendFunctionCall,13,blocks/126_c.txt
+127,c,Chapter 6: Software Timers and Deferred Execution,6.6 Deferred Interrupt Processing Pattern,xTimerPendFunctionCall,1,blocks/127_c.txt
+128,other,Chapter 6: Software Timers and Deferred Execution,6.6 Deferred Interrupt Processing Pattern,How It Differs from Semaphore-Based Deferred Processing,1,blocks/128_other.txt
+129,other,Chapter 6: Software Timers and Deferred Execution,6.6 Deferred Interrupt Processing Pattern,How It Differs from Semaphore-Based Deferred Processing,1,blocks/129_other.txt
+130,c,Chapter 6: Software Timers and Deferred Execution,6.6 Deferred Interrupt Processing Pattern,Code Example: Button Debounce with Deferred Processing,56,blocks/130_c.txt
+131,c,Chapter 6: Software Timers and Deferred Execution,6.7 Advanced Patterns,Watchdog Architecture,32,blocks/131_c.txt
+132,c,Chapter 6: Software Timers and Deferred Execution,6.7 Advanced Patterns,Timeout Pattern,24,blocks/132_c.txt
+133,c,Chapter 6: Software Timers and Deferred Execution,6.7 Advanced Patterns,Rate-Limiting Pattern,20,blocks/133_c.txt
+134,c,Chapter 6: Software Timers and Deferred Execution,6.7 Advanced Patterns,Cascaded Timers for Long Delays,17,blocks/134_c.txt
+135,other-rtos,Chapter 6: Software Timers and Deferred Execution,6.8 QNX and Zephyr Portability Notes,QNX Neutrino,12,blocks/135_other-rtos.txt
+136,other-rtos,Chapter 6: Software Timers and Deferred Execution,6.8 QNX and Zephyr Portability Notes,Zephyr RTOS,10,blocks/136_other-rtos.txt
+137,other-rtos,Chapter 6: Software Timers and Deferred Execution,6.8 QNX and Zephyr Portability Notes,Zephyr RTOS,8,blocks/137_other-rtos.txt
+138,other-rtos,Chapter 6: Software Timers and Deferred Execution,6.8 QNX and Zephyr Portability Notes,Zephyr RTOS,3,blocks/138_other-rtos.txt
+139,c,Chapter 6: Software Timers and Deferred Execution,6.10 Lab 6: Software Timer Precision and Patterns,Complete Code Listing,218,blocks/139_c.txt
+140,diagram,Chapter 7: Memory Management in Resource-Constrained Systems,7.1 Memory Landscape of a Cortex-M System,Linker Script Sections,18,blocks/140_diagram.txt
+141,c,Chapter 7: Memory Management in Resource-Constrained Systems,7.2 FreeRTOS Heap Implementations,,2,blocks/141_c.txt
+142,c,Chapter 7: Memory Management in Resource-Constrained Systems,7.2 FreeRTOS Heap Implementations,heap_5: Spans Multiple Non-Contiguous Regions,8,blocks/142_c.txt
+143,c,Chapter 7: Memory Management in Resource-Constrained Systems,7.2 FreeRTOS Heap Implementations,Placement of ucHeap in CCM RAM,6,blocks/143_c.txt
+144,linker,Chapter 7: Memory Management in Resource-Constrained Systems,7.2 FreeRTOS Heap Implementations,Placement of ucHeap in CCM RAM,5,blocks/144_linker.txt
+145,c,Chapter 7: Memory Management in Resource-Constrained Systems,7.3 Static vs Dynamic Allocation,How Static Allocation Works,14,blocks/145_c.txt
+146,c,Chapter 7: Memory Management in Resource-Constrained Systems,7.3 Static vs Dynamic Allocation,Required Callbacks,23,blocks/146_c.txt
+147,c,Chapter 7: Memory Management in Resource-Constrained Systems,7.3 Static vs Dynamic Allocation,Example: Fully Static System with Zero Heap,4,blocks/147_c.txt
+148,c,Chapter 7: Memory Management in Resource-Constrained Systems,7.4 Stack Sizing and Overflow Detection,Stack Overflow Detection,11,blocks/148_c.txt
+149,c,Chapter 7: Memory Management in Resource-Constrained Systems,7.4 Stack Sizing and Overflow Detection,Runtime High-Water Mark Monitoring,29,blocks/149_c.txt
+150,c,Chapter 7: Memory Management in Resource-Constrained Systems,7.5 Memory Protection Unit (MPU),FreeRTOS-MPU Port,19,blocks/150_c.txt
+151,c,Chapter 7: Memory Management in Resource-Constrained Systems,7.6 Fragmentation Analysis and Prevention,Detection,2,blocks/151_c.txt
+152,c,Chapter 7: Memory Management in Resource-Constrained Systems,7.6 Fragmentation Analysis and Prevention,Prevention Strategies,27,blocks/152_c.txt
+153,c,Chapter 7: Memory Management in Resource-Constrained Systems,7.7 Memory Debugging Techniques,Heap Allocation Tracing,7,blocks/153_c.txt
+154,c,Chapter 7: Memory Management in Resource-Constrained Systems,7.7 Memory Debugging Techniques,Memory Poisoning,5,blocks/154_c.txt
+155,c,Chapter 7: Memory Management in Resource-Constrained Systems,7.10 Lab 7: Memory Budget and Overflow Detection,FreeRTOSConfig.h Settings,5,blocks/155_c.txt
+156,c,Chapter 7: Memory Management in Resource-Constrained Systems,7.10 Lab 7: Memory Budget and Overflow Detection,Complete Source Code,155,blocks/156_c.txt
+157,other,Chapter 8: Interrupt Management and ISR Design,8.1 Interrupts in Real-Time Context,The Latency Budget,1,blocks/157_other.txt
+158,other,Chapter 8: Interrupt Management and ISR Design,8.2 ARM Cortex-M Interrupt Architecture,Vector Table,15,blocks/158_other.txt
+159,diagram,Chapter 8: Interrupt Management and ISR Design,8.2 ARM Cortex-M Interrupt Architecture,Exception Entry and Exit,12,blocks/159_diagram.txt
+160,c,Chapter 8: Interrupt Management and ISR Design,8.3 FreeRTOS Interrupt Priority Model,configKERNEL_INTERRUPT_PRIORITY,1,blocks/160_c.txt
+161,c,Chapter 8: Interrupt Management and ISR Design,8.3 FreeRTOS Interrupt Priority Model,configMAX_SYSCALL_INTERRUPT_PRIORITY,1,blocks/161_c.txt
+162,other,Chapter 8: Interrupt Management and ISR Design,8.3 FreeRTOS Interrupt Priority Model,The Priority Map,20,blocks/162_other.txt
+163,c,Chapter 8: Interrupt Management and ISR Design,8.3 FreeRTOS Interrupt Priority Model,configASSERT Validation,1,blocks/163_c.txt
+164,c,Chapter 8: Interrupt Management and ISR Design,8.4 ISR Design Patterns,Pattern 1: Minimal ISR — Defer Everything,17,blocks/164_c.txt
+165,c,Chapter 8: Interrupt Management and ISR Design,8.4 ISR Design Patterns,Pattern 2: ISR with Immediate Data Capture,18,blocks/165_c.txt
+166,c,Chapter 8: Interrupt Management and ISR Design,8.4 ISR Design Patterns,Pattern 3: ISR with Critical Immediate Action,19,blocks/166_c.txt
+167,c,Chapter 8: Interrupt Management and ISR Design,8.5 The FromISR API Family,portYIELD_FROM_ISR,1,blocks/167_c.txt
+168,c,Chapter 8: Interrupt Management and ISR Design,8.5 The FromISR API Family,Multi-Operation ISR Pattern,20,blocks/168_c.txt
+169,c,Chapter 8: Interrupt Management and ISR Design,8.6 Interrupt Nesting,FreeRTOS Critical Sections and BASEPRI,10,blocks/169_c.txt
+170,diagram,Chapter 8: Interrupt Management and ISR Design,8.6 Interrupt Nesting,MSP Stack and Nesting Depth,10,blocks/170_diagram.txt
+171,other,Chapter 8: Interrupt Management and ISR Design,8.6 Interrupt Nesting,Worst-Case Stack Calculation,6,blocks/171_other.txt
+172,linker,Chapter 8: Interrupt Management and ISR Design,8.6 Interrupt Nesting,Worst-Case Stack Calculation,2,blocks/172_linker.txt
+173,asm,Chapter 8: Interrupt Management and ISR Design,8.6 Interrupt Nesting,Worst-Case Stack Calculation,2,blocks/173_asm.txt
+174,c,Chapter 8: Interrupt Management and ISR Design,8.7 Direct Memory Access (DMA) Integration,UART DMA Receive with Idle Line Detection,45,blocks/174_c.txt
+175,c,Chapter 8: Interrupt Management and ISR Design,8.8 Measuring and Reducing Interrupt Latency,Measurement Techniques,11,blocks/175_c.txt
+176,c,Chapter 8: Interrupt Management and ISR Design,8.8 Measuring and Reducing Interrupt Latency,Measurement Techniques,3,blocks/176_c.txt
+177,c,Chapter 8: Interrupt Management and ISR Design,8.8 Measuring and Reducing Interrupt Latency,Reduction Strategies,2,blocks/177_c.txt
+178,c,Chapter 8: Interrupt Management and ISR Design,8.10 Common Pitfalls,,1,blocks/178_c.txt
+179,c,Chapter 8: Interrupt Management and ISR Design,8.11 Lab 8: Interrupt Latency Measurement and ISR Optimization,Complete Code Listing,304,blocks/179_c.txt
+180,c,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.2 Four-Layer Driver Model,9.2.1 Layer 1: Hardware Register Access,10,blocks/180_c.txt
+181,c,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.2 Four-Layer Driver Model,9.2.2 Layer 2: Vendor HAL,7,blocks/181_c.txt
+182,c,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.2 Four-Layer Driver Model,9.2.4 Layer 4: Application Interface,5,blocks/182_c.txt
+183,diagram,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.2 Four-Layer Driver Model,9.2.5 Layer Diagram,29,blocks/183_diagram.txt
+184,c,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.3 UART Driver Case Study,9.3.1 Layer 1: Register-Level Access,39,blocks/184_c.txt
+185,c,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.3 UART Driver Case Study,9.3.2 Layer 2: Vendor HAL Initialization,52,blocks/185_c.txt
+186,c,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.3 UART Driver Case Study,9.3.3 Layer 3: RTOS-Aware Driver,164,blocks/186_c.txt
+187,c,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.3 UART Driver Case Study,9.3.4 Layer 4: Application Interface,25,blocks/187_c.txt
+188,c,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.3 UART Driver Case Study,9.3.4 Layer 4: Application Interface,36,blocks/188_c.txt
+189,c,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.4 SPI Driver Case Study,9.4.2 Bus Sharing with Mutex,25,blocks/189_c.txt
+190,c,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.4 SPI Driver Case Study,9.4.3 Transaction-Based API,131,blocks/190_c.txt
+191,c,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.4 SPI Driver Case Study,9.4.4 SPI Flash Example,14,blocks/191_c.txt
+192,c,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.5 I2C Driver Case Study,9.5.2 Error Handling and Bus Recovery,43,blocks/192_c.txt
+193,c,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.5 I2C Driver Case Study,9.5.3 Application-Level I2C API,26,blocks/193_c.txt
+194,c,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.5 I2C Driver Case Study,9.5.4 Temperature Sensor Example,15,blocks/194_c.txt
+195,c,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.6 CAN Bus Driver,9.6.2 FreeRTOS Integration,19,blocks/195_c.txt
+196,c,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.6 CAN Bus Driver,9.6.3 Implementation,168,blocks/196_c.txt
+197,other,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.7 The Fake HAL Pattern for Testing,9.7.2 The Solution: Compile-Time HAL Substitution,19,blocks/197_other.txt
+198,c,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.7 The Fake HAL Pattern for Testing,9.7.3 Fake HAL Implementation,89,blocks/198_c.txt
+199,c,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.7 The Fake HAL Pattern for Testing,9.7.4 Test Example,29,blocks/199_c.txt
+200,c,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.8 Driver Design Patterns,9.8.1 Singleton Pattern with Handle Struct,13,blocks/200_c.txt
+201,c,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.8 Driver Design Patterns,9.8.2 Callback Pattern,6,blocks/201_c.txt
+202,c,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.8 Driver Design Patterns,9.8.3 Event-Driven Pattern,11,blocks/202_c.txt
+203,c,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.8 Driver Design Patterns,9.8.4 Handle Pattern with Opaque Pointers,7,blocks/203_c.txt
+204,other-rtos,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.9 QNX and Zephyr Portability Notes,9.9.1 QNX: Resource Managers,7,blocks/204_other-rtos.txt
+205,other-rtos,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.9 QNX and Zephyr Portability Notes,9.9.2 Zephyr: Device Driver Model,12,blocks/205_other-rtos.txt
+206,other-rtos,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.9 QNX and Zephyr Portability Notes,9.9.2 Zephyr: Device Driver Model,7,blocks/206_other-rtos.txt
+207,other,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.11 Lab 9: Building a Reusable UART Driver,Part 1: Target Implementation,11,blocks/207_other.txt
+208,c,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.11 Lab 9: Building a Reusable UART Driver,Part 1: Target Implementation,32,blocks/208_c.txt
+209,c,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.11 Lab 9: Building a Reusable UART Driver,Part 2: Throughput Measurement,27,blocks/209_c.txt
+210,shell,Chapter 9: Device Driver Architecture and Peripheral Abstraction,9.11 Lab 9: Building a Reusable UART Driver,Part 3: Fake HAL Testing on Host,10,blocks/210_shell.txt
+211,other,Chapter 10: Power Management and Tickless Idle,10.1 Power Constraints in Embedded Systems,,1,blocks/211_other.txt
+212,other,Chapter 10: Power Management and Tickless Idle,10.1 Power Constraints in Embedded Systems,The Power Profile of a Typical Application,10,blocks/212_other.txt
+213,c,Chapter 10: Power Management and Tickless Idle,10.2 STM32 Low-Power Modes,Sleep Mode,3,blocks/213_c.txt
+214,c,Chapter 10: Power Management and Tickless Idle,10.2 STM32 Low-Power Modes,Stop Mode,8,blocks/214_c.txt
+215,c,Chapter 10: Power Management and Tickless Idle,10.2 STM32 Low-Power Modes,Standby Mode,6,blocks/215_c.txt
+216,other,Chapter 10: Power Management and Tickless Idle,10.3 FreeRTOS Tickless Idle,The Standard Idle Problem,7,blocks/216_other.txt
+217,other,Chapter 10: Power Management and Tickless Idle,10.3 FreeRTOS Tickless Idle,How Built-In Tickless Works,8,blocks/217_other.txt
+218,c,Chapter 10: Power Management and Tickless Idle,10.3 FreeRTOS Tickless Idle,Key Configuration Macros,16,blocks/218_c.txt
+219,c,Chapter 10: Power Management and Tickless Idle,10.4 Custom Tickless Implementation for Stop Mode,Step-by-Step Implementation,2,blocks/219_c.txt
+220,c,Chapter 10: Power Management and Tickless Idle,10.4 Custom Tickless Implementation for Stop Mode,Step-by-Step Implementation,4,blocks/220_c.txt
+221,c,Chapter 10: Power Management and Tickless Idle,10.4 Custom Tickless Implementation for Stop Mode,Step-by-Step Implementation,48,blocks/221_c.txt
+222,c,Chapter 10: Power Management and Tickless Idle,10.4 Custom Tickless Implementation for Stop Mode,Step-by-Step Implementation,18,blocks/222_c.txt
+223,c,Chapter 10: Power Management and Tickless Idle,10.4 Custom Tickless Implementation for Stop Mode,Step-by-Step Implementation,132,blocks/223_c.txt
+224,c,Chapter 10: Power Management and Tickless Idle,10.4 Custom Tickless Implementation for Stop Mode,Step-by-Step Implementation,8,blocks/224_c.txt
+225,c,Chapter 10: Power Management and Tickless Idle,10.5 Peripheral Power Management,Disabling Unused Peripheral Clocks,5,blocks/225_c.txt
+226,c,Chapter 10: Power Management and Tickless Idle,10.5 Peripheral Power Management,GPIO Power Optimization,2,blocks/226_c.txt
+227,other,Chapter 10: Power Management and Tickless Idle,10.6 Power Profiling and Measurement,Measurement Techniques,6,blocks/227_other.txt
+228,other,Chapter 10: Power Management and Tickless Idle,10.6 Power Profiling and Measurement,Worked Example: Battery Life Calculation,6,blocks/228_other.txt
+229,other,Chapter 10: Power Management and Tickless Idle,10.6 Power Profiling and Measurement,Worked Example: Battery Life Calculation,1,blocks/229_other.txt
+230,c,Chapter 10: Power Management and Tickless Idle,10.7 Design Patterns for Low Power,Event-Driven Architecture,15,blocks/230_c.txt
+231,c,Chapter 10: Power Management and Tickless Idle,10.7 Design Patterns for Low Power,Communication Batching,14,blocks/231_c.txt
+232,c,Chapter 10: Power Management and Tickless Idle,10.9 Common Pitfalls,Debug Probe Preventing Low-Power Entry,4,blocks/232_c.txt
+233,other,Chapter 10: Power Management and Tickless Idle,10.10 Lab 10: Tickless Idle Power Optimization,Hardware Setup,1,blocks/233_other.txt
+234,c,Chapter 10: Power Management and Tickless Idle,10.10 Lab 10: Tickless Idle Power Optimization,Part 1: Baseline Measurement (Standard Tick),30,blocks/234_c.txt
+235,c,Chapter 10: Power Management and Tickless Idle,10.10 Lab 10: Tickless Idle Power Optimization,Part 2: Built-In Tickless Idle,3,blocks/235_c.txt
+236,c,Chapter 10: Power Management and Tickless Idle,10.10 Lab 10: Tickless Idle Power Optimization,Part 3: Custom Stop-Mode Tickless,4,blocks/236_c.txt
+237,c,Chapter 10: Power Management and Tickless Idle,10.10 Lab 10: Tickless Idle Power Optimization,Part 3: Custom Stop-Mode Tickless,11,blocks/237_c.txt
+238,other,"Chapter 11: Clock Configuration, Timing, and Temporal Determinism",11.2 STM32F407 Clock Architecture,11.2.2 PLL Configuration,3,blocks/238_other.txt
+239,diagram,"Chapter 11: Clock Configuration, Timing, and Temporal Determinism",11.2 STM32F407 Clock Architecture,11.2.3 Clock Tree,21,blocks/239_diagram.txt
+240,c,"Chapter 11: Clock Configuration, Timing, and Temporal Determinism",11.2 STM32F407 Clock Architecture,11.2.5 Flash Latency,5,blocks/240_c.txt
+241,c,"Chapter 11: Clock Configuration, Timing, and Temporal Determinism",11.2 STM32F407 Clock Architecture,11.2.6 Clock Security System (CSS),6,blocks/241_c.txt
+242,c,"Chapter 11: Clock Configuration, Timing, and Temporal Determinism",11.3 SysTick Timer and RTOS Tick,11.3.1 SysTick Architecture,7,blocks/242_c.txt
+243,c,"Chapter 11: Clock Configuration, Timing, and Temporal Determinism",11.3 SysTick Timer and RTOS Tick,11.3.4 Tick Jitter: Causes and Measurement,32,blocks/243_c.txt
+244,other,"Chapter 11: Clock Configuration, Timing, and Temporal Determinism",11.4 Hardware Timers for Precise Timing,11.4.2 Timer Configuration Fundamentals,1,blocks/244_other.txt
+245,c,"Chapter 11: Clock Configuration, Timing, and Temporal Determinism",11.4 Hardware Timers for Precise Timing,11.4.3 Input Capture Mode,63,blocks/245_c.txt
+246,c,"Chapter 11: Clock Configuration, Timing, and Temporal Determinism",11.4 Hardware Timers for Precise Timing,11.4.4 Output Compare Mode,4,blocks/246_c.txt
+247,c,"Chapter 11: Clock Configuration, Timing, and Temporal Determinism",11.5 DWT Cycle Counter,11.5.2 Enabling the Cycle Counter,4,blocks/247_c.txt
+248,other,"Chapter 11: Clock Configuration, Timing, and Temporal Determinism",11.5 DWT Cycle Counter,11.5.3 Resolution and Overflow,1,blocks/248_other.txt
+249,other,"Chapter 11: Clock Configuration, Timing, and Temporal Determinism",11.5 DWT Cycle Counter,11.5.3 Resolution and Overflow,1,blocks/249_other.txt
+250,c,"Chapter 11: Clock Configuration, Timing, and Temporal Determinism",11.5 DWT Cycle Counter,11.5.3 Resolution and Overflow,3,blocks/250_c.txt
+251,c,"Chapter 11: Clock Configuration, Timing, and Temporal Determinism",11.5 DWT Cycle Counter,11.5.4 Conversion Macros,6,blocks/251_c.txt
+252,c,"Chapter 11: Clock Configuration, Timing, and Temporal Determinism",11.5 DWT Cycle Counter,11.5.5 Code Example: Measuring Function Execution Time,47,blocks/252_c.txt
+253,c,"Chapter 11: Clock Configuration, Timing, and Temporal Determinism",11.7 Temporal Determinism Strategies,11.7.1 Deterministic Memory Placement,11,blocks/253_c.txt
+254,c,"Chapter 11: Clock Configuration, Timing, and Temporal Determinism",11.7 Temporal Determinism Strategies,11.7.2 Constant-Time Algorithms,9,blocks/254_c.txt
+255,c,"Chapter 11: Clock Configuration, Timing, and Temporal Determinism",11.7 Temporal Determinism Strategies,11.7.3 Interrupt Management for Determinism,3,blocks/255_c.txt
+256,c,"Chapter 11: Clock Configuration, Timing, and Temporal Determinism",11.7 Temporal Determinism Strategies,11.7.4 Drift-Free Periodic Execution,17,blocks/256_c.txt
+257,c,"Chapter 11: Clock Configuration, Timing, and Temporal Determinism",11.8 Real-Time Clock (RTC) for Calendar Time,11.8.2 RTC Configuration,33,blocks/257_c.txt
+258,c,"Chapter 11: Clock Configuration, Timing, and Temporal Determinism",11.11 Lab 11: Timing Accuracy and WCET Measurement,Complete Code Listing,236,blocks/258_c.txt
+259,c,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.2 printf-Style Debugging,12.2.3 ITM — Instrumentation Trace Macrocell,11,blocks/259_c.txt
+260,c,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.2 printf-Style Debugging,12.2.4 SEGGER RTT — Real-Time Transfer,7,blocks/260_c.txt
+261,c,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.4 FreeRTOS Trace Hooks,12.4.2 The Flight Recorder Pattern,38,blocks/261_c.txt
+262,c,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.4 FreeRTOS Trace Hooks,12.4.2 The Flight Recorder Pattern,66,blocks/262_c.txt
+263,c,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.4 FreeRTOS Trace Hooks,12.4.3 Hooking the Kernel,20,blocks/263_c.txt
+264,c,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.4 FreeRTOS Trace Hooks,12.4.4 GPIO Toggle for Oscilloscope Visualization,7,blocks/264_c.txt
+265,c,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.5 Percepio Tracealyzer Integration,12.5.3 Integration Steps,5,blocks/265_c.txt
+266,c,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.5 Percepio Tracealyzer Integration,12.5.3 Integration Steps,2,blocks/266_c.txt
+267,c,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.5 Percepio Tracealyzer Integration,12.5.3 Integration Steps,16,blocks/267_c.txt
+268,c,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.6 SEGGER SystemView Integration,12.6.3 Configuration,5,blocks/268_c.txt
+269,c,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.6 SEGGER SystemView Integration,12.6.3 Configuration,5,blocks/269_c.txt
+270,c,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.6 SEGGER SystemView Integration,12.6.5 Custom Markers,13,blocks/270_c.txt
+271,other,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.7 Runtime Diagnostics APIs,12.7.1 vTaskList(),5,blocks/271_other.txt
+272,other,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.7 Runtime Diagnostics APIs,12.7.2 vTaskGetRunTimeStats(),5,blocks/272_other.txt
+273,c,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.7 Runtime Diagnostics APIs,12.7.2 vTaskGetRunTimeStats(),15,blocks/273_c.txt
+274,c,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.7 Runtime Diagnostics APIs,12.7.3 uxTaskGetStackHighWaterMark(),5,blocks/274_c.txt
+275,c,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.7 Runtime Diagnostics APIs,12.7.4 Queue Monitoring,2,blocks/275_c.txt
+276,c,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.7 Runtime Diagnostics APIs,12.7.5 Building a Diagnostic Task,43,blocks/276_c.txt
+277,other,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.8 Post-Mortem Analysis,12.8.1 Cortex-M4 Fault Registers,3,blocks/277_other.txt
+278,c,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.8 Post-Mortem Analysis,12.8.2 Hard Fault Handler,53,blocks/278_c.txt
+279,c,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.8 Post-Mortem Analysis,12.8.2 Hard Fault Handler,11,blocks/279_c.txt
+280,c,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.8 Post-Mortem Analysis,12.8.3 Post-Reset Recovery,34,blocks/280_c.txt
+281,linker,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.11 Lab 12: Building a Flight Recorder and Diagnostic Console,Part A: Flight Recorder,6,blocks/281_linker.txt
+282,c,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.11 Lab 12: Building a Flight Recorder and Diagnostic Console,Part A: Flight Recorder,6,blocks/282_c.txt
+283,c,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.11 Lab 12: Building a Flight Recorder and Diagnostic Console,Part B: Diagnostic Console,82,blocks/283_c.txt
+284,c,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.11 Lab 12: Building a Flight Recorder and Diagnostic Console,Part B: Diagnostic Console,1,blocks/284_c.txt
+285,linker,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.11 Lab 12: Building a Flight Recorder and Diagnostic Console,Part C: Hard Fault Handler,4,blocks/285_linker.txt
+286,linker,"Chapter 12: Debugging, Tracing, and Runtime Diagnostics",12.11 Lab 12: Building a Flight Recorder and Diagnostic Console,Part C: Hard Fault Handler,7,blocks/286_linker.txt
+287,c,"Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",13.2 ARM Cortex-M Fault Handlers,13.2.1 The Four Fault Types,8,blocks/287_c.txt
+288,other,"Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",13.2 ARM Cortex-M Fault Handlers,13.2.2 Fault Status Registers,3,blocks/288_other.txt
+289,c,"Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",13.2 ARM Cortex-M Fault Handlers,13.2.3 Extracting the Stacked PC,35,blocks/289_c.txt
+290,other,"Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",13.3 Watchdog Timers,13.3.1 Independent Watchdog (IWDG),1,blocks/290_other.txt
+291,c,"Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",13.3 Watchdog Timers,13.3.1 Independent Watchdog (IWDG),16,blocks/291_c.txt
+292,other,"Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",13.3 Watchdog Timers,13.3.2 Window Watchdog (WWDG),1,blocks/292_other.txt
+293,c,"Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",13.3 Watchdog Timers,13.3.2 Window Watchdog (WWDG),23,blocks/293_c.txt
+294,diagram,"Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",13.4 Task-Level Health Monitoring,13.4.1 The Heartbeat Bitmap Pattern,11,blocks/294_diagram.txt
+295,c,"Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",13.4 Task-Level Health Monitoring,13.4.2 Implementation,88,blocks/295_c.txt
+296,c,"Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",13.5 Stack Overflow Detection and Response,13.5.3 The Stack Overflow Hook,19,blocks/296_c.txt
+297,c,"Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",13.6 Assertion Framework,13.6.1 configASSERT Implementation,35,blocks/297_c.txt
+298,c,"Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",13.7 Safe-State Design,13.7.2 Implementation,24,blocks/298_c.txt
+299,linker,"Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",13.7 Safe-State Design,13.7.3 Protected Memory Placement,3,blocks/299_linker.txt
+300,c,"Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",13.8 Recovery Strategies,13.8.1 Task Restart,19,blocks/300_c.txt
+301,c,"Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",13.8 Recovery Strategies,13.8.3 Full System Reset,6,blocks/301_c.txt
+302,c,"Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",13.8 Recovery Strategies,13.8.4 Reset Cause Identification,13,blocks/302_c.txt
+303,c,"Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",13.8 Recovery Strategies,13.8.5 Persistent Fault Counter,39,blocks/303_c.txt
+304,c,"Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",13.9 QNX and Zephyr: Fault Management Approaches,13.9.2 Zephyr Fatal Error Handler,8,blocks/304_c.txt
+305,c,"Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",13.11 Lab 13: Health Monitor with Crash Logging,13.11.2 Complete Implementation,260,blocks/305_c.txt
+306,other,Chapter 14: Testing Real-Time Systems,14.1 The Testing Challenge for RTOS Software,,6,blocks/306_other.txt
+307,cmake,Chapter 14: Testing Real-Time Systems,14.2 Unit Testing on Host,Dual Build Targets,34,blocks/307_cmake.txt
+308,shell,Chapter 14: Testing Real-Time Systems,14.2 Unit Testing on Host,Dual Build Targets,4,blocks/308_shell.txt
+309,shell,Chapter 14: Testing Real-Time Systems,14.2 Unit Testing on Host,Dual Build Targets,3,blocks/309_shell.txt
+310,c,Chapter 14: Testing Real-Time Systems,14.2 Unit Testing on Host,Code Example: Unity Test for a Moving Average Filter,19,blocks/310_c.txt
+311,c,Chapter 14: Testing Real-Time Systems,14.2 Unit Testing on Host,Code Example: Unity Test for a Moving Average Filter,54,blocks/311_c.txt
+312,c,Chapter 14: Testing Real-Time Systems,14.2 Unit Testing on Host,Code Example: Testing a State Machine with Stub Inputs,51,blocks/312_c.txt
+313,other,Chapter 14: Testing Real-Time Systems,14.3 The Fake HAL Pattern (Expanded),Architecture,8,blocks/313_other.txt
+314,c,Chapter 14: Testing Real-Time Systems,14.3 The Fake HAL Pattern (Expanded),Simulating Timing,15,blocks/314_c.txt
+315,c,Chapter 14: Testing Real-Time Systems,14.3 The Fake HAL Pattern (Expanded),Simulating Timing,7,blocks/315_c.txt
+316,c,Chapter 14: Testing Real-Time Systems,14.3 The Fake HAL Pattern (Expanded),Code Example: Fake I2C HAL with Programmable Responses,81,blocks/316_c.txt
+317,c,Chapter 14: Testing Real-Time Systems,14.3 The Fake HAL Pattern (Expanded),Code Example: Fake I2C HAL with Programmable Responses,22,blocks/317_c.txt
+318,c,Chapter 14: Testing Real-Time Systems,14.4 Integration Testing,Code Example: Integration Test on FreeRTOS Simulator,72,blocks/318_c.txt
+319,shell,Chapter 14: Testing Real-Time Systems,14.5 System Testing on Target,Test Harness Design,6,blocks/319_shell.txt
+320,c,Chapter 14: Testing Real-Time Systems,14.5 System Testing on Target,Test Harness Design,11,blocks/320_c.txt
+321,c,Chapter 14: Testing Real-Time Systems,14.5 System Testing on Target,Timing Verification,7,blocks/321_c.txt
+322,diagram,Chapter 14: Testing Real-Time Systems,14.6 Hardware-in-the-Loop (HIL) Testing,HIL Rig Architecture,9,blocks/322_diagram.txt
+323,cmake,Chapter 14: Testing Real-Time Systems,14.6 Hardware-in-the-Loop (HIL) Testing,Scripted Test Sequences,25,blocks/323_cmake.txt
+324,shell,Chapter 14: Testing Real-Time Systems,14.7 Code Coverage for Embedded,Coverage on Host Build,11,blocks/324_shell.txt
+325,other,Chapter 14: Testing Real-Time Systems,14.8 Continuous Integration for Embedded,Pipeline Stages,22,blocks/325_other.txt
+326,config-other,Chapter 14: Testing Real-Time Systems,14.8 Continuous Integration for Embedded,Automated Flash and Test,16,blocks/326_config-other.txt
+327,config-other,Chapter 14: Testing Real-Time Systems,14.8 Continuous Integration for Embedded,GitHub Actions Example,55,blocks/327_config-other.txt
+328,c,Chapter 14: Testing Real-Time Systems,14.11 Lab 14: Building a Test Pipeline,Part 1: Unit Tests for a Circular Buffer,24,blocks/328_c.txt
+329,c,Chapter 14: Testing Real-Time Systems,14.11 Lab 14: Building a Test Pipeline,Part 1: Unit Tests for a Circular Buffer,69,blocks/329_c.txt
+330,c,Chapter 14: Testing Real-Time Systems,14.11 Lab 14: Building a Test Pipeline,Part 2: Fake UART HAL,43,blocks/330_c.txt
+331,cmake,Chapter 14: Testing Real-Time Systems,14.11 Lab 14: Building a Test Pipeline,Part 3: FreeRTOS Simulator Integration Test,19,blocks/331_cmake.txt
+332,other,Chapter 14: Testing Real-Time Systems,14.11 Lab 14: Building a Test Pipeline,Part 3: FreeRTOS Simulator Integration Test,2,blocks/332_other.txt
+333,c,Chapter 14: Testing Real-Time Systems,14.11 Lab 14: Building a Test Pipeline,Part 4: On-Target Test Harness,44,blocks/333_c.txt
+334,c,Chapter 15: Common RTOS Pitfalls and Anti-Patterns,15.2 Pitfall: Unbounded Priority Inversion,Code Example,42,blocks/334_c.txt
+335,c,Chapter 15: Common RTOS Pitfalls and Anti-Patterns,15.2 Pitfall: Unbounded Priority Inversion,Code Example,43,blocks/335_c.txt
+336,c,Chapter 15: Common RTOS Pitfalls and Anti-Patterns,15.3 Pitfall: Deadlock,Code Example,30,blocks/336_c.txt
+337,c,Chapter 15: Common RTOS Pitfalls and Anti-Patterns,15.3 Pitfall: Deadlock,Code Example,35,blocks/337_c.txt
+338,c,Chapter 15: Common RTOS Pitfalls and Anti-Patterns,15.4 Pitfall: Stack Overflow,Code Example,15,blocks/338_c.txt
+339,c,Chapter 15: Common RTOS Pitfalls and Anti-Patterns,15.4 Pitfall: Stack Overflow,Code Example,24,blocks/339_c.txt
+340,c,Chapter 15: Common RTOS Pitfalls and Anti-Patterns,15.5 Pitfall: Race Conditions on Shared Data,Code Example,21,blocks/340_c.txt
+341,c,Chapter 15: Common RTOS Pitfalls and Anti-Patterns,15.5 Pitfall: Race Conditions on Shared Data,Code Example,29,blocks/341_c.txt
+342,c,Chapter 15: Common RTOS Pitfalls and Anti-Patterns,15.6 Pitfall: ISR Calling Non-Thread-Safe APIs,Code Example,15,blocks/342_c.txt
+343,c,Chapter 15: Common RTOS Pitfalls and Anti-Patterns,15.6 Pitfall: ISR Calling Non-Thread-Safe APIs,Code Example,29,blocks/343_c.txt
+344,c,Chapter 15: Common RTOS Pitfalls and Anti-Patterns,15.7 Pitfall: Polling Instead of Blocking,Code Example,21,blocks/344_c.txt
+345,c,Chapter 15: Common RTOS Pitfalls and Anti-Patterns,15.7 Pitfall: Polling Instead of Blocking,Code Example,29,blocks/345_c.txt
+346,c,Chapter 15: Common RTOS Pitfalls and Anti-Patterns,15.8 Pitfall: Misusing vTaskDelay for Periodic Timing,Code Example,10,blocks/346_c.txt
+347,c,Chapter 15: Common RTOS Pitfalls and Anti-Patterns,15.8 Pitfall: Misusing vTaskDelay for Periodic Timing,Code Example,20,blocks/347_c.txt
+348,c,Chapter 15: Common RTOS Pitfalls and Anti-Patterns,15.9 Pitfall: Unbounded Priority Levels,Example: Priority Band Structure,18,blocks/348_c.txt
+349,c,Chapter 15: Common RTOS Pitfalls and Anti-Patterns,15.10 Pitfall: Memory Leaks and Heap Fragmentation,Code Example,13,blocks/349_c.txt
+350,c,Chapter 15: Common RTOS Pitfalls and Anti-Patterns,15.10 Pitfall: Memory Leaks and Heap Fragmentation,Code Example,18,blocks/350_c.txt
+351,c,Chapter 15: Common RTOS Pitfalls and Anti-Patterns,15.11 Pitfall: Starving the Idle Task,Prevention,18,blocks/351_c.txt
+352,c,Chapter 15: Common RTOS Pitfalls and Anti-Patterns,15.12 Pitfall: Interrupt Priority Misconfiguration,Code Example,19,blocks/352_c.txt
+353,c,Chapter 15: Common RTOS Pitfalls and Anti-Patterns,15.12 Pitfall: Interrupt Priority Misconfiguration,Code Example,29,blocks/353_c.txt
+354,c,Chapter 15: Common RTOS Pitfalls and Anti-Patterns,15.13 Pitfall: Global State and Hidden Coupling,Code Example,26,blocks/354_c.txt
+355,c,Chapter 15: Common RTOS Pitfalls and Anti-Patterns,15.13 Pitfall: Global State and Hidden Coupling,Code Example,36,blocks/355_c.txt
+356,c,Chapter 15: Common RTOS Pitfalls and Anti-Patterns,15.16 Lab 15: Pitfall Detection Workshop,Exercise 1: Identify the Pitfall,11,blocks/356_c.txt
+357,c,Chapter 15: Common RTOS Pitfalls and Anti-Patterns,15.16 Lab 15: Pitfall Detection Workshop,Exercise 1: Identify the Pitfall,8,blocks/357_c.txt
+358,c,Chapter 15: Common RTOS Pitfalls and Anti-Patterns,15.16 Lab 15: Pitfall Detection Workshop,Exercise 1: Identify the Pitfall,13,blocks/358_c.txt
+359,c,Chapter 15: Common RTOS Pitfalls and Anti-Patterns,15.16 Lab 15: Pitfall Detection Workshop,Exercise 1: Identify the Pitfall,19,blocks/359_c.txt
+360,c,Chapter 15: Common RTOS Pitfalls and Anti-Patterns,15.16 Lab 15: Pitfall Detection Workshop,Exercise 1: Identify the Pitfall,9,blocks/360_c.txt
+361,diagram,Chapter 16: Security in Real-Time Embedded Systems,16.2 Secure Boot and Chain of Trust,The Boot Chain,9,blocks/361_diagram.txt
+362,c,Chapter 16: Security in Real-Time Embedded Systems,16.2 Secure Boot and Chain of Trust,Code Example: Simplified Boot Verification,103,blocks/362_c.txt
+363,c,Chapter 16: Security in Real-Time Embedded Systems,16.3 Memory Protection Unit (MPU) for Security,Code Example: Restricted Task Configuration,50,blocks/363_c.txt
+364,c,Chapter 16: Security in Real-Time Embedded Systems,16.4 Cryptographic Operations,Code Example: AES-128-GCM Encryption of Sensor Data,90,blocks/364_c.txt
+365,c,Chapter 16: Security in Real-Time Embedded Systems,16.5 Secure Communication,Code Example: HMAC-Authenticated CAN Message,105,blocks/365_c.txt
+366,diagram,Chapter 16: Security in Real-Time Embedded Systems,16.6 Over-the-Air (OTA) Firmware Updates,Update Architecture,13,blocks/366_diagram.txt
+367,c,Chapter 16: Security in Real-Time Embedded Systems,16.6 Over-the-Air (OTA) Firmware Updates,Code Example: OTA Update State Machine,142,blocks/367_c.txt
+368,diagram,Chapter 16: Security in Real-Time Embedded Systems,16.10 Lab 16: Secure Boot and Authenticated Commands,Part B: HMAC-Authenticated UART Command Protocol,5,blocks/368_diagram.txt
+369,c,Chapter 16: Security in Real-Time Embedded Systems,16.10 Lab 16: Secure Boot and Authenticated Commands,Part B: HMAC-Authenticated UART Command Protocol,97,blocks/369_c.txt
+370,diagram,Chapter 17: RTOS Application Architecture and Design Patterns,17.2 Layered Architecture,17.2.1 The Four Layers,15,blocks/370_diagram.txt
+371,other,Chapter 17: RTOS Application Architecture and Design Patterns,17.2 Layered Architecture,17.2.3 Directory Structure,19,blocks/371_other.txt
+372,c,Chapter 17: RTOS Application Architecture and Design Patterns,17.3 Event-Driven Architecture,17.3.1 Events as First-Class Entities,15,blocks/372_c.txt
+373,c,Chapter 17: RTOS Application Architecture and Design Patterns,17.3 Event-Driven Architecture,17.3.2 Event Loop Pattern,29,blocks/373_c.txt
+374,c,Chapter 17: RTOS Application Architecture and Design Patterns,17.3 Event-Driven Architecture,17.3.3 Centralized Event Dispatcher,42,blocks/374_c.txt
+375,diagram,Chapter 17: RTOS Application Architecture and Design Patterns,17.4 Active Object Pattern,17.4.1 Concept,10,blocks/375_diagram.txt
+376,c,Chapter 17: RTOS Application Architecture and Design Patterns,17.4 Active Object Pattern,17.4.3 Code Example: LED Controller Active Object,136,blocks/376_c.txt
+377,diagram,Chapter 17: RTOS Application Architecture and Design Patterns,17.5 Publish-Subscribe Pattern,17.5.1 Concept,5,blocks/377_diagram.txt
+378,c,Chapter 17: RTOS Application Architecture and Design Patterns,17.5 Publish-Subscribe Pattern,17.5.2 Code Example: Sensor Data Pub-Sub System,54,blocks/378_c.txt
+379,c,Chapter 17: RTOS Application Architecture and Design Patterns,17.6 Command Pattern and Protocol Handlers,17.6.1 Command Descriptor,9,blocks/379_c.txt
+380,c,Chapter 17: RTOS Application Architecture and Design Patterns,17.6 Command Pattern and Protocol Handlers,17.6.2 Command Table and Dispatcher,35,blocks/380_c.txt
+381,c,Chapter 17: RTOS Application Architecture and Design Patterns,17.6 Command Pattern and Protocol Handlers,17.6.3 Serial Command Processor Task,15,blocks/381_c.txt
+382,c,Chapter 17: RTOS Application Architecture and Design Patterns,17.7 State Machine Patterns,17.7.1 Simple Switch-Case State Machine,2,blocks/382_c.txt
+383,c,Chapter 17: RTOS Application Architecture and Design Patterns,17.7 State Machine Patterns,17.7.2 Table-Driven State Machine,100,blocks/383_c.txt
+384,c,Chapter 17: RTOS Application Architecture and Design Patterns,17.8 Resource Management Patterns,17.8.1 RAII-Like Macros in C,20,blocks/384_c.txt
+385,c,Chapter 17: RTOS Application Architecture and Design Patterns,17.8 Resource Management Patterns,17.8.2 SPI Bus Broker Task,51,blocks/385_c.txt
+386,other,Chapter 17: RTOS Application Architecture and Design Patterns,17.9 System Startup and Shutdown,17.9.1 Phased Initialization,6,blocks/386_other.txt
+387,c,Chapter 17: RTOS Application Architecture and Design Patterns,17.9 System Startup and Shutdown,17.9.2 Code Example: Multi-Phase Startup with Event Group Sync,62,blocks/387_c.txt
+388,diagram,Chapter 17: RTOS Application Architecture and Design Patterns,17.12 Lab 17: Designing an Event-Driven Application,System Architecture,18,blocks/388_diagram.txt
+389,c,Chapter 17: RTOS Application Architecture and Design Patterns,17.12 Lab 17: Designing an Event-Driven Application,Complete Code Listing,346,blocks/389_c.txt
+390,c,"Chapter 18: Certification, Standards, and Safety-Critical Development",18.4 MISRA C Compliance,MISRA-Compliant Task Function,52,blocks/390_c.txt
+391,other,"Chapter 18: Certification, Standards, and Safety-Critical Development",18.5 Traceability and Documentation,Bidirectional Traceability,9,blocks/391_other.txt
+392,diagram,"Chapter 18: Certification, Standards, and Safety-Critical Development",18.6 V-Model Development Process,,16,blocks/392_diagram.txt
+393,c,"Chapter 18: Certification, Standards, and Safety-Critical Development",18.11 Lab 18: Creating a Certification Evidence Package,Step 4: Test Cases with MC/DC Coverage,3,blocks/393_c.txt
+394,c,Chapter 19: Multi-Core RTOS: SMP and AMP Architectures,19.3 FreeRTOS SMP,19.3.1 Configuration,9,blocks/394_c.txt
+395,c,Chapter 19: Multi-Core RTOS: SMP and AMP Architectures,19.3 FreeRTOS SMP,19.3.2 Task Affinity,65,blocks/395_c.txt
+396,c,Chapter 19: Multi-Core RTOS: SMP and AMP Architectures,19.3 FreeRTOS SMP,19.3.3 Scheduler and Synchronization Changes,6,blocks/396_c.txt
+397,c,Chapter 19: Multi-Core RTOS: SMP and AMP Architectures,19.3 FreeRTOS SMP,19.3.3 Scheduler and Synchronization Changes,16,blocks/397_c.txt
+398,diagram,Chapter 19: Multi-Core RTOS: SMP and AMP Architectures,19.4 AMP with FreeRTOS,19.4.1 Memory Map Separation,14,blocks/398_diagram.txt
+399,c,Chapter 19: Multi-Core RTOS: SMP and AMP Architectures,19.4 AMP with FreeRTOS,19.4.1 Memory Map Separation,65,blocks/399_c.txt
+400,c,Chapter 19: Multi-Core RTOS: SMP and AMP Architectures,19.4 AMP with FreeRTOS,19.4.2 Boot Sequence,59,blocks/400_c.txt
+401,c,Chapter 19: Multi-Core RTOS: SMP and AMP Architectures,19.4 AMP with FreeRTOS,19.4.2 Boot Sequence,66,blocks/401_c.txt
+402,c,Chapter 19: Multi-Core RTOS: SMP and AMP Architectures,19.5 Inter-Core Communication,19.5.1 Shared Memory,20,blocks/402_c.txt
+403,c,Chapter 19: Multi-Core RTOS: SMP and AMP Architectures,19.5 Inter-Core Communication,19.5.2 Lock-Free SPSC Ring Buffer,60,blocks/403_c.txt
+404,diagram,Chapter 19: Multi-Core RTOS: SMP and AMP Architectures,19.5 Inter-Core Communication,19.5.4 OpenAMP and RPMsg,14,blocks/404_diagram.txt
+405,diagram,Chapter 19: Multi-Core RTOS: SMP and AMP Architectures,19.6 Mixed-Criticality Systems,19.6.1 Architecture,12,blocks/405_diagram.txt
+406,other-rtos,Chapter 19: Multi-Core RTOS: SMP and AMP Architectures,19.8 QNX and Zephyr Multi-Core,19.8.2 Zephyr SMP and IPC,6,blocks/406_other-rtos.txt
+407,c,Chapter 19: Multi-Core RTOS: SMP and AMP Architectures,19.9 Common Pitfalls,Pitfall 1: False Sharing on Cache Lines,3,blocks/407_c.txt
+408,c,Chapter 19: Multi-Core RTOS: SMP and AMP Architectures,19.10 Lab 19: AMP Inter-Core Communication on STM32H7,19.10.1 Shared Memory Layout,57,blocks/408_c.txt
+409,c,Chapter 19: Multi-Core RTOS: SMP and AMP Architectures,19.10 Lab 19: AMP Inter-Core Communication on STM32H7,19.10.2 Core M7 Firmware (Producer),79,blocks/409_c.txt
+410,c,Chapter 19: Multi-Core RTOS: SMP and AMP Architectures,19.10 Lab 19: AMP Inter-Core Communication on STM32H7,19.10.3 Core M4 Firmware (Consumer),91,blocks/410_c.txt
+411,c,Chapter 19: Multi-Core RTOS: SMP and AMP Architectures,19.10 Lab 19: AMP Inter-Core Communication on STM32H7,19.10.4 Single-Core Simulation Variant,88,blocks/411_c.txt
+412,c,Appendix D: FreeRTOSConfig.h Complete Reference,,D.9 Recommended STM32F407 FreeRTOSConfig.h Template,62,blocks/412_c.txt
+413,other,Appendix F: Development Environment Setup Guide,F.1 Windows Setup,F.1.1 ARM GNU Toolchain,2,blocks/413_other.txt
+414,shell,Appendix F: Development Environment Setup Guide,F.1 Windows Setup,F.1.2 CMake,1,blocks/414_shell.txt
+415,shell,Appendix F: Development Environment Setup Guide,F.1 Windows Setup,F.1.3 Build System (Ninja),1,blocks/415_shell.txt
+416,shell,Appendix F: Development Environment Setup Guide,F.1 Windows Setup,F.1.4 OpenOCD,1,blocks/416_shell.txt
+417,shell,Appendix F: Development Environment Setup Guide,F.1 Windows Setup,F.1.6 Git,1,blocks/417_shell.txt
+418,shell,Appendix F: Development Environment Setup Guide,F.1 Windows Setup,F.1.7 Python,2,blocks/418_shell.txt
+419,other-rtos,Appendix F: Development Environment Setup Guide,F.1 Windows Setup,F.1.7 Python,1,blocks/419_other-rtos.txt
+420,config-other,Appendix F: Development Environment Setup Guide,F.1 Windows Setup,F.1.8 VS Code and Extensions,4,blocks/420_config-other.txt
+421,other-rtos,Appendix F: Development Environment Setup Guide,F.1 Windows Setup,F.1.9 Verification Checklist,7,blocks/421_other-rtos.txt
+422,other,Appendix F: Development Environment Setup Guide,F.2 Linux Setup (Ubuntu 22.04+),F.2.1 APT Packages,4,blocks/422_other.txt
+423,other-rtos,Appendix F: Development Environment Setup Guide,F.2 Linux Setup (Ubuntu 22.04+),F.2.2 Zephyr West Tool,3,blocks/423_other-rtos.txt
+424,shell,Appendix F: Development Environment Setup Guide,F.2 Linux Setup (Ubuntu 22.04+),F.2.3 Udev Rules for ST-Link,12,blocks/424_shell.txt
+425,shell,Appendix F: Development Environment Setup Guide,F.2 Linux Setup (Ubuntu 22.04+),F.2.3 Udev Rules for ST-Link,1,blocks/425_shell.txt
+426,shell,Appendix F: Development Environment Setup Guide,F.2 Linux Setup (Ubuntu 22.04+),F.2.4 VS Code on Linux,2,blocks/426_shell.txt
+427,config-other,Appendix F: Development Environment Setup Guide,F.2 Linux Setup (Ubuntu 22.04+),F.2.4 VS Code on Linux,4,blocks/427_config-other.txt
+428,other-rtos,Appendix F: Development Environment Setup Guide,F.3 macOS Setup,F.3.1 Homebrew Installations,3,blocks/428_other-rtos.txt
+429,shell,Appendix F: Development Environment Setup Guide,F.3 macOS Setup,F.3.1 Homebrew Installations,1,blocks/429_shell.txt
+430,config-other,Appendix F: Development Environment Setup Guide,F.3 macOS Setup,F.3.2 VS Code on macOS,4,blocks/430_config-other.txt
+431,diagram,Appendix F: Development Environment Setup Guide,F.5 Project Template,F.5.1 Directory Structure,26,blocks/431_diagram.txt
+432,cmake,Appendix F: Development Environment Setup Guide,F.5 Project Template,F.5.2 Build and Flash Commands,17,blocks/432_cmake.txt
+433,shell,Appendix F: Development Environment Setup Guide,F.5 Project Template,F.5.2 Build and Flash Commands,9,blocks/433_shell.txt
+434,config-other,Appendix F: Development Environment Setup Guide,F.5 Project Template,F.5.3 Debug Configuration (launch.json),21,blocks/434_config-other.txt
+435,shell,Appendix F: Development Environment Setup Guide,F.6 FreeRTOS Source Integration,F.6.1 Obtaining FreeRTOS,3,blocks/435_shell.txt
+436,cmake,Appendix F: Development Environment Setup Guide,F.6 FreeRTOS Source Integration,F.6.2 Required Source Files,16,blocks/436_cmake.txt
+437,c,Appendix F: Development Environment Setup Guide,F.6 FreeRTOS Source Integration,F.6.5 FreeRTOSConfig.h Essentials,47,blocks/437_c.txt

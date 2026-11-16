@@ -1,0 +1,9 @@
+/* Enable SMP with 2 cores (e.g., RP2040, ESP32-S3) */
+#define configNUMBER_OF_CORES    2
+
+/* Allow tasks of different priorities to run at the same time
+   on different cores (0 = only equal-priority tasks run together) */
+#define configRUN_MULTIPLE_PRIORITIES    1
+
+/* Enable core affinity API */
+#define configUSE_CORE_AFFINITY    1

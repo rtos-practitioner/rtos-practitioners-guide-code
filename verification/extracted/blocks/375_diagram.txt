@@ -1,0 +1,10 @@
+  +---------------------+       +---------------------+
+  |  Active Object A    |       |  Active Object B    |
+  | +-----------------+ |       | +-----------------+ |
+  | |   Event Queue   |<---------|  Post event       | |
+  | +-----------------+ |       | +-----------------+ |
+  | |   Task (loop)   | |       | |   Task (loop)   | |
+  | |   State Machine | |       | |   State Machine | |
+  | +-----------------+ |       | +-----------------+ |
+  +---------------------+       +---------------------+
+       No shared state. Communication via events only.

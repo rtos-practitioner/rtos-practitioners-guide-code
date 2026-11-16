@@ -1,0 +1,5 @@
+#include "SEGGER_SYSVIEW.h"
+
+/* Call after NVIC and clock configuration */
+SEGGER_SYSVIEW_Conf();
+SEGGER_SYSVIEW_Start();

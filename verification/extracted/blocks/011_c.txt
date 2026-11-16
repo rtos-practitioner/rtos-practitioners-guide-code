@@ -1,0 +1,119 @@
+/* lab1_timing.c - Baseline Timing Characterization */
+
+#include "FreeRTOS.h"
+#include "task.h"
+#include <stdint.h>
+
+/* DWT cycle counter for high-resolution timing */
+#define DWT_CTRL   (*(volatile uint32_t *)0xE0001000)
+#define DWT_CYCCNT (*(volatile uint32_t *)0xE0001004)
+
+static void dwt_init(void) {
+    CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
+    DWT_CYCCNT = 0;
+    DWT_CTRL |= 1;  /* Enable cycle counter */
+}
+
+/* Statistics structure */
+typedef struct {
+    uint32_t count;
+    uint32_t min_period_cycles;
+    uint32_t max_period_cycles;
+    uint64_t sum_period_cycles;
+    uint32_t deadline_misses;
+} TimingStats_t;
+
+static TimingStats_t stats = {
+    .min_period_cycles = UINT32_MAX,
+    .max_period_cycles = 0
+};
+
+#define EXPECTED_PERIOD_US     1000     /* 1 kHz = 1000 μs */
+#define DEADLINE_MARGIN_US     50       /* Miss if > 1050 μs */
+#define CPU_FREQ_MHZ           168      /* STM32F407 at 168 MHz */
+#define EXPECTED_PERIOD_CYCLES (EXPECTED_PERIOD_US * CPU_FREQ_MHZ)
+#define DEADLINE_CYCLES        ((EXPECTED_PERIOD_US + DEADLINE_MARGIN_US) * CPU_FREQ_MHZ)
+
+/* 1 kHz periodic control task */
+void vControlTask(void *pvParameters) {
+    TickType_t xLastWakeTime = xTaskGetTickCount();
+    uint32_t last_cycle = DWT_CYCCNT;
+
+    for (;;) {
+        vTaskDelayUntil(&xLastWakeTime, pdMS_TO_TICKS(1));
+
+        /* Toggle GPIO for oscilloscope measurement */
+        HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+
+        /* Measure period */
+        uint32_t now = DWT_CYCCNT;
+        uint32_t period = now - last_cycle;
+        last_cycle = now;
+
+        /* Update statistics atomically with respect to the stats task */
+        taskENTER_CRITICAL();
+        stats.count++;
+        stats.sum_period_cycles += period;
+        if (period < stats.min_period_cycles) stats.min_period_cycles = period;
+        if (period > stats.max_period_cycles) stats.max_period_cycles = period;
+        if (period > DEADLINE_CYCLES) stats.deadline_misses++;
+        taskEXIT_CRITICAL();
+
+        /* Simulated workload: 80 μs of computation */
+        volatile uint32_t work_start = DWT_CYCCNT;
+        while ((DWT_CYCCNT - work_start) < (80 * CPU_FREQ_MHZ)) { }
+    }
+}
+
+/* Background load task (enable to test jitter under load) */
+void vLoadTask(void *pvParameters) {
+    for (;;) {
+        /* CPU-intensive work at lower priority */
+        volatile uint32_t x = 0;
+        for (uint32_t i = 0; i < 100000; i++) {
+            x += i * 7;
+        }
+        taskYIELD();
+    }
+}
+
+/* Statistics reporting task */
+void vStatsTask(void *pvParameters) {
+    for (;;) {
+        vTaskDelay(pdMS_TO_TICKS(5000));  /* Report every 5 seconds */
+
+        /* Take a consistent snapshot; the 64-bit sum is not updated atomically */
+        TimingStats_t snap;
+        taskENTER_CRITICAL();
+        snap = stats;
+        taskEXIT_CRITICAL();
+
+        if (snap.count == 0) continue;
+
+        uint32_t avg = (uint32_t)(snap.sum_period_cycles / snap.count);
+        uint32_t jitter = snap.max_period_cycles - snap.min_period_cycles;
+
+        printf("Samples: %lu  Period(cyc): min=%lu avg=%lu max=%lu  "
+               "Jitter(cyc): %lu (%lu us)  Misses: %lu\r\n",
+               snap.count,
+               snap.min_period_cycles, avg, snap.max_period_cycles,
+               jitter, jitter / CPU_FREQ_MHZ,
+               snap.deadline_misses);
+    }
+}
+
+int main(void) {
+    HAL_Init();
+    SystemClockConfig_168MHz();
+    dwt_init();
+    GPIO_Init();
+    UART_Init();
+
+    xTaskCreate(vControlTask, "Control", 256, NULL, 5, NULL);
+    xTaskCreate(vStatsTask,   "Stats",   512, NULL, 2, NULL);
+    /* Uncomment for loaded test: */
+    /* xTaskCreate(vLoadTask, "Load", 256, NULL, 3, NULL); */
+
+    vTaskStartScheduler();
+    for (;;) { }
+}

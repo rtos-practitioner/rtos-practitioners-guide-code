@@ -1,0 +1,7 @@
+ Calling Task                Timer Command Queue           Daemon Task
++-------------+            +-------------------+         +-------------+
+| xTimerStart |---cmd----->| [start][stop][..] |--cmd--->| Process cmd |
+| xTimerStop  |---cmd----->|                   |         | Check expiry|
+| xTimerReset |---cmd----->|                   |         | Run callback|
++-------------+            +-------------------+         +-------------+
+                            configTIMER_QUEUE_LENGTH

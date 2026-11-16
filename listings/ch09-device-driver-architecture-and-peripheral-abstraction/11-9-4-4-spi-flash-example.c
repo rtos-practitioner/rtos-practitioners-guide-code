@@ -1,0 +1,21 @@
+/*
+ * Real-Time Operating Systems: A Practitioner's Guide to FreeRTOS, QNX, and Zephyr
+ * Chapter 9: Device Driver Architecture and Peripheral Abstraction
+ * 9.4 SPI Driver Case Study > 9.4.4 SPI Flash Example
+ * Verification: executed (helper functions called with test arguments)
+ * SPDX-License-Identifier: MIT
+ */
+/* Read 256 bytes from SPI flash at given address */
+int flash_read_page(uint32_t address, uint8_t *buf)
+{
+    uint8_t cmd[4];
+    cmd[0] = 0x03;                     /* Read Data command  */
+    cmd[1] = (address >> 16) & 0xFF;   /* Address byte 2     */
+    cmd[2] = (address >>  8) & 0xFF;   /* Address byte 1     */
+    cmd[3] = (address >>  0) & 0xFF;   /* Address byte 0     */
+
+    /* Command + address, then 256 data bytes, under one CS assertion:
+     * the W25Q128 aborts the read if CS rises between the phases */
+    return spi_write_then_read(&flash_dev, cmd, sizeof(cmd),
+                               buf, 256, 500);
+}

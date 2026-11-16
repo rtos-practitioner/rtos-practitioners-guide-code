@@ -1,0 +1,15 @@
+void vSerialCmdTask(void *pvParam)
+{
+    uint8_t ucRxBuffer[64];
+
+    for (;;) {
+        /* Block until a complete frame is received */
+        uint16_t usLen = usUartReceiveFrame(ucRxBuffer,
+                                            sizeof(ucRxBuffer),
+                                            portMAX_DELAY);
+        if (usLen >= 1) {
+            uint8_t ucId = ucRxBuffer[0];
+            vCommandProcess(ucId, &ucRxBuffer[1], usLen - 1);
+        }
+    }
+}

@@ -1,0 +1,3 @@
+struct k_work_delayable my_dwork;
+k_work_init_delayable(&my_dwork, my_work_handler);
+k_work_schedule(&my_dwork, K_MSEC(50));  /* Execute after 50 ms */

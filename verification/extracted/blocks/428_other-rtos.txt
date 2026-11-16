@@ -1,0 +1,3 @@
+brew install --cask gcc-arm-embedded
+brew install cmake ninja open-ocd git python3
+pip3 install west

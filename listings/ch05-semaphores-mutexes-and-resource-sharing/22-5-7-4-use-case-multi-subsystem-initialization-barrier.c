@@ -1,0 +1,57 @@
+/*
+ * Real-Time Operating Systems: A Practitioner's Guide to FreeRTOS, QNX, and Zephyr
+ * Chapter 5: Semaphores, Mutexes, and Resource Sharing
+ * 5.7 Event Groups > 5.7.4 Use Case: Multi-Subsystem Initialization Barrier
+ * Verification: executed
+ * SPDX-License-Identifier: MIT
+ */
+#define EVT_SENSORS_READY   (1 << 0)
+#define EVT_COMMS_READY     (1 << 1)
+#define EVT_STORAGE_READY   (1 << 2)
+#define EVT_ALL_READY       (EVT_SENSORS_READY | EVT_COMMS_READY | EVT_STORAGE_READY)
+
+static EventGroupHandle_t xStartupEvent;
+
+void vSensorInitTask(void *pv)
+{
+    /* Perform sensor initialization... */
+    vInitSensors();
+    xEventGroupSync(xStartupEvent,
+                     EVT_SENSORS_READY,   /* Set our bit */
+                     EVT_ALL_READY,       /* Wait for everyone */
+                     portMAX_DELAY);
+    /* All subsystems ready -- proceed to operational mode */
+    for (;;) { /* ... sensor loop ... */ }
+}
+
+void vCommsInitTask(void *pv)
+{
+    vInitRadio();
+    xEventGroupSync(xStartupEvent,
+                     EVT_COMMS_READY,
+                     EVT_ALL_READY,
+                     portMAX_DELAY);
+    for (;;) { /* ... comms loop ... */ }
+}
+
+void vStorageInitTask(void *pv)
+{
+    vInitFlash();
+    xEventGroupSync(xStartupEvent,
+                     EVT_STORAGE_READY,
+                     EVT_ALL_READY,
+                     portMAX_DELAY);
+    for (;;) { /* ... storage loop ... */ }
+}
+
+void main(void)
+{
+    xStartupEvent = xEventGroupCreate();
+    configASSERT(xStartupEvent != NULL);
+
+    xTaskCreate(vSensorInitTask,  "SensInit", 256, NULL, 2, NULL);
+    xTaskCreate(vCommsInitTask,   "CommInit", 256, NULL, 2, NULL);
+    xTaskCreate(vStorageInitTask, "StorInit", 256, NULL, 2, NULL);
+
+    vTaskStartScheduler();
+}

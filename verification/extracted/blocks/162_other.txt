@@ -1,0 +1,20 @@
+Priority    NVIC Register    Category
+(logical)   Value
+---------   --------------   -------------------------------------------
+  0         0x00             |                                         |
+  1         0x10             |  Ultra-low-latency interrupts           |
+  2         0x20             |  (CANNOT call any FreeRTOS API)         |
+  3         0x30             |  e.g., motor commutation, safety faults |
+  4         0x40             |                                         |
+            - - - - - - -    <- configMAX_SYSCALL_INTERRUPT_PRIORITY (5)
+  5         0x50             |                                         |
+  6         0x60             |  RTOS-safe interrupts                   |
+  7         0x70             |  (CAN call FromISR APIs)                |
+  8         0x80             |  e.g., UART, SPI, ADC, timers           |
+  ...       ...              |                                         |
+ 14         0xE0             |                                         |
+            - - - - - - -    <- configKERNEL_INTERRUPT_PRIORITY (15)
+ 15         0xF0             |  Kernel: PendSV, SysTick                |
+---------   --------------   -------------------------------------------
+   Higher priority                                      Lower priority
+   (lower number)                                       (higher number)

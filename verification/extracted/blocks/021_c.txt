@@ -1,0 +1,1 @@
+#define configUSE_TIME_SLICING          1

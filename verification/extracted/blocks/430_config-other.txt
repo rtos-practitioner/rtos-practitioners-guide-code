@@ -1,0 +1,4 @@
+{
+    "cortex-debug.openocdPath": "/opt/homebrew/bin/openocd",
+    "cortex-debug.armToolchainPath": "/Applications/ARM/bin"
+}

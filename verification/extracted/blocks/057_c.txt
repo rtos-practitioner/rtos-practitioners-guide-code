@@ -1,0 +1,11 @@
+BaseType_t xQueueSend( QueueHandle_t xQueue,
+                       const void *pvItemToQueue,
+                       TickType_t xTicksToWait );
+
+BaseType_t xQueueSendToBack( QueueHandle_t xQueue,
+                             const void *pvItemToQueue,
+                             TickType_t xTicksToWait );
+
+BaseType_t xQueueSendToFront( QueueHandle_t xQueue,
+                              const void *pvItemToQueue,
+                              TickType_t xTicksToWait );

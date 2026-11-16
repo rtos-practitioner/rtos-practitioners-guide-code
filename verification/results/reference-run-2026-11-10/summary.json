@@ -1,0 +1,53 @@
+{
+ "total_blocks": 436,
+ "by_kind": {
+  "c": 301,
+  "diagram": 31,
+  "other": 55,
+  "shell": 17,
+  "other-rtos": 13,
+  "asm": 2,
+  "linker": 6,
+  "cmake": 5,
+  "config-other": 6
+ },
+ "c_listings": 301,
+ "c_verdicts": {
+  "EXECUTED": 151,
+  "BARE_METAL_BY_DESIGN": 1,
+  "COMPILED_ONLY": 90,
+  "EXECUTED_HELPERS": 45,
+  "HW_LIMITED": 4,
+  "NEEDS_OTHER_PORT": 2,
+  "EXPECTED_FAILURE": 2,
+  "EXCERPT": 2,
+  "NO_SCHEDULER": 1,
+  "BOOK_ISSUE": 3
+ },
+ "c_status": {
+  "RAN_OK": 286,
+  "SCHED_NOT_STARTED": 3,
+  "FAULT": 3,
+  "BUILD_FAIL": 7,
+  "ASSERT": 2
+ },
+ "labs": 13,
+ "lab_status": {
+  "SCHED_NOT_STARTED": 2,
+  "RAN_OK": 10,
+  "BUILD_FAIL": 1
+ },
+ "all_verdicts": {
+  "EXECUTED": 151,
+  "NOT_CODE": 135,
+  "BARE_METAL_BY_DESIGN": 1,
+  "COMPILED_ONLY": 90,
+  "EXECUTED_HELPERS": 45,
+  "HW_LIMITED": 4,
+  "NEEDS_OTHER_PORT": 2,
+  "EXPECTED_FAILURE": 2,
+  "EXCERPT": 2,
+  "NO_SCHEDULER": 1,
+  "BOOK_ISSUE": 3
+ }
+}

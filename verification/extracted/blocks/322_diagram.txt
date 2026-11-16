@@ -1,0 +1,9 @@
++------------------+       +-------------------+       +------------------+
+|  Host PC         |       |  Stimulus HW      |       |  Target Board    |
+|  (Python/MATLAB) | ----> |  DAC, sig gen,    | ----> |  STM32F407 +     |
+|                  |       |  CAN transceiver  |       |  sensors, etc.   |
+|                  | <---- |  ADC, logic anlzr, | <---- |                  |
+|  Test scripts    |       |  protocol decoder  |       |  Production FW   |
++------------------+       +-------------------+       +------------------+
+        |                                                       |
+        +--- JTAG/SWD for flash, reset, debug ------------------+

@@ -1,0 +1,6 @@
+Worst-case MSP usage = Sum of stack frames for all nestable priority levels
+                     = 4 levels * ~150 bytes/level   (conservative: the
+                       first level's HW frame actually lands on the PSP)
+                     = 600 bytes for ISR nesting
+                     + FreeRTOS kernel usage (~128 bytes for context switch)
+                     = ~728 bytes minimum

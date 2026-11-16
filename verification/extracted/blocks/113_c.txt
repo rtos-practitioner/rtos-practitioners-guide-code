@@ -1,0 +1,7 @@
+void vWatchdogFeedTask(void *pvParameters)
+{
+    for (;;) {
+        HAL_IWDG_Refresh(&hiwdg);
+        vTaskDelay(pdMS_TO_TICKS(200));
+    }
+}

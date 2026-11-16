@@ -1,0 +1,29 @@
+1. Hardware automatically pushes R0-R3, R12, LR, PC, xPSR onto PSP
+   (and S0-S15, FPSCR if FP context is active and lazy stacking triggers)
+
+2. PendSV handler entry:
+   a. Read PSP into R0:                MRS   R0, PSP
+   b. Load address of pxCurrentTCB:    LDR   R3, =pxCurrentTCB
+   c. Load the TCB pointer:            LDR   R2, [R3]
+
+3. Save software context:
+   a. If FP (EXC_RETURN bit 4 clear):  VSTMDB R0!, {S16-S31}
+   b. Push R4-R11 and EXC_RETURN:      STMDB  R0!, {R4-R11, R14}
+   c. Store updated SP to TCB:         STR    R0, [R2]  (TCB->pxTopOfStack)
+
+4. Call vTaskSwitchContext():
+   a. Enter critical section (raise BASEPRI)
+   b. Determine the highest-priority ready task
+   c. Update pxCurrentTCB to point to new task's TCB
+   d. Exit critical section
+
+5. Restore new task context:
+   a. Load new TCB pointer:            LDR   R2, [R3]
+   b. Load new SP from TCB:            LDR   R0, [R2]
+   c. Pop R4-R11 and EXC_RETURN:       LDMIA  R0!, {R4-R11, R14}
+   d. If FP (EXC_RETURN bit 4 clear):  VLDMIA R0!, {S16-S31}
+   e. Write new SP to PSP:             MSR    PSP, R0
+
+6. Return from exception via EXC_RETURN (hardware pops R0-R3, R12, LR,
+   PC, xPSR, plus S0-S15 and FPSCR if the frame is extended)
+   New task resumes execution transparently.

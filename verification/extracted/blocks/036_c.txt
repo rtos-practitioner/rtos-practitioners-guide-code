@@ -1,0 +1,8 @@
+BaseType_t xTaskCreate(
+    TaskFunction_t pvTaskCode,       /* Pointer to the task function          */
+    const char * const pcName,       /* Human-readable name (debug only)      */
+    configSTACK_DEPTH_TYPE usStackDepth, /* Stack size in WORDS (not bytes)   */
+    void *pvParameters,              /* Argument passed into task function    */
+    UBaseType_t uxPriority,          /* Task priority (0 = lowest)            */
+    TaskHandle_t *pxCreatedTask      /* Optional: returns task handle         */
+);

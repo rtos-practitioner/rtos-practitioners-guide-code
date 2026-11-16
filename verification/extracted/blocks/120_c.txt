@@ -1,0 +1,9 @@
+BaseType_t xTimerStartFromISR(TimerHandle_t xTimer,
+                               BaseType_t *pxHigherPriorityTaskWoken);
+BaseType_t xTimerStopFromISR(TimerHandle_t xTimer,
+                              BaseType_t *pxHigherPriorityTaskWoken);
+BaseType_t xTimerResetFromISR(TimerHandle_t xTimer,
+                               BaseType_t *pxHigherPriorityTaskWoken);
+BaseType_t xTimerChangePeriodFromISR(TimerHandle_t xTimer,
+                                      TickType_t xNewPeriod,
+                                      BaseType_t *pxHigherPriorityTaskWoken);

@@ -1,0 +1,3 @@
+f_VCO  = f_input * (PLLN / PLLM)
+f_SYSCLK = f_VCO / PLLP
+f_USB    = f_VCO / PLLQ        (must be 48 MHz for USB OTG FS)

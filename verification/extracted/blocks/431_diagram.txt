@@ -1,0 +1,26 @@
+project-root/
+├── CMakeLists.txt              # Top-level CMake configuration
+├── cmake/
+│   └── arm-none-eabi.cmake     # Cross-compilation toolchain file
+├── src/
+│   ├── main.c                  # Application entry point
+│   ├── app_tasks.c             # Task implementations
+│   └── app_tasks.h             # Task function prototypes
+├── include/
+│   ├── FreeRTOSConfig.h        # FreeRTOS tuning parameters
+│   └── stm32f4xx_hal_conf.h    # HAL configuration
+├── drivers/
+│   └── bsp.c                   # Board support package (LED, button init)
+├── third-party/
+│   ├── FreeRTOS/               # FreeRTOS kernel source (see F.6)
+│   ├── CMSIS/                  # ARM CMSIS headers
+│   └── STM32F4xx_HAL_Driver/   # ST HAL library
+├── linker/
+│   └── STM32F407VGTx.ld        # Linker script
+├── openocd/
+│   └── stm32f4discovery.cfg    # OpenOCD board configuration
+├── .vscode/
+│   ├── launch.json             # Debug configuration
+│   ├── tasks.json              # Build tasks
+│   └── settings.json           # Project-level VS Code settings
+└── build/                      # Out-of-source build directory (generated)

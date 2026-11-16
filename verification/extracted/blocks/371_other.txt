@@ -1,0 +1,19 @@
+project/
+  app/             # Application layer
+    main.c
+    control_task.c
+    ui_task.c
+  middleware/       # Service layer
+    event_broker.c
+    data_logger.c
+    protocol.c
+  drivers/          # Driver/BSP layer
+    bsp_stm32f407.c
+    uart_driver.c
+    spi_driver.c
+    gpio_driver.c
+  rtos/             # FreeRTOS kernel (untouched)
+  include/          # Public API headers per layer
+    app/
+    middleware/
+    drivers/

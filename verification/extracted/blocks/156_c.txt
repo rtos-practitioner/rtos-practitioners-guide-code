@@ -1,0 +1,155 @@
+/* lab7_memory.c -- Memory Budget and Overflow Detection Lab */
+
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+#include <string.h>
+#include <stdio.h>
+
+/* Forward declarations */
+static void vHeapMonitorTask(void *pvParameters);
+static void vStackMonitorTask(void *pvParameters);
+static void vWorkerTask(void *pvParameters);
+static void vOverflowTask(void *pvParameters);
+void        vApplicationStackOverflowHook(TaskHandle_t xTask, char *pcTaskName);
+
+/* UART output stub -- implement per your BSP */
+extern void uart_printf(const char *fmt, ...);
+
+/* ---------- Stack Overflow Hook ---------- */
+void vApplicationStackOverflowHook(TaskHandle_t xTask, char *pcTaskName)
+{
+    (void)xTask;
+    /* Minimal action: log to fixed SRAM address and reset */
+    volatile char *pFaultName = (volatile char *)0x2001FF00;
+    strncpy((char *)pFaultName, pcTaskName,
+            configMAX_TASK_NAME_LEN);
+
+    uart_printf("\r\n!!! STACK OVERFLOW: %s !!!\r\n", pcTaskName);
+
+    /* In production: NVIC_SystemReset(); */
+    for (;;) { }  /* Halt for debugging in lab */
+}
+
+/* ---------- Heap Monitor Task ---------- */
+static void vHeapMonitorTask(void *pvParameters)
+{
+    (void)pvParameters;
+
+    for (;;)
+    {
+        size_t xFreeNow = xPortGetFreeHeapSize();
+        size_t xFreeMin = xPortGetMinimumEverFreeHeapSize();
+
+        uart_printf("[HEAP] Free: %6u bytes | Min-ever: %6u bytes | "
+                    "Used: %6u bytes\r\n",
+                    (unsigned)xFreeNow,
+                    (unsigned)xFreeMin,
+                    (unsigned)(configTOTAL_HEAP_SIZE - xFreeNow));
+
+        vTaskDelay(pdMS_TO_TICKS(10000));  /* Every 10 seconds */
+    }
+}
+
+/* ---------- Stack Monitor Task ---------- */
+static void vStackMonitorTask(void *pvParameters)
+{
+    (void)pvParameters;
+
+    for (;;)
+    {
+        UBaseType_t uxArraySize = uxTaskGetNumberOfTasks();
+        TaskStatus_t *pxStatusArray = pvPortMalloc(
+            uxArraySize * sizeof(TaskStatus_t));
+
+        if (pxStatusArray != NULL)
+        {
+            UBaseType_t uxCount = uxTaskGetSystemState(
+                pxStatusArray, uxArraySize, NULL);
+
+            uart_printf("\r\n[STACK] --- High-Water Marks ---\r\n");
+            for (UBaseType_t i = 0; i < uxCount; i++)
+            {
+                UBaseType_t uxHWM = uxTaskGetStackHighWaterMark(
+                    pxStatusArray[i].xHandle);
+                uart_printf("[STACK] %-16s  HWM: %4lu words (%5lu bytes)\r\n",
+                    pxStatusArray[i].pcTaskName,
+                    (unsigned long)uxHWM,
+                    (unsigned long)(uxHWM * sizeof(StackType_t)));
+            }
+            vPortFree(pxStatusArray);
+        }
+        vTaskDelay(pdMS_TO_TICKS(10000));  /* Every 10 seconds */
+    }
+}
+
+/* ---------- Worker Task (allocates/frees to exercise heap) ---------- */
+static void vWorkerTask(void *pvParameters)
+{
+    uint32_t ulTaskId = (uint32_t)pvParameters;
+    (void)ulTaskId;
+
+    for (;;)
+    {
+        /* Allocate a buffer, use it, free it */
+        uint8_t *pBuf = pvPortMalloc(128);
+        if (pBuf != NULL)
+        {
+            memset(pBuf, 0xAA, 128);
+            vTaskDelay(pdMS_TO_TICKS(500));
+            vPortFree(pBuf);
+        }
+        vTaskDelay(pdMS_TO_TICKS(1000));
+    }
+}
+
+/* ---------- Overflow Task (deliberately overflows) ---------- */
+static volatile uint32_t ulRecursionDepth;
+
+static void vDeepRecursion(uint32_t ulDepth)
+{
+    volatile uint8_t ucLocalBuffer[128];  /* 128 bytes per frame */
+    memset((void *)ucLocalBuffer, (int)ulDepth, sizeof(ucLocalBuffer));
+
+    ulRecursionDepth = ulDepth;
+    vDeepRecursion(ulDepth + 1);  /* Never returns */
+}
+
+static void vOverflowTask(void *pvParameters)
+{
+    (void)pvParameters;
+
+    uart_printf("[OVERFLOW] Starting deep recursion...\r\n");
+    vDeepRecursion(0);
+}
+
+/* ---------- Main ---------- */
+int main(void)
+{
+    /* BSP init: clocks, UART, GPIO -- per your board support package */
+    /* HAL_Init(); SystemClock_Config(); UART_Init(); */
+
+    uart_printf("\r\n=== Lab 7: Memory Budget and Overflow Detection ===\r\n");
+    uart_printf("Heap size: %u bytes\r\n\r\n",
+                (unsigned)configTOTAL_HEAP_SIZE);
+
+    /* Create monitoring tasks */
+    xTaskCreate(vHeapMonitorTask,  "HeapMon",  512, NULL, 2, NULL);
+    xTaskCreate(vStackMonitorTask, "StackMon", 512, NULL, 2, NULL);
+
+    /* Create worker tasks that exercise the heap */
+    for (uint32_t i = 0; i < 3; i++)
+    {
+        char cName[16];
+        snprintf(cName, sizeof(cName), "Worker%lu", (unsigned long)i);
+        xTaskCreate(vWorkerTask, cName, 256, (void *)i, 1, NULL);
+    }
+
+    /* Uncomment the next line to trigger stack overflow after 5s */
+    /* xTaskCreate(vOverflowTask, "Overflow", 128, NULL, 1, NULL); */
+
+    vTaskStartScheduler();
+
+    for (;;) { }  /* Should never reach here */
+    return 0;
+}

@@ -1,0 +1,15 @@
++--------------------------------------------------+
+|              Application Layer                    |
+|  (State machines, control logic, user scenarios)  |
++--------------------------------------------------+
+|            Middleware / Service Layer              |
+|  (Event broker, protocol stacks, data logging)    |
++--------------------------------------------------+
+|           Driver / BSP Layer                      |
+|  (GPIO, UART, SPI, I2C, ADC, Timer drivers)      |
++--------------------------------------------------+
+|              Hardware (MCU + Peripherals)          |
++--------------------------------------------------+
+
+          Dependency direction: DOWNWARD ONLY
+           (Upper layers never #include lower)

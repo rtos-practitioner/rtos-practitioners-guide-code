@@ -1,0 +1,22 @@
+/*
+ * Real-Time Operating Systems: A Practitioner's Guide to FreeRTOS, QNX, and Zephyr
+ * Chapter 9: Device Driver Architecture and Peripheral Abstraction
+ * 9.5 I2C Driver Case Study > 9.5.4 Temperature Sensor Example
+ * Verification: executed (helper functions called with test arguments)
+ * SPDX-License-Identifier: MIT
+ */
+/* Read temperature from LM75 sensor */
+float read_temperature(void)
+{
+    uint8_t raw[2];
+
+    if (i2c_read_register(0x48, 0x00, raw, 2, 100) < 0) {
+        return -999.0f;  /* Error sentinel */
+    }
+
+    /* LM75: 11-bit signed value, MSB first, upper 11 bits */
+    int16_t temp_raw = (int16_t)((raw[0] << 8) | raw[1]);
+    temp_raw >>= 5;  /* Right-align 11-bit value */
+
+    return temp_raw * 0.125f;  /* Resolution: 0.125 C per LSB */
+}

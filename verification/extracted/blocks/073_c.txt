@@ -1,0 +1,3 @@
+BaseType_t xTaskNotify( TaskHandle_t xTaskToNotify,
+                        uint32_t ulValue,
+                        eNotifyAction eAction );

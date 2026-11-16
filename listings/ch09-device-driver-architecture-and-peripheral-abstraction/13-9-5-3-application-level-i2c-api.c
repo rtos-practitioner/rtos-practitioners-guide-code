@@ -1,0 +1,33 @@
+/*
+ * Real-Time Operating Systems: A Practitioner's Guide to FreeRTOS, QNX, and Zephyr
+ * Chapter 9: Device Driver Architecture and Peripheral Abstraction
+ * 9.5 I2C Driver Case Study > 9.5.3 Application-Level I2C API
+ * Verification: executed (helper functions called with test arguments)
+ * SPDX-License-Identifier: MIT
+ */
+int i2c_read_register(uint8_t dev_addr, uint8_t reg_addr,
+                      uint8_t *data, uint16_t len,
+                      uint32_t timeout_ms)
+{
+    TickType_t ticks = pdMS_TO_TICKS(timeout_ms);
+
+    if (xSemaphoreTake(i2c_mutex, ticks) != pdTRUE) {
+        return -1;
+    }
+
+    HAL_StatusTypeDef status;
+    status = HAL_I2C_Mem_Read(&hi2c1, (dev_addr << 1), reg_addr,
+                               I2C_MEMADD_SIZE_8BIT,
+                               data, len, timeout_ms);
+
+    if (status != HAL_OK) {
+        /* Attempt bus recovery and retry once */
+        i2c_bus_recovery();
+        status = HAL_I2C_Mem_Read(&hi2c1, (dev_addr << 1), reg_addr,
+                                   I2C_MEMADD_SIZE_8BIT,
+                                   data, len, timeout_ms);
+    }
+
+    xSemaphoreGive(i2c_mutex);
+    return (status == HAL_OK) ? (int)len : -1;
+}

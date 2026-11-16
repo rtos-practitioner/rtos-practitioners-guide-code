@@ -1,0 +1,2 @@
+SemaphoreHandle_t xSemaphoreCreateCounting(UBaseType_t uxMaxCount,
+                                            UBaseType_t uxInitialCount);

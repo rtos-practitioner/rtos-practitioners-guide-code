@@ -1,0 +1,18 @@
+/* WRONG: CPU-bound task at high priority, never blocks */
+void vBadCpuBoundTask(void *pvParam)
+{
+    for (;;) {
+        vDoHeavyComputation();  /* Never yields — idle task starved */
+    }
+}
+
+/* CORRECT: Task blocks periodically, allowing idle task to run */
+void vGoodCpuBoundTask(void *pvParam)
+{
+    TickType_t xLastWake = xTaskGetTickCount();
+    for (;;) {
+        vDoHeavyComputation();
+        /* Yield for at least 1 tick every iteration */
+        vTaskDelayUntil(&xLastWake, pdMS_TO_TICKS(1));
+    }
+}

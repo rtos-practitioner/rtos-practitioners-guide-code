@@ -1,0 +1,21 @@
+for( ;; )
+{
+    QueueSetMemberHandle_t xActiveMember;
+    xActiveMember = xQueueSelectFromSet( xSet, portMAX_DELAY );
+
+    if( xActiveMember == xUartQueue )
+    {
+        xQueueReceive( xUartQueue, &xUartCmd, 0 );
+        vHandleUartCommand( &xUartCmd );
+    }
+    else if( xActiveMember == xAdcQueue )
+    {
+        xQueueReceive( xAdcQueue, &xAdcReading, 0 );
+        vHandleAdcReading( &xAdcReading );
+    }
+    else if( xActiveMember == xNetQueue )
+    {
+        xQueueReceive( xNetQueue, &xNetStatus, 0 );
+        vHandleNetStatus( &xNetStatus );
+    }
+}

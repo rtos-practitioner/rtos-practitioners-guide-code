@@ -1,0 +1,68 @@
+/*
+ * Real-Time Operating Systems: A Practitioner's Guide to FreeRTOS, QNX, and Zephyr
+ * Chapter 6: Software Timers and Deferred Execution
+ * 6.3 Creating and Managing Timers > Code Example: Three Timer Patterns
+ * Verification: executed (helper functions called with test arguments)
+ * SPDX-License-Identifier: MIT
+ */
+#include "FreeRTOS.h"
+#include "timers.h"
+#include "bsp.h"
+
+/* Timer handles */
+static TimerHandle_t xLedTimer;
+static TimerHandle_t xWatchdogTimer;
+static TimerHandle_t xInactivityTimer;
+
+/* --- LED blink: auto-reload, 500 ms period --- */
+static void vLedTimerCallback(TimerHandle_t xTimer)
+{
+    (void)xTimer;
+    BSP_LED_Toggle(LED_GREEN);
+}
+
+/* --- Watchdog feed: auto-reload, 200 ms period --- */
+static void vWatchdogTimerCallback(TimerHandle_t xTimer)
+{
+    (void)xTimer;
+    HAL_IWDG_Refresh(&hiwdg);
+}
+
+/* --- Inactivity timeout: one-shot, 30 s period --- */
+static void vInactivityCallback(TimerHandle_t xTimer)
+{
+    (void)xTimer;
+    BSP_EnterLowPowerMode();  /* No activity for 30 s -- sleep */
+}
+
+void vApplicationSetupTimers(void)
+{
+    xLedTimer = xTimerCreate("LED",
+                             pdMS_TO_TICKS(500),
+                             pdTRUE,           /* Auto-reload */
+                             NULL,
+                             vLedTimerCallback);
+
+    xWatchdogTimer = xTimerCreate("WDG",
+                                  pdMS_TO_TICKS(200),
+                                  pdTRUE,      /* Auto-reload */
+                                  NULL,
+                                  vWatchdogTimerCallback);
+
+    xInactivityTimer = xTimerCreate("Inactiv",
+                                    pdMS_TO_TICKS(30000),
+                                    pdFALSE,   /* One-shot */
+                                    NULL,
+                                    vInactivityCallback);
+
+    /* Start the timers -- block up to 100 ms if queue full */
+    xTimerStart(xLedTimer, pdMS_TO_TICKS(100));
+    xTimerStart(xWatchdogTimer, pdMS_TO_TICKS(100));
+    xTimerStart(xInactivityTimer, pdMS_TO_TICKS(100));
+}
+
+/* Call this from any task when user activity is detected */
+void vResetInactivityTimer(void)
+{
+    xTimerReset(xInactivityTimer, 0);  /* Non-blocking */
+}

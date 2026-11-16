@@ -1,0 +1,30 @@
+/*
+ * Real-Time Operating Systems: A Practitioner's Guide to FreeRTOS, QNX, and Zephyr
+ * Chapter 7: Memory Management in Resource-Constrained Systems
+ * 7.3 Static vs Dynamic Allocation > Required Callbacks
+ * Verification: compiled, linked and booted (declarations only)
+ * SPDX-License-Identifier: MIT
+ */
+static StaticTask_t xIdleTaskTCB;
+static StackType_t  xIdleTaskStack[configMINIMAL_STACK_SIZE];
+
+void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer,
+                                   StackType_t  **ppxIdleTaskStackBuffer,
+                                   uint32_t      *pulIdleTaskStackSize)
+{
+    *ppxIdleTaskTCBBuffer   = &xIdleTaskTCB;
+    *ppxIdleTaskStackBuffer = xIdleTaskStack;
+    *pulIdleTaskStackSize   = configMINIMAL_STACK_SIZE;
+}
+
+static StaticTask_t xTimerTaskTCB;
+static StackType_t  xTimerTaskStack[configTIMER_TASK_STACK_DEPTH];
+
+void vApplicationGetTimerTaskMemory(StaticTask_t **ppxTimerTaskTCBBuffer,
+                                    StackType_t  **ppxTimerTaskStackBuffer,
+                                    uint32_t      *pulTimerTaskStackSize)
+{
+    *ppxTimerTaskTCBBuffer   = &xTimerTaskTCB;
+    *ppxTimerTaskStackBuffer = xTimerTaskStack;
+    *pulTimerTaskStackSize   = configTIMER_TASK_STACK_DEPTH;
+}

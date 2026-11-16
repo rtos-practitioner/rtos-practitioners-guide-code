@@ -1,0 +1,15 @@
+Address         Entry              Description
+-------         -----              -----------
+0x00000000      Initial MSP        Top of main stack
+0x00000004      Reset_Handler      Entry point after reset
+0x00000008      NMI_Handler        Non-maskable interrupt
+0x0000000C      HardFault_Handler  All fault classes (if not configured separately)
+  ...
+0x0000002C      SVC_Handler        Supervisor call (used by FreeRTOS for first task)
+  ...
+0x00000038      PendSV_Handler     Pendable service call (FreeRTOS context switch)
+0x0000003C      SysTick_Handler    System tick timer (FreeRTOS tick interrupt)
+0x00000040      WWDG_IRQHandler    External interrupt #0 (Window Watchdog)
+0x00000044      PVD_IRQHandler     External interrupt #1
+  ...
+0x00000184      FPU_IRQHandler     External interrupt #81

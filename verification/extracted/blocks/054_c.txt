@@ -1,0 +1,8 @@
+static StaticQueue_t xQueueStorage;
+static uint8_t ucQueueBuffer[ 10 * sizeof( SensorReading_t ) ];
+
+QueueHandle_t xSensorQueue = xQueueCreateStatic(
+    10,
+    sizeof( SensorReading_t ),
+    ucQueueBuffer,
+    &xQueueStorage );

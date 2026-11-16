@@ -1,0 +1,218 @@
+/* lab6_timers.c -- Software Timer Precision and Patterns
+ * Target: STM32F407 Discovery, FreeRTOS
+ */
+
+#include "FreeRTOS.h"
+#include "task.h"
+#include "timers.h"
+#include <string.h>
+#include <stdio.h>
+
+/* ---------- DWT Cycle Counter Helpers ---------- */
+#define DWT_CYCCNT    (*(volatile uint32_t *)0xE0001004)
+#define DWT_CONTROL   (*(volatile uint32_t *)0xE0001000)
+#define SCB_DEMCR     (*(volatile uint32_t *)0xE000EDFC)
+#define CPU_FREQ_HZ   168000000u
+
+static void DWT_Init(void)
+{
+    SCB_DEMCR  |= 0x01000000u;  /* Enable DWT */
+    DWT_CYCCNT  = 0;
+    DWT_CONTROL |= 1u;          /* Enable cycle counter */
+}
+
+/* ---------- Jitter Measurement ---------- */
+#define NUM_PERIODS     3
+#define MAX_SAMPLES     100
+
+static const uint32_t ulPeriodMs[NUM_PERIODS] = { 10, 100, 1000 };
+
+typedef struct {
+    uint32_t ulExpectedCycles;
+    uint32_t ulLastCycle;
+    int32_t  lJitterSamples[MAX_SAMPLES];
+    uint32_t ulSampleIndex;
+    uint8_t  ucReady;
+} JitterData_t;
+
+static JitterData_t xJitter[NUM_PERIODS];
+static TimerHandle_t xJitterTimers[NUM_PERIODS];
+
+static void vJitterCallback(TimerHandle_t xTimer)
+{
+    uint32_t ulIdx = (uint32_t)(uintptr_t)pvTimerGetTimerID(xTimer);
+    JitterData_t *pData = &xJitter[ulIdx];
+    uint32_t ulNow = DWT_CYCCNT;
+
+    if (pData->ucReady) {
+        if (pData->ulSampleIndex < MAX_SAMPLES) {
+            uint32_t ulActual = ulNow - pData->ulLastCycle;
+            pData->lJitterSamples[pData->ulSampleIndex] =
+                (int32_t)(ulActual - pData->ulExpectedCycles);
+            pData->ulSampleIndex++;
+        }
+    }
+    pData->ucReady = 1;
+    pData->ulLastCycle = ulNow;
+}
+
+/* ---------- Button Debounce ---------- */
+static TimerHandle_t xDebounceTimer;
+static volatile BaseType_t xDebounceReady = pdTRUE;
+
+static void vDebounceCallback(TimerHandle_t xTimer)
+{
+    (void)xTimer;
+    /* Read settled button state (PA0 on Discovery) */
+    if ((GPIOA->IDR & 0x01) != 0) {
+        /* Confirmed press: toggle blue LED (PD15) */
+        GPIOD->ODR ^= (1u << 15);
+    }
+    xDebounceReady = pdTRUE;
+}
+
+void EXTI0_IRQHandler(void)
+{
+    BaseType_t xWoken = pdFALSE;
+    /* Clear EXTI pending bit */
+    EXTI->PR = (1u << 0);
+
+    if (xDebounceReady == pdTRUE) {
+        xDebounceReady = pdFALSE;
+        xTimerResetFromISR(xDebounceTimer, &xWoken);
+    }
+    portYIELD_FROM_ISR(xWoken);
+}
+
+/* ---------- Watchdog Health Check ---------- */
+#define TASK_A_BIT  (1u << 0)
+#define TASK_B_BIT  (1u << 1)
+#define ALL_ALIVE   (TASK_A_BIT | TASK_B_BIT)
+
+static volatile uint32_t ulAliveFlags = 0;
+static TimerHandle_t xWdgCheckTimer;
+
+static void vWdgCheckCallback(TimerHandle_t xTimer)
+{
+    (void)xTimer;
+    uint32_t ulSnapshot;
+
+    /* Snapshot and clear atomically with respect to the tasks */
+    taskENTER_CRITICAL();
+    ulSnapshot = ulAliveFlags;
+    if ((ulSnapshot & ALL_ALIVE) == ALL_ALIVE) {
+        ulAliveFlags = 0;
+    }
+    taskEXIT_CRITICAL();
+
+    if ((ulSnapshot & ALL_ALIVE) == ALL_ALIVE) {
+        /* All tasks alive -- feed watchdog */
+        /* HAL_IWDG_Refresh(&hiwdg); */  /* Uncomment for real watchdog */
+        GPIOD->ODR ^= (1u << 12);        /* Toggle green LED as indicator */
+    }
+    /* If not all alive, watchdog starves -- MCU resets */
+}
+
+static void vTaskA(void *pvParameters)
+{
+    (void)pvParameters;
+    for (;;) {
+        /* Application work */
+        taskENTER_CRITICAL();
+        ulAliveFlags |= TASK_A_BIT;
+        taskEXIT_CRITICAL();
+        vTaskDelay(pdMS_TO_TICKS(150));
+    }
+}
+
+static void vTaskB(void *pvParameters)
+{
+    (void)pvParameters;
+    for (;;) {
+        /* Application work */
+        taskENTER_CRITICAL();
+        ulAliveFlags |= TASK_B_BIT;
+        taskEXIT_CRITICAL();
+        vTaskDelay(pdMS_TO_TICKS(200));
+    }
+}
+
+/* ---------- Statistics Reporting Task ---------- */
+static void vStatsTask(void *pvParameters)
+{
+    (void)pvParameters;
+
+    /* Wait for all samples to be collected */
+    vTaskDelay(pdMS_TO_TICKS(120000));  /* 2 minutes covers 100x 1000ms */
+
+    for (uint32_t i = 0; i < NUM_PERIODS; i++) {
+        JitterData_t *p = &xJitter[i];
+        int32_t lMin = INT32_MAX, lMax = INT32_MIN;
+        int64_t llSum = 0;
+
+        for (uint32_t s = 0; s < MAX_SAMPLES; s++) {
+            int32_t lVal = p->lJitterSamples[s];
+            if (lVal < lMin) lMin = lVal;
+            if (lVal > lMax) lMax = lVal;
+            llSum += lVal;
+        }
+        int32_t lMean = (int32_t)(llSum / MAX_SAMPLES);
+
+        /* Convert cycles to microseconds */
+        printf("Timer %lu ms: jitter min=%ld us, max=%ld us, mean=%ld us\r\n",
+               ulPeriodMs[i],
+               (long)(lMin / (int32_t)(CPU_FREQ_HZ / 1000000)),
+               (long)(lMax / (int32_t)(CPU_FREQ_HZ / 1000000)),
+               (long)(lMean / (int32_t)(CPU_FREQ_HZ / 1000000)));
+    }
+
+    /* Halt: data reported */
+    for (;;) vTaskDelay(portMAX_DELAY);
+}
+
+/* ---------- Main ---------- */
+int main(void)
+{
+    HAL_Init();
+    SystemClock_Config();  /* 168 MHz from 8 MHz HSE */
+    BSP_GPIO_Init();       /* LEDs on PD12-PD15, button on PA0 */
+    DWT_Init();
+
+    /* Create jitter measurement timers */
+    for (uint32_t i = 0; i < NUM_PERIODS; i++) {
+        memset(&xJitter[i], 0, sizeof(JitterData_t));
+        xJitter[i].ulExpectedCycles = (CPU_FREQ_HZ / 1000) * ulPeriodMs[i];
+
+        xJitterTimers[i] = xTimerCreate("Jit",
+                                        pdMS_TO_TICKS(ulPeriodMs[i]),
+                                        pdTRUE,
+                                        (void *)(uintptr_t)i,
+                                        vJitterCallback);
+        xTimerStart(xJitterTimers[i], portMAX_DELAY);
+    }
+
+    /* Create debounce timer (50 ms one-shot) */
+    xDebounceTimer = xTimerCreate("Dbnc",
+                                  pdMS_TO_TICKS(50),
+                                  pdFALSE,
+                                  NULL,
+                                  vDebounceCallback);
+
+    /* Create watchdog check timer (500 ms auto-reload) */
+    xWdgCheckTimer = xTimerCreate("WdgC",
+                                  pdMS_TO_TICKS(500),
+                                  pdTRUE,
+                                  NULL,
+                                  vWdgCheckCallback);
+    xTimerStart(xWdgCheckTimer, portMAX_DELAY);
+
+    /* Create monitored tasks */
+    xTaskCreate(vTaskA, "TaskA", 128, NULL, 2, NULL);
+    xTaskCreate(vTaskB, "TaskB", 128, NULL, 2, NULL);
+
+    /* Create statistics reporting task */
+    xTaskCreate(vStatsTask, "Stats", 256, NULL, 1, NULL);
+
+    vTaskStartScheduler();
+    for (;;) {}  /* Should never reach here */
+}

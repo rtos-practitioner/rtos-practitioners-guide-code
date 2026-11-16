@@ -1,0 +1,9 @@
+void vAlertTask(void *pvParam)
+{
+    for (;;) {
+        TimerHandle_t xT = xTimerCreate("Alert",
+            pdMS_TO_TICKS(200), pdFALSE, NULL, vAlertCallback);
+        xTimerStart(xT, portMAX_DELAY);
+        vTaskDelay(pdMS_TO_TICKS(1000));
+    }
+}

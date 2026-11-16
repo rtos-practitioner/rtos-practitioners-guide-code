@@ -1,0 +1,16 @@
+#!/bin/bash
+# ci_target_test.sh — called by CI runner
+
+# Flash firmware via OpenOCD
+openocd -f interface/stlink.cfg -f target/stm32f4x.cfg \
+    -c "program build/firmware.elf verify reset exit"
+
+# Wait for boot
+sleep 2
+
+# Run tests via UART, capture output
+python3 scripts/run_target_tests.py /dev/ttyACM0 115200 \
+    --timeout 60 --output results/target_tests.xml
+
+# Parse results
+python3 scripts/parse_junit.py results/target_tests.xml

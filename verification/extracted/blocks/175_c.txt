@@ -1,0 +1,11 @@
+void EXTI1_IRQHandler(void)
+{
+    GPIOC->BSRR = GPIO_BSRR_BS0;    /* PC0 HIGH -- first instruction */
+
+    /* ... ISR body ... */
+
+    GPIOC->BSRR = GPIO_BSRR_BR0;    /* PC0 LOW -- last instruction */
+
+    EXTI->PR = EXTI_PR_PR1;
+    portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+}

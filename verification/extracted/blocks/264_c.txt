@@ -1,0 +1,7 @@
+#define traceTASK_SWITCHED_IN()                                       \
+    do {                                                              \
+        if (pxCurrentTCB->uxTaskNumber == MOTOR_TASK_ID)              \
+            GPIOD->BSRR = GPIO_PIN_12;    /* PD12 high */            \
+        else                                                          \
+            GPIOD->BSRR = GPIO_PIN_12 << 16; /* PD12 low */          \
+    } while (0)

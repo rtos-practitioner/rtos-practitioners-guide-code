@@ -1,0 +1,10 @@
+void vSamplingTask(void *pvParam)
+{
+    for (;;) {
+        vReadADCAndStoreResult();  /* Takes 1-5 ms depending on channel */
+
+        /* WRONG: Delay is relative to NOW, not to the last wake.
+           Period = execution_time + 100 ms, with jitter. */
+        vTaskDelay(pdMS_TO_TICKS(100));
+    }
+}

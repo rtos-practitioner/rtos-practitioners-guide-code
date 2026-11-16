@@ -1,0 +1,2 @@
+/* FreeRTOSConfig.h */
+#define configUSE_TICKLESS_IDLE    2

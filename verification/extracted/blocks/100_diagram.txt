@@ -1,0 +1,6 @@
+  Task A                        Task B
+  ------                        ------
+  Take(Mutex1) -- succeeds      Take(Mutex2) -- succeeds
+  Take(Mutex2) -- BLOCKS        Take(Mutex1) -- BLOCKS
+       |                              |
+       +------- circular wait --------+

@@ -1,0 +1,9 @@
+/* Non-constant time: branch on data */
+if (error > threshold)
+    output = max_output;
+else
+    output = pid_compute(error);
+
+/* Constant time: branchless select */
+int32_t saturated = (error > threshold);
+output = saturated * max_output + (1 - saturated) * pid_compute(error);

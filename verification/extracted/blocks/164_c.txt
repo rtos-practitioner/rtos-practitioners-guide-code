@@ -1,0 +1,17 @@
+/* Binary semaphore given from ISR, taken by handler task */
+static SemaphoreHandle_t xDmaSemaphore;
+
+void DMA1_Stream6_IRQHandler(void)
+{
+    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+
+    if (DMA1->HISR & DMA_HISR_TCIF6)           /* Transfer complete? */
+    {
+        DMA1->HIFCR = DMA_HIFCR_CTCIF6;        /* Clear flag        */
+
+        xSemaphoreGiveFromISR(xDmaSemaphore,
+                              &xHigherPriorityTaskWoken);
+    }
+
+    portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+}

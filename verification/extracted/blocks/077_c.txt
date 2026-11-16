@@ -1,0 +1,5 @@
+if( xQueueSend( xQueue, &xData, pdMS_TO_TICKS( 100 ) ) != pdPASS )
+{
+    vReportError( ERR_QUEUE_TIMEOUT );
+    /* Take corrective action: drop data, restart consumer, etc. */
+}

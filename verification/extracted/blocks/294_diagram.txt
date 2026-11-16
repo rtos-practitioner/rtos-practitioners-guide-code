@@ -1,0 +1,11 @@
+Monitoring period: 500 ms
+
+  Task A (control)     ─── sets bit 0 every 10 ms cycle ───▶
+  Task B (comms)       ─── sets bit 1 every 100 ms cycle ──▶
+  Task C (logging)     ─── sets bit 2 every 250 ms cycle ──▶
+                                                              │
+  Monitor Task  ◀── reads bitmap every 500 ms ────────────────┘
+       │                   expected: 0x07
+       │                   actual:   0x05   ← bit 1 missing (Task B)
+       ▼
+  Escalation: Task B missed deadline

@@ -1,0 +1,2 @@
+; In startup_stm32f407xx.s
+Stack_Size      EQU     0x00000800    ; 2048 bytes

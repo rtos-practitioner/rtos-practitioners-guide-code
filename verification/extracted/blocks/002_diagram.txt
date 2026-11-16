@@ -1,0 +1,10 @@
+Event ──> ISR Entry ──> ISR Processing ──> Task Wake ──> Task Dispatch ──> Output
+  │         │              │                 │              │               │
+  └─ t0     └─ t1          └─ t2             └─ t3          └─ t4           └─ t5
+
+Total Latency = t5 - t0
+Interrupt Latency = t1 - t0
+ISR Processing Time = t2 - t1
+Handoff Latency = t3 - t2
+Dispatch Latency = t4 - t3
+Processing Time = t5 - t4

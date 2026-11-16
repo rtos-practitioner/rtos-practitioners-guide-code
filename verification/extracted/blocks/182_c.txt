@@ -1,0 +1,5 @@
+/* Application-facing API (hardware-independent) */
+int uart_write(uart_port_t port, const uint8_t *data,
+               size_t len, uint32_t timeout_ms);
+int uart_read(uart_port_t port, uint8_t *buf,
+              size_t len, uint32_t timeout_ms);

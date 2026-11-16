@@ -1,0 +1,1 @@
+Life = 620 mAh / 0.308 mA = 2,013 hours ≈ 84 days

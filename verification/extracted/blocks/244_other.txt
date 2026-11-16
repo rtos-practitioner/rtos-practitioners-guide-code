@@ -1,0 +1,1 @@
+f_counter = f_timer_input / (PSC + 1)

@@ -1,0 +1,16 @@
+#include "hardware/sync.h"
+
+static spin_lock_t *pxCounterLock;
+
+void counter_init(void)
+{
+    pxCounterLock = spin_lock_init(spin_lock_claim_unused(true));
+}
+
+void counter_increment(void)
+{
+    /* Masks local interrupts and spins for the lock */
+    uint32_t ulSaved = spin_lock_blocking(pxCounterLock);
+    shared_counter++;
+    spin_unlock(pxCounterLock, ulSaved);
+}

@@ -1,0 +1,8 @@
+void DMA1_Stream6_IRQHandler(void)
+{
+    HAL_DMA_IRQHandler(&hdma_usart2_tx);
+    printf("DMA transfer complete\n");
+    xSemaphoreTake(xResourceMutex, portMAX_DELAY);
+    ulTransferCount++;
+    xSemaphoreGive(xResourceMutex);
+}

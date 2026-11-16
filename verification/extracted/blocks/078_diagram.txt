@@ -1,0 +1,22 @@
+  +------------+    +------------+    +------------------+
+  | SensorTask |    | SensorTask |    | Timer ISR        |
+  | (Temp)     |    | (Pressure) |    | (Vibration 1kHz) |
+  | 10 Hz      |    | 5 Hz       |    +--------+---------+
+  +-----+------+    +-----+------+             |
+        |                  |        xQueueSendFromISR()
+        | xQueueSend()    | xQueueSend()       |
+        |                  |                    |
+        +--------+---------+--------------------+
+                 |
+         +-------v--------+
+         | xCommandQueue  |
+         | (depth = 32)   |
+         +-------+--------+
+                 |
+         +-------v--------+
+         | vAggregator    |
+         | Task           |
+         | - filter       |
+         | - log          |
+         | - statistics   |
+         +----------------+

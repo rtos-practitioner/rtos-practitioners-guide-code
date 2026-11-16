@@ -1,0 +1,3 @@
+/* Queue holding up to 10 sensor readings, each 12 bytes */
+QueueHandle_t xSensorQueue = xQueueCreate( 10, sizeof( SensorReading_t ) );
+configASSERT( xSensorQueue != NULL );

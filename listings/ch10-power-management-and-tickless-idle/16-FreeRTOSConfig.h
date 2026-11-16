@@ -1,0 +1,37 @@
+/*
+ * Real-Time Operating Systems: A Practitioner's Guide to FreeRTOS, QNX, and Zephyr
+ * Chapter 10: Power Management and Tickless Idle
+ * 10.10 Lab 10: Tickless Idle Power Optimization > Part 1: Baseline Measurement (Standard Tick)
+ * Verification: executed
+ * SPDX-License-Identifier: MIT
+ */
+/* FreeRTOSConfig.h */
+#define configUSE_TICKLESS_IDLE    0
+#define configTICK_RATE_HZ         1000
+
+/* main.c */
+void vBlinkTask(void *pv)
+{
+    for (;;)
+    {
+        HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+        vTaskDelay(pdMS_TO_TICKS(2000));
+    }
+}
+
+int main(void)
+{
+    HAL_Init();
+    SystemClock_Config();        /* 168 MHz from HSE + PLL */
+    __HAL_RCC_GPIOD_CLK_ENABLE();
+    GPIO_InitTypeDef gpio = {
+        .Pin   = GPIO_PIN_12,
+        .Mode  = GPIO_MODE_OUTPUT_PP,
+        .Speed = GPIO_SPEED_FREQ_LOW
+    };
+    HAL_GPIO_Init(GPIOD, &gpio);
+
+    xTaskCreate(vBlinkTask, "Blink", 128, NULL, 1, NULL);
+    vTaskStartScheduler();
+    for (;;);
+}

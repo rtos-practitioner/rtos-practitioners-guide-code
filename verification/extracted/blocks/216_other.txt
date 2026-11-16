@@ -1,0 +1,7 @@
+Standard Idle (1ms tick):
+
+  Sleep  Wake  Sleep  Wake  Sleep  Wake  Sleep  Wake
+  __|____|____|____|____|____|____|____|____|____|__
+    1ms   1ms   1ms   1ms   1ms   1ms   1ms   1ms
+    ^     ^     ^     ^     ^     ^     ^     ^
+    SysTick interrupts --- all wasted if no task is ready

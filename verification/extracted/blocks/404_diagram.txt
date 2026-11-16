@@ -1,0 +1,14 @@
++---------------------------------------------+
+|   Application Layer (user messages)          |
++---------------------------------------------+
+|   RPMsg (channel-based messaging)            |
+|   - Named endpoints                          |
+|   - Request/response and streaming           |
++---------------------------------------------+
+|   VirtIO (virtual I/O transport)             |
+|   - Shared memory vring descriptors          |
+|   - Interrupt-driven notifications           |
++---------------------------------------------+
+|   Remoteproc (lifecycle management)          |
+|   - Load/start/stop remote core firmware     |
++---------------------------------------------+

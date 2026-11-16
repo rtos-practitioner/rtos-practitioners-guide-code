@@ -1,0 +1,2 @@
+sudo dpkg -i code_*.deb
+sudo apt install -f

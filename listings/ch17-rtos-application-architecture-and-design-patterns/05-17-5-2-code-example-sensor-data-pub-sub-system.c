@@ -1,0 +1,61 @@
+/*
+ * Real-Time Operating Systems: A Practitioner's Guide to FreeRTOS, QNX, and Zephyr
+ * Chapter 17: RTOS Application Architecture and Design Patterns
+ * 17.5 Publish-Subscribe Pattern > 17.5.2 Code Example: Sensor Data Pub-Sub System
+ * Verification: executed (helper functions called with test arguments)
+ * SPDX-License-Identifier: MIT
+ */
+#define MAX_SUBSCRIBERS_PER_EVENT  8
+#define MAX_EVENT_TYPES            16
+
+typedef struct {
+    ActiveObject_t *pxSubscribers[MAX_SUBSCRIBERS_PER_EVENT];
+    uint8_t         ucCount;
+} SubscriptionList_t;
+
+static SubscriptionList_t xSubTable[MAX_EVENT_TYPES];
+
+void vBrokerSubscribe(EventType_t eType, ActiveObject_t *pxSubscriber)
+{
+    configASSERT(eType < MAX_EVENT_TYPES);
+    SubscriptionList_t *pxList = &xSubTable[eType];
+    configASSERT(pxList->ucCount < MAX_SUBSCRIBERS_PER_EVENT);
+    pxList->pxSubscribers[pxList->ucCount++] = pxSubscriber;
+}
+
+void vBrokerPublish(const Event_t *pxEvent)
+{
+    configASSERT(pxEvent->eType < MAX_EVENT_TYPES);
+    SubscriptionList_t *pxList = &xSubTable[pxEvent->eType];
+
+    for (uint8_t i = 0; i < pxList->ucCount; i++) {
+        /* Post a copy to each subscriber's queue without blocking;
+           a full queue is counted in ulPostFailures */
+        (void)xActiveObjectPost(pxList->pxSubscribers[i], pxEvent, 0);
+    }
+}
+
+/* --- Usage --- */
+void vSystemInit(void)
+{
+    /* Sensor task publishes EVT_SENSOR_DATA_READY */
+    /* Data processing and logging both subscribe */
+    vBrokerSubscribe(EVT_SENSOR_DATA_READY, &xDataProcessor.xBase);
+    vBrokerSubscribe(EVT_SENSOR_DATA_READY, &xDataLogger.xBase);
+    vBrokerSubscribe(EVT_ERROR_DETECTED,    &xErrorHandler.xBase);
+}
+
+/* Inside sensor active object's dispatch: */
+static void vSensorDispatch(ActiveObject_t *pxAO,
+                            const Event_t *pxEvent)
+{
+    if (pxEvent->eType == EVT_TIMER_EXPIRED) {
+        uint32_t ulReading = ulReadADC(ADC_CHANNEL_TEMP);
+        Event_t xPub = {
+            .eType      = EVT_SENSOR_DATA_READY,
+            .ulTimestamp = xTaskGetTickCount(),
+            .ulPayload  = ulReading
+        };
+        vBrokerPublish(&xPub);
+    }
+}

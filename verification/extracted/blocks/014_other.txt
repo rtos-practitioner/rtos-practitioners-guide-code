@@ -1,0 +1,43 @@
+project-root/
++-- CMakeLists.txt              # Top-level build configuration
++-- README.md                   # Build instructions and version info
++-- config/
+|   +-- FreeRTOSConfig.h        # RTOS configuration
++-- core/                       # MCU startup and system code
+|   +-- include/
+|   |   +-- stm32f4xx.h         # Device headers (CMSIS)
+|   +-- startup_stm32f407xx.s   # Reset vector and startup assembly
+|   +-- system_stm32f4xx.c      # System clock initialization
+|   +-- syscalls.c              # Newlib stubs (printf, malloc wrappers)
++-- bsp/                        # Board Support Package
+|   +-- include/
+|   |   +-- bsp.h               # Board-level initialization API
+|   +-- bsp_discovery_f407.c    # Pin assignments, LED/button config
++-- drivers/                    # Peripheral drivers
+|   +-- include/
+|   |   +-- drv_gpio.h
+|   |   +-- drv_uart.h
+|   |   +-- drv_spi.h
+|   +-- drv_gpio.c
+|   +-- drv_uart.c
+|   +-- drv_spi.c
++-- rtos/                       # RTOS wrappers and hooks
+|   +-- include/
+|   |   +-- rtos_helpers.h
+|   +-- rtos_hooks.c            # FreeRTOS hook implementations
++-- app/                        # Application tasks
+|   +-- include/
+|   |   +-- app_tasks.h
+|   +-- main.c                  # System entry point
+|   +-- task_heartbeat.c
+|   +-- task_monitor.c
++-- tests/
+|   +-- host/                   # Host-based unit tests
+|   +-- target/                 # On-target integration tests
++-- linker/
+|   +-- STM32F407VGTx_FLASH.ld  # Memory layout
++-- scripts/
+|   +-- flash.sh
+|   +-- debug.sh
++-- third_party/
+    +-- FreeRTOS/               # Kernel source (pinned version tag)

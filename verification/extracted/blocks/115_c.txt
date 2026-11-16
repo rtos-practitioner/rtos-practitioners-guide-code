@@ -1,0 +1,7 @@
+TimerHandle_t xTimerCreate(
+    const char * const pcTimerName,     /* Human-readable name (debug only) */
+    TickType_t xTimerPeriodInTicks,     /* Period in ticks (must be > 0) */
+    UBaseType_t uxAutoReload,           /* pdTRUE = auto-reload, pdFALSE = one-shot */
+    void * pvTimerID,                   /* User-defined ID (often a pointer) */
+    TimerCallbackFunction_t pxCallbackFunction  /* Function called on expiry */
+);

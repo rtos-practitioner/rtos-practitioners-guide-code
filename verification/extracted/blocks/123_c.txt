@@ -1,0 +1,9 @@
+static void vHeavyProcessingTimerCallback(TimerHandle_t xTimer)
+{
+    (void)xTimer;
+
+    /* Signal the worker task -- do NOT process here.
+       Timer callbacks run in the daemon task's context, so use the
+       task-level API; xTaskNotifyGive() never blocks. */
+    xTaskNotifyGive(xWorkerTaskHandle);
+}

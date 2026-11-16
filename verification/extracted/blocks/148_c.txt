@@ -1,0 +1,11 @@
+void vApplicationStackOverflowHook(TaskHandle_t xTask, char *pcTaskName)
+{
+    /* WARNING: stack is already corrupted at this point.
+     * Do not use local variables or call complex functions.
+     * Log the task name to a dedicated fault buffer and reset. */
+    volatile uint32_t *fault_log = (uint32_t *)0x2001FF00;
+    fault_log[0] = 0xDEAD0007;  /* Fault code: stack overflow */
+
+    /* Force a system reset */
+    NVIC_SystemReset();
+}

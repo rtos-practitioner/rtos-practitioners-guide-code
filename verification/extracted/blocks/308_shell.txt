@@ -1,0 +1,4 @@
+mkdir build_tests && cd build_tests
+cmake -DBUILD_TESTS=ON ..
+cmake --build .
+ctest --output-on-failure

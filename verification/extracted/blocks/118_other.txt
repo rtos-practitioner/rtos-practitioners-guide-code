@@ -1,0 +1,15 @@
+Auto-Reload Timer (period = T):
+
+  Start
+    |--T--|--T--|--T--|--T--|-->
+    CB    CB    CB    CB        (callbacks repeat indefinitely)
+
+One-Shot Timer (period = T):
+
+  Start
+    |--T--|
+    CB    (dormant -- must be restarted explicitly)
+
+  Start      Reset
+    |------|--T--|
+           CB    (reset restarts the countdown)

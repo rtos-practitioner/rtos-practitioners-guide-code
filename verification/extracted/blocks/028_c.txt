@@ -1,0 +1,10 @@
+void vHeartbeatTask(void *pvParameters) {
+    (void)pvParameters;
+    TickType_t xLastWakeTime = xTaskGetTickCount();
+    const TickType_t xPeriod = pdMS_TO_TICKS(500);
+
+    for (;;) {
+        vTaskDelayUntil(&xLastWakeTime, xPeriod);
+        HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);  /* Green LED */
+    }
+}

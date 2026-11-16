@@ -1,0 +1,6 @@
+SemaphoreHandle_t xSemaphoreCreateRecursiveMutex(void);
+
+BaseType_t xSemaphoreTakeRecursive(SemaphoreHandle_t xMutex,
+                                    TickType_t xTicksToWait);
+
+BaseType_t xSemaphoreGiveRecursive(SemaphoreHandle_t xMutex);

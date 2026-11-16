@@ -1,0 +1,8 @@
+TimerHandle_t xTimerCreateStatic(
+    const char * const pcTimerName,
+    TickType_t xTimerPeriodInTicks,
+    UBaseType_t uxAutoReload,
+    void * pvTimerID,
+    TimerCallbackFunction_t pxCallbackFunction,
+    StaticTimer_t *pxTimerBuffer      /* Caller-allocated storage */
+);

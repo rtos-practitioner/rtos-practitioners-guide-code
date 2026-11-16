@@ -1,0 +1,2 @@
+typedef enum { MOTOR_IDLE, MOTOR_STARTING, MOTOR_RUNNING,
+               MOTOR_STOPPING, MOTOR_FAULT } MotorState_t;

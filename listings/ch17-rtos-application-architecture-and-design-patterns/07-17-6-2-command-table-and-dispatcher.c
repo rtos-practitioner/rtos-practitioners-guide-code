@@ -1,0 +1,42 @@
+/*
+ * Real-Time Operating Systems: A Practitioner's Guide to FreeRTOS, QNX, and Zephyr
+ * Chapter 17: RTOS Application Architecture and Design Patterns
+ * 17.6 Command Pattern and Protocol Handlers > 17.6.2 Command Table and Dispatcher
+ * Verification: executed (helper functions called with test arguments)
+ * SPDX-License-Identifier: MIT
+ */
+static void vCmdSetLed(const uint8_t *p, uint16_t len);
+static void vCmdReadSensor(const uint8_t *p, uint16_t len);
+static void vCmdReboot(const uint8_t *p, uint16_t len);
+static void vCmdSetConfig(const uint8_t *p, uint16_t len);
+
+static const CmdDescriptor_t xCmdTable[] = {
+    { 0x01,  1, vCmdSetLed,      "SET_LED"     },
+    { 0x02,  0, vCmdReadSensor,  "READ_SENSOR" },
+    { 0x03,  0, vCmdReboot,      "REBOOT"      },
+    { 0x10,  4, vCmdSetConfig,   "SET_CONFIG"  },
+};
+
+#define CMD_TABLE_SIZE \
+    (sizeof(xCmdTable) / sizeof(xCmdTable[0]))
+
+void vCommandProcess(uint8_t ucId,
+                     const uint8_t *pucPayload,
+                     uint16_t usLength)
+{
+    for (size_t i = 0; i < CMD_TABLE_SIZE; i++) {
+        if (xCmdTable[i].ucCmdId == ucId) {
+            /* Validate payload length if fixed-size */
+            if (xCmdTable[i].ucExpectedLen != 0 &&
+                usLength != xCmdTable[i].ucExpectedLen) {
+                vLogError("CMD %s: bad length %u (expected %u)",
+                          xCmdTable[i].pcName, usLength,
+                          xCmdTable[i].ucExpectedLen);
+                return;
+            }
+            xCmdTable[i].pfHandler(pucPayload, usLength);
+            return;
+        }
+    }
+    vLogError("Unknown command ID 0x%02X", ucId);
+}

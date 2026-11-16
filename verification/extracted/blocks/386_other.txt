@@ -1,0 +1,6 @@
+Phase 0: Hardware init (clocks, GPIO, flash wait states)
+Phase 1: Driver init (UART, SPI, I2C, ADC peripherals configured)
+Phase 2: OS object creation (queues, semaphores, timers, tasks)
+Phase 3: Start scheduler (vTaskStartScheduler)
+Phase 4: Task-level init (each task performs its own setup)
+Phase 5: System ready (all tasks signal readiness)

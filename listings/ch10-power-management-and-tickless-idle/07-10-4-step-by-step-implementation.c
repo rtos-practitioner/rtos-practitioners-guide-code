@@ -1,0 +1,55 @@
+/*
+ * Real-Time Operating Systems: A Practitioner's Guide to FreeRTOS, QNX, and Zephyr
+ * Chapter 10: Power Management and Tickless Idle
+ * 10.4 Custom Tickless Implementation for Stop Mode > Step-by-Step Implementation
+ * Verification: executed
+ * SPDX-License-Identifier: MIT
+ */
+/* Calendar prescalers: 32768 / (7+1) / (4095+1) = 1 Hz, SSR step ~244 us */
+#define RTC_PREDIV_A    7U
+#define RTC_PREDIV_S    4095U
+
+/* One-time RTC wakeup timer configuration */
+void RTC_WakeupTimer_Init(void)
+{
+    /* Enable PWR and BKP clocks */
+    RCC->APB1ENR |= RCC_APB1ENR_PWREN;
+    PWR->CR      |= PWR_CR_DBP;          /* Enable backup domain access */
+
+    /* Select LSE as RTC clock source */
+    RCC->BDCR |= RCC_BDCR_LSEON;
+    while (!(RCC->BDCR & RCC_BDCR_LSERDY))
+        ;                                  /* Wait for LSE ready */
+    RCC->BDCR |= RCC_BDCR_RTCSEL_0;      /* LSE as RTC source  */
+    RCC->BDCR |= RCC_BDCR_RTCEN;         /* Enable RTC         */
+
+    /* Unlock RTC write protection */
+    RTC->WPR = 0xCA;
+    RTC->WPR = 0x53;
+
+    /* Set calendar prescalers (INIT mode, two separate PRER writes) */
+    RTC->ISR |= RTC_ISR_INIT;
+    while (!(RTC->ISR & RTC_ISR_INITF))
+        ;
+    RTC->PRER = RTC_PREDIV_S;
+    RTC->PRER |= (RTC_PREDIV_A << RTC_PRER_PREDIV_A_Pos);
+    RTC->ISR &= ~RTC_ISR_INIT;           /* Calendar starts counting */
+
+    /* Configure wakeup timer: RTCCLK/16 = 2048 Hz */
+    RTC->CR &= ~RTC_CR_WUTE;             /* Disable wakeup timer */
+    while (!(RTC->ISR & RTC_ISR_WUTWF))
+        ;                                  /* Wait for write access */
+    RTC->CR &= ~RTC_CR_WUCKSEL;          /* Clear clock selection */
+    RTC->CR |= 0x00000000;               /* RTCCLK/16 = 2048 Hz  */
+
+    /* Enable wakeup timer EXTI line (line 22) */
+    EXTI->IMR  |= (1U << 22);
+    EXTI->RTSR |= (1U << 22);            /* Rising edge trigger  */
+
+    /* Enable RTC wakeup interrupt in NVIC */
+    NVIC_SetPriority(RTC_WKUP_IRQn, configLIBRARY_LOWEST_INTERRUPT_PRIORITY);
+    NVIC_EnableIRQ(RTC_WKUP_IRQn);
+
+    /* Re-lock RTC */
+    RTC->WPR = 0xFF;
+}

@@ -1,0 +1,5 @@
+void vApplicationIdleHook(void)
+{
+    /* Enter sleep mode; CPU wakes on next interrupt (SysTick or peripheral) */
+    __WFI();
+}

@@ -1,0 +1,5 @@
+void vPortFreeWithPoison(void *pv, size_t xSize)
+{
+    memset(pv, 0xDE, xSize);  /* Poison the block */
+    vPortFree(pv);
+}

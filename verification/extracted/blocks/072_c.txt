@@ -1,0 +1,19 @@
+/* ISR signals the task */
+void EXTI0_IRQHandler( void )
+{
+    BaseType_t xWoken = pdFALSE;
+    vTaskNotifyGiveFromISR( xProcessingTaskHandle, &xWoken );
+    HAL_GPIO_EXTI_IRQHandler( GPIO_PIN_0 );
+    portYIELD_FROM_ISR( xWoken );
+}
+
+/* Task waits for the signal */
+void vProcessingTask( void *pvParameters )
+{
+    for( ;; )
+    {
+        ulTaskNotifyTake( pdTRUE,       /* Clear count on exit */
+                          portMAX_DELAY );
+        vProcessExternalEvent();
+    }
+}

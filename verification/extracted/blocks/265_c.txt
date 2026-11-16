@@ -1,0 +1,5 @@
+/* trcConfig.h key settings */
+#define TRC_CFG_RECORDER_MODE       TRC_RECORDER_MODE_STREAMING
+#define TRC_CFG_FREERTOS_VERSION    TRC_FREERTOS_VERSION_10_5_1
+#define TRC_CFG_SCHEDULING_ONLY     0  /* 0 = full trace, 1 = task switches only */
+#define TRC_CFG_INCLUDE_USER_EVENTS 1

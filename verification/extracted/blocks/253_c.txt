@@ -1,0 +1,11 @@
+/* Place variable in CCM using GCC section attribute */
+__attribute__((section(".ccmram")))
+static float pid_coefficients[3];
+
+/* Linker script excerpt for CCM:
+ * .ccmram : {
+ *     . = ALIGN(4);
+ *     *(.ccmram)
+ *     . = ALIGN(4);
+ * } > CCMRAM
+ */

@@ -1,0 +1,1 @@
+uint8_t ucDmaBuf[256] __attribute__((section(".sram")));

@@ -1,0 +1,4 @@
+/* Disable debug in low-power modes for accurate power measurement */
+DBGMCU->CR &= ~(DBGMCU_CR_DBG_SLEEP |
+                 DBGMCU_CR_DBG_STOP  |
+                 DBGMCU_CR_DBG_STANDBY);

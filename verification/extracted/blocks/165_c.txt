@@ -1,0 +1,18 @@
+/* Queue holds ADC readings; processing task consumes them */
+static QueueHandle_t xAdcQueue;
+
+void ADC_IRQHandler(void)
+{
+    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+    uint16_t   usReading;
+
+    if (ADC1->SR & ADC_SR_EOC)
+    {
+        usReading = (uint16_t)ADC1->DR;          /* Read clears EOC   */
+
+        xQueueSendFromISR(xAdcQueue, &usReading,
+                          &xHigherPriorityTaskWoken);
+    }
+
+    portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+}

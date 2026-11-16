@@ -1,0 +1,1 @@
+#define configMINIMAL_STACK_SIZE        (128)

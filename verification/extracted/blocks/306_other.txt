@@ -1,0 +1,6 @@
+            /  HIL Tests  \          ← Real HW + simulated environment
+           / System Tests   \        ← Real HW, automated harness
+          / Integration Tests \      ← FreeRTOS simulator on host
+         /    Unit Tests       \     ← Pure logic on host, milliseconds
+        /  Static Analysis      \    ← Lint, MISRA, Coverity (no execution)
+       /__________________________\

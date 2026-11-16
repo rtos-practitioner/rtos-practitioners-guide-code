@@ -1,0 +1,5 @@
+/* Configure flash latency before increasing clock speed */
+FLASH->ACR = FLASH_ACR_LATENCY_5WS   /* 5 wait states */
+           | FLASH_ACR_ICEN           /* instruction cache enable */
+           | FLASH_ACR_DCEN           /* data cache enable */
+           | FLASH_ACR_PRFTEN;        /* prefetch enable */

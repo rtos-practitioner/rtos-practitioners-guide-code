@@ -1,0 +1,3 @@
+Rule: If you send a pointer through a queue, you are transferring
+ownership of the pointed-to memory. The sender relinquishes access;
+the receiver assumes exclusive access.

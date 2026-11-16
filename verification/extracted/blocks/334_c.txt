@@ -1,0 +1,42 @@
+/* WRONG: Binary semaphore does not support priority inheritance */
+SemaphoreHandle_t xBinarySem;
+
+void vSystemInit(void)
+{
+    xBinarySem = xSemaphoreCreateBinary();
+    xSemaphoreGive(xBinarySem);  /* Initialize as available */
+}
+
+/* Low-priority task (priority 1) */
+void vSensorTask(void *pvParam)
+{
+    for (;;) {
+        xSemaphoreTake(xBinarySem, portMAX_DELAY);
+        /* Access shared I2C bus — takes 5 ms */
+        vReadSensorOverI2C();
+        xSemaphoreGive(xBinarySem);
+        vTaskDelay(pdMS_TO_TICKS(100));
+    }
+}
+
+/* Medium-priority task (priority 2) — runs heavy computation */
+void vProcessingTask(void *pvParam)
+{
+    for (;;) {
+        vPerformHeavyComputation();  /* 20 ms of CPU-bound work */
+        vTaskDelay(pdMS_TO_TICKS(50));
+    }
+}
+
+/* High-priority task (priority 3) — needs the I2C bus */
+void vControlTask(void *pvParam)
+{
+    for (;;) {
+        xSemaphoreTake(xBinarySem, portMAX_DELAY);
+        /* BUG: If SensorTask holds the semaphore and ProcessingTask
+           preempts it, ControlTask is blocked indefinitely */
+        vSendCommandOverI2C();
+        xSemaphoreGive(xBinarySem);
+        vTaskDelay(pdMS_TO_TICKS(10));
+    }
+}

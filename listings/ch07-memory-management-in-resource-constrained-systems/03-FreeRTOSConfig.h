@@ -1,0 +1,13 @@
+/*
+ * Real-Time Operating Systems: A Practitioner's Guide to FreeRTOS, QNX, and Zephyr
+ * Chapter 7: Memory Management in Resource-Constrained Systems
+ * 7.2 FreeRTOS Heap Implementations > Placement of ucHeap in CCM RAM
+ * Verification: compiled, linked and booted (declarations only)
+ * SPDX-License-Identifier: MIT
+ */
+/* In FreeRTOSConfig.h */
+#define configAPPLICATION_ALLOCATED_HEAP  1
+
+/* In an application .c file -- must not be static */
+uint8_t ucHeap[configTOTAL_HEAP_SIZE]
+    __attribute__((section(".ccmram")));

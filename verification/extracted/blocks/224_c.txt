@@ -1,0 +1,8 @@
+void RTC_WKUP_IRQHandler(void)
+{
+    if (RTC->ISR & RTC_ISR_WUTF)
+    {
+        RTC->ISR &= ~RTC_ISR_WUTF;   /* Clear RTC flag  */
+        EXTI->PR  = (1U << 22);        /* Clear EXTI flag */
+    }
+}

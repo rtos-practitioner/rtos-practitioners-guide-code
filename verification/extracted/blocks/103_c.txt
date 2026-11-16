@@ -1,0 +1,27 @@
+/* RULE: Always acquire xMutexLog BEFORE xMutexUART */
+
+void vTaskSensor(void *pv)
+{
+    for (;;)
+    {
+        xSemaphoreTake(xMutexLog,  portMAX_DELAY);  /* Log first */
+        xSemaphoreTake(xMutexUART, portMAX_DELAY);  /* UART second */
+        /* Write sensor reading to log via UART */
+        xSemaphoreGive(xMutexUART);
+        xSemaphoreGive(xMutexLog);
+        vTaskDelay(pdMS_TO_TICKS(100));
+    }
+}
+
+void vTaskDiagnostic(void *pv)
+{
+    for (;;)
+    {
+        xSemaphoreTake(xMutexLog,  portMAX_DELAY);  /* Log first */
+        xSemaphoreTake(xMutexUART, portMAX_DELAY);  /* UART second */
+        /* Dump diagnostic log over UART */
+        xSemaphoreGive(xMutexUART);
+        xSemaphoreGive(xMutexLog);
+        vTaskDelay(pdMS_TO_TICKS(500));
+    }
+}

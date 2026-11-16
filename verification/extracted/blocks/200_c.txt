@@ -1,0 +1,13 @@
+typedef struct {
+    USART_TypeDef        *periph;     /* Register base address     */
+    UART_HandleTypeDef    hal_handle; /* Vendor HAL state          */
+    QueueHandle_t         tx_queue;   /* FreeRTOS TX queue         */
+    SemaphoreHandle_t     rx_sem;     /* RX data available         */
+    SemaphoreHandle_t     tx_mutex;   /* TX serialization          */
+    volatile uint8_t      rx_buf[256];
+    volatile uint16_t     rx_head;
+    volatile uint16_t     rx_tail;
+    uint32_t              error_count;
+} uart_driver_t;
+
+static uart_driver_t uart_instances[UART_PORT_COUNT];

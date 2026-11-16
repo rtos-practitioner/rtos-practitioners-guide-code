@@ -1,0 +1,3 @@
+Bits [7:0]   MMFSR — Memory Management Fault Status
+Bits [15:8]  BFSR  — Bus Fault Status
+Bits [31:16] UFSR  — Usage Fault Status

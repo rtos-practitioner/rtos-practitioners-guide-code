@@ -1,0 +1,21 @@
+                  +---------+
+  HSE (8 MHz) --->|   PLL   |---> SYSCLK = 168 MHz
+                  +---------+         |
+                                      v
+                               +-------------+
+                               | AHB Prescaler|  /1
+                               +-------------+
+                                      |
+                                HCLK = 168 MHz ----> CPU, DMA, AHB peripherals
+                                      |
+                    +-----------------+-----------------+
+                    |                                   |
+             +-------------+                     +-------------+
+             |APB1 Prescaler|  /4                 |APB2 Prescaler|  /2
+             +-------------+                     +-------------+
+                    |                                   |
+              PCLK1 = 42 MHz                      PCLK2 = 84 MHz
+              APB1 peripherals                    APB2 peripherals
+              (USART2/3, SPI2/3,                  (USART1/6, SPI1,
+               I2C1/2/3, TIM2-7,                  TIM1/8/9/10/11,
+               TIM12/13/14, DAC)                   ADC, SDIO)

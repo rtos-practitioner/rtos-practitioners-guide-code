@@ -1,0 +1,15 @@
+/* BAD: polling prevents sleep */
+void vBadTask(void *pv) {
+    for (;;) {
+        if (sensor_data_ready)       /* Spins forever */
+            ProcessData();
+    }
+}
+
+/* GOOD: event-driven, enables sleep */
+void vGoodTask(void *pv) {
+    for (;;) {
+        ulTaskNotifyTake(pdTRUE, portMAX_DELAY);  /* Blocks, CPU sleeps */
+        ProcessData();
+    }
+}

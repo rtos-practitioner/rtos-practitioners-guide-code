@@ -1,0 +1,17 @@
+HSE (8 MHz) --> PLL_M divider (/8) --> 1 MHz VCO input
+                                          |
+                                     PLL_N multiplier (x336)
+                                          |
+                                     336 MHz VCO output
+                                          |
+                         +------------ PLL_P (/2) --> SYSCLK = 168 MHz
+                         |                               |
+                         |                          AHB prescaler (/1)
+                         |                               |
+                         |                          HCLK = 168 MHz
+                         |                            |        |
+                         |                      APB1 (/4)  APB2 (/2)
+                         |                         |          |
+                         |                    PCLK1=42MHz  PCLK2=84MHz
+                         |
+                         +------------ PLL_Q (/7) --> 48 MHz (USB/SDIO)

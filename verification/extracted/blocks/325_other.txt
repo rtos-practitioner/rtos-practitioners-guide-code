@@ -1,0 +1,22 @@
+  Commit
+    |
+    v
+  Build (ARM cross-compile, debug + release)
+    |
+    v
+  Unit Tests (host build, Unity, gcov coverage)
+    |
+    v
+  Static Analysis (cppcheck, PC-lint, MISRA)
+    |
+    v
+  Integration Tests (FreeRTOS simulator)
+    |
+    v
+  Flash to Target (OpenOCD + JTAG probe)       ← optional, needs HW
+    |
+    v
+  System Tests (UART harness, HIL)              ← optional, needs HW
+    |
+    v
+  Report (coverage, test results, analysis)

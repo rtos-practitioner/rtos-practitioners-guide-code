@@ -1,0 +1,24 @@
+/* Place in .safe_state section — protected by MPU (Chapter 11) */
+__attribute__((section(".safe_state"), used))
+void safe_state(void)
+{
+    __disable_irq();
+
+    /* Drive actuator outputs to safe levels using direct register
+       access — no HAL, no driver, no RTOS calls. */
+    GPIOA->BSRR = GPIO_BSRR_BR_0;     /* PWM output low          */
+    GPIOB->BSRR = GPIO_BSRR_BS_4;     /* Contactor relay open    */
+    GPIOC->BSRR = GPIO_BSRR_BS_7;     /* Fault LED on            */
+
+    /* Disable DMA channels that might still be driving outputs */
+    DMA1_Stream0->CR &= ~DMA_SxCR_EN;
+    TIM1->BDTR &= ~TIM_BDTR_MOE;       /* Disable PWM main output */
+
+    /* Log fault to backup SRAM if not already done */
+
+    /* Optional: attempt NVIC_SystemReset() after brief delay,
+       or spin here until watchdog resets the system. */
+    for (;;) {
+        __NOP();
+    }
+}

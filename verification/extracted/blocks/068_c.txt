@@ -1,0 +1,9 @@
+/* Writer (e.g., UART DMA complete callback) */
+size_t xBytesSent = xStreamBufferSend( xStreamBuf,
+                                        pucData, uxLen,
+                                        pdMS_TO_TICKS( 10 ) );
+
+/* Reader */
+size_t xBytesRead = xStreamBufferReceive( xStreamBuf,
+                                           ucLocalBuf, sizeof( ucLocalBuf ),
+                                           portMAX_DELAY );

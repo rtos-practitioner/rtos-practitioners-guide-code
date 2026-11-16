@@ -1,0 +1,2 @@
+Total = TCB size + Stack size (in bytes)
+      ≈ 100 + (configMINIMAL_STACK_SIZE × 4)

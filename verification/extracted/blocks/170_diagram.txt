@@ -1,0 +1,10 @@
+MSP Stack During Nested ISRs
++-----------------------------+  <-- MSP initial (top of SRAM)
+| Priority 10 ISR locals      |  ~70 bytes (HW frame is on task PSP)
++-----------------------------+
+| Priority 7 ISR frame        |  ~100 bytes (preempted Prio 10)
++-----------------------------+
+| Priority 5 ISR frame        |  ~100 bytes (preempted Prio 7)
++-----------------------------+
+|        ...free...            |
++-----------------------------+  <-- MSP danger zone

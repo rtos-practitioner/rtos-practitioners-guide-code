@@ -1,0 +1,22 @@
+# Real-Time Operating Systems: A Practitioner's Guide to FreeRTOS, QNX, and Zephyr
+# Appendix F: Development Environment Setup Guide
+# F.5 Project Template > F.5.2 Build and Flash Commands
+# Verification: not run (host command / other RTOS / configuration)
+# SPDX-License-Identifier: MIT
+set(CMAKE_SYSTEM_NAME Generic)
+set(CMAKE_SYSTEM_PROCESSOR arm)
+
+set(CMAKE_C_COMPILER   arm-none-eabi-gcc)
+set(CMAKE_CXX_COMPILER arm-none-eabi-g++)
+set(CMAKE_ASM_COMPILER arm-none-eabi-gcc)
+set(CMAKE_OBJCOPY      arm-none-eabi-objcopy)
+set(CMAKE_SIZE         arm-none-eabi-size)
+
+# Avoid linking a test executable (no startup code or linker script yet)
+set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
+
+set(CPU_FLAGS "-mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard")
+set(CMAKE_C_FLAGS_INIT   "${CPU_FLAGS}")
+set(CMAKE_CXX_FLAGS_INIT "${CPU_FLAGS}")
+set(CMAKE_ASM_FLAGS_INIT "${CPU_FLAGS}")
+set(CMAKE_EXE_LINKER_FLAGS_INIT "${CPU_FLAGS} --specs=nano.specs --specs=nosys.specs")

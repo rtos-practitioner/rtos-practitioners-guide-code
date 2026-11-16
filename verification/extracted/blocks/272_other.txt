@@ -1,0 +1,5 @@
+Name          Abs Time      % Time
+Motor         1284923       42%
+Comm          412883        13%
+Idle          1302194       43%
+DiagTask      60000         2%

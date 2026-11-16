@@ -1,0 +1,7 @@
+arm-none-eabi-gcc --version
+cmake --version
+ninja --version
+openocd --version
+git --version
+python --version
+west --version

@@ -1,0 +1,13 @@
+/* Start a timer (or restart if already running) */
+BaseType_t xTimerStart(TimerHandle_t xTimer, TickType_t xTicksToWait);
+
+/* Stop a running timer */
+BaseType_t xTimerStop(TimerHandle_t xTimer, TickType_t xTicksToWait);
+
+/* Reset a timer: restarts countdown from now */
+BaseType_t xTimerReset(TimerHandle_t xTimer, TickType_t xTicksToWait);
+
+/* Change the period (also starts the timer if dormant) */
+BaseType_t xTimerChangePeriod(TimerHandle_t xTimer,
+                               TickType_t xNewPeriod,
+                               TickType_t xTicksToWait);

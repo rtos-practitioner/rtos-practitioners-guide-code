@@ -1,0 +1,1 @@
+xTaskCreate(vConsoleTask, "Console", 1024, NULL, 1, NULL);

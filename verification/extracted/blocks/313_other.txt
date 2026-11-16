@@ -1,0 +1,8 @@
+Production build:             Test build:
+  app_logic.c                   app_logic.c        (same source)
+      |                             |
+  hal_api.h                     hal_api.h           (same header)
+      |                             |
+  real_hal.c  (STM32 HAL)      fake_hal.c          (test double)
+      |
+  STM32F4xx registers

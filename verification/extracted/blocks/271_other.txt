@@ -1,0 +1,5 @@
+Name          State  Prio  Stack   Num
+Motor         R      4     112     1
+Comm          B      2     248     2
+Idle          R      0     118     3
+DiagTask      B      1     384     4

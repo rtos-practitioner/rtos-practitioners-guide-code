@@ -1,0 +1,32 @@
+/* main.c -- Echo task with case inversion */
+#include "FreeRTOS.h"
+#include "task.h"
+#include "uart_api.h"
+#include <ctype.h>
+
+void echo_task(void *param)
+{
+    (void)param;
+    uart_init(UART_PORT_DEBUG, 115200);
+
+    uint8_t byte;
+    for (;;) {
+        if (uart_read(UART_PORT_DEBUG, &byte, 1, portMAX_DELAY) == 1) {
+            if (islower(byte))      byte = toupper(byte);
+            else if (isupper(byte)) byte = tolower(byte);
+
+            uart_write(UART_PORT_DEBUG, &byte, 1, 100);
+        }
+    }
+}
+
+int main(void)
+{
+    HAL_Init();
+    SystemClock_Config();
+
+    xTaskCreate(echo_task, "echo", 256, NULL, 2, NULL);
+    vTaskStartScheduler();
+
+    for (;;) {}  /* Should never reach here */
+}

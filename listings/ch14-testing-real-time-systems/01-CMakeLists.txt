@@ -1,0 +1,39 @@
+# Real-Time Operating Systems: A Practitioner's Guide to FreeRTOS, QNX, and Zephyr
+# Chapter 14: Testing Real-Time Systems
+# 14.2 Unit Testing on Host > Dual Build Targets
+# Verification: not run (host command / other RTOS / configuration)
+# SPDX-License-Identifier: MIT
+# CMakeLists.txt (top-level)
+cmake_minimum_required(VERSION 3.20)
+
+option(BUILD_TESTS "Build host unit tests instead of firmware" OFF)
+
+if(BUILD_TESTS)
+    project(firmware_tests C)
+    set(CMAKE_C_STANDARD 11)
+
+    # Unity framework
+    add_subdirectory(external/unity)
+
+    # Application logic (no HAL, no RTOS)
+    add_library(app_logic STATIC
+        src/moving_average.c
+        src/command_parser.c
+        src/circular_buffer.c
+        src/state_machine.c
+    )
+
+    # Test executables
+    add_executable(test_moving_average tests/test_moving_average.c)
+    target_link_libraries(test_moving_average app_logic unity)
+
+    add_executable(test_circular_buffer tests/test_circular_buffer.c)
+    target_link_libraries(test_circular_buffer app_logic unity)
+
+    enable_testing()
+    add_test(NAME MovingAverage COMMAND test_moving_average)
+    add_test(NAME CircularBuffer COMMAND test_circular_buffer)
+else()
+    project(firmware C ASM)
+    # ... ARM cross-compile toolchain, HAL, FreeRTOS, linker script ...
+endif()

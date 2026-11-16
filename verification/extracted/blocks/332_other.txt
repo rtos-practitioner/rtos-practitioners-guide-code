@@ -1,0 +1,2 @@
+cmake --build build_tests --target test_pipeline
+ctest --test-dir build_tests -R integration --output-on-failure

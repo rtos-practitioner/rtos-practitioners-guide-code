@@ -1,0 +1,42 @@
+/*
+ * Real-Time Operating Systems: A Practitioner's Guide to FreeRTOS, QNX, and Zephyr
+ * Chapter 15: Common RTOS Pitfalls and Anti-Patterns
+ * 15.3 Pitfall: Deadlock > Code Example
+ * Verification: executed
+ * SPDX-License-Identifier: MIT
+ */
+SemaphoreHandle_t xMutexUART;   /* Order: 1 (always acquire first) */
+SemaphoreHandle_t xMutexSPI;    /* Order: 2 (always acquire second) */
+
+/* Task A: acquires in order 1 → 2 */
+void vTaskA(void *pvParam)
+{
+    for (;;) {
+        xSemaphoreTake(xMutexUART, portMAX_DELAY);
+        if (xSemaphoreTake(xMutexSPI, pdMS_TO_TICKS(50)) == pdPASS) {
+            vTransferDataUARTtoSPI();
+            xSemaphoreGive(xMutexSPI);
+        } else {
+            /* Timeout: could not acquire second lock, release first */
+            /* Log the contention event for diagnostics */
+        }
+        xSemaphoreGive(xMutexUART);
+        vTaskDelay(pdMS_TO_TICKS(100));
+    }
+}
+
+/* Task B: ALSO acquires in order 1 → 2 (same order as Task A) */
+void vTaskB(void *pvParam)
+{
+    for (;;) {
+        xSemaphoreTake(xMutexUART, portMAX_DELAY);    /* Order 1 first */
+        if (xSemaphoreTake(xMutexSPI, pdMS_TO_TICKS(50)) == pdPASS) {
+            vTransferDataSPItoUART();
+            xSemaphoreGive(xMutexSPI);
+        } else {
+            /* Timeout: release first lock, back off, retry later */
+        }
+        xSemaphoreGive(xMutexUART);
+        vTaskDelay(pdMS_TO_TICKS(100));
+    }
+}

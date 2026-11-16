@@ -1,0 +1,15 @@
+SemaphoreHandle_t xDataSemaphore;
+QueueHandle_t xDataQueue;
+
+void EXTI0_IRQHandler(void)
+{
+    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
+
+    uint32_t ulSensorValue = READ_SENSOR();
+
+    /* WRONG: xQueueSend may block and corrupts kernel state in ISR */
+    xQueueSend(xDataQueue, &ulSensorValue, portMAX_DELAY);
+
+    /* WRONG: xSemaphoreTake must never be called from ISR */
+    xSemaphoreTake(xDataSemaphore, portMAX_DELAY);
+}

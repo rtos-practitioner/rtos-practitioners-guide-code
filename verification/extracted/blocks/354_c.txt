@@ -1,0 +1,26 @@
+/* Global shared state — no synchronization, hidden dependencies */
+volatile float gTemperature;
+volatile float gPressure;
+volatile uint8_t gDataValid;
+
+void vSensorTask(void *pvParam)
+{
+    for (;;) {
+        gTemperature = fReadTemperatureSensor();
+        gPressure = fReadPressureSensor();
+        gDataValid = 1;  /* Race: consumer might read between writes */
+        vTaskDelay(pdMS_TO_TICKS(100));
+    }
+}
+
+void vDisplayTask(void *pvParam)
+{
+    for (;;) {
+        if (gDataValid) {
+            /* Race: might read new temperature with old pressure */
+            vUpdateDisplay(gTemperature, gPressure);
+            gDataValid = 0;
+        }
+        vTaskDelay(pdMS_TO_TICKS(50));
+    }
+}

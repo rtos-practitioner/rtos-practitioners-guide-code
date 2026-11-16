@@ -1,0 +1,3 @@
+taskENTER_CRITICAL();   /* Masks interrupts up to configMAX_SYSCALL_INTERRUPT_PRIORITY */
+/* ... deterministic code, max ~10 us recommended ... */
+taskEXIT_CRITICAL();

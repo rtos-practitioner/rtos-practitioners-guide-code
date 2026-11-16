@@ -1,0 +1,29 @@
+FreeRTOS/
+├── Source/
+│   ├── tasks.c            # Task management and scheduler
+│   ├── queue.c            # Queues, semaphores, mutexes
+│   ├── list.c             # Linked list utility (internal)
+│   ├── timers.c           # Software timer management
+│   ├── event_groups.c     # Event group management
+│   ├── stream_buffer.c    # Stream and message buffers
+│   ├── croutine.c         # Co-routines (deprecated)
+│   ├── include/
+│   │   ├── FreeRTOS.h     # Core kernel header
+│   │   ├── task.h         # Task API declarations
+│   │   ├── queue.h        # Queue API declarations
+│   │   ├── semphr.h       # Semaphore/mutex macros
+│   │   ├── timers.h       # Timer API declarations
+│   │   ├── event_groups.h # Event group API declarations
+│   │   └── ...
+│   └── portable/
+│       ├── GCC/
+│       │   └── ARM_CM4F/
+│       │       ├── port.c       # Cortex-M4F port layer
+│       │       └── portmacro.h  # Port-specific definitions
+│       └── MemMang/
+│           ├── heap_1.c   # Allocate-only heap
+│           ├── heap_2.c   # Best-fit, no coalescing
+│           ├── heap_3.c   # Wraps standard malloc
+│           ├── heap_4.c   # First-fit with coalescing
+│           └── heap_5.c   # Multiple memory regions
+└── FreeRTOSConfig.h       # User configuration file

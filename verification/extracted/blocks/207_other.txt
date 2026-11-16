@@ -1,0 +1,11 @@
+project/
+  src/
+    main.c
+    drivers/
+      uart_hw.h          (Layer 1: register definitions)
+      uart_hal.h          (Layer 2: HAL wrapper interface)
+      uart_hal.c          (Layer 2: HAL wrapper implementation)
+      uart_rtos.h         (Layer 3: RTOS layer interface)
+      uart_rtos.c         (Layer 3: RTOS layer implementation)
+      uart_api.h          (Layer 4: application interface)
+      uart_api.c          (Layer 4: application routing)

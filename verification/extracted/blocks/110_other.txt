@@ -1,0 +1,4 @@
+  Time 0:  DMA fills Buffer A    |  Task processes Buffer B
+  Time 1:  DMA fills Buffer B    |  Task processes Buffer A
+  Time 2:  DMA fills Buffer A    |  Task processes Buffer B
+           ...

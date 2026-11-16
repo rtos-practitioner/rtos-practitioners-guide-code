@@ -1,0 +1,5 @@
+Command frame (20 bytes total):
++--------+---------+---------+------------------+
+| SeqNum | CmdCode | Payload | HMAC-SHA256[0:7] |
+| 4 bytes| 1 byte  | 7 bytes | 8 bytes (trunc.) |
++--------+---------+---------+------------------+

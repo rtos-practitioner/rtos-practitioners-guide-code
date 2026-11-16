@@ -1,0 +1,35 @@
+/*
+ * Real-Time Operating Systems: A Practitioner's Guide to FreeRTOS, QNX, and Zephyr
+ * Chapter 4: Queues and Inter-Task Communication
+ * 4.11 Lab 4: Multi-Channel Data Pipeline > Application Entry Point
+ * Verification: executed
+ * SPDX-License-Identifier: MIT
+ */
+int main( void )
+{
+    HAL_Init();
+    SystemClock_Config();    /* Configure for 168 MHz */
+    vUartInit( 115200 );     /* Debug console */
+
+    xCommandQueue = xQueueCreate( QUEUE_DEPTH, sizeof( SensorCommand_t ) );
+    configASSERT( xCommandQueue != NULL );
+
+    xTaskCreate( vSensorTask, "Temp", 256, ( void * ) SENSOR_TEMP,
+                 2, NULL );
+    xTaskCreate( vSensorTask, "Pres", 256, ( void * ) SENSOR_PRESSURE,
+                 2, NULL );
+    xTaskCreate( vAggregatorTask, "Aggr", 512, NULL, 3,
+                 &xAggregatorHandle );
+
+    /* Software timer for vibration (1 kHz) */
+    TimerHandle_t xVibTimer = xTimerCreate( "Vib",
+                                             pdMS_TO_TICKS( 1 ),
+                                             pdTRUE, NULL,
+                                             prvVibrationTimerCallback );
+    configASSERT( xVibTimer != NULL );
+    xTimerStart( xVibTimer, 0 );
+
+    vTaskStartScheduler();
+
+    for( ;; );  /* Should never reach here */
+}

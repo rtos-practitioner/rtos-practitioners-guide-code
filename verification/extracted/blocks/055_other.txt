@@ -1,0 +1,1 @@
+Queue RAM = sizeof(StaticQueue_t) + (uxQueueLength × uxItemSize)

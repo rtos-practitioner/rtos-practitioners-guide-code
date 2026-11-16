@@ -1,0 +1,17 @@
+static uint32_t ulRemainingMinutes = 0;
+
+static void vLongDelayCallback(TimerHandle_t xTimer)
+{
+    if (ulRemainingMinutes > 0) {
+        ulRemainingMinutes--;
+        xTimerStart(xTimer, 0);  /* Restart for next minute */
+    } else {
+        vLongDelayExpired();      /* Final expiration */
+    }
+}
+
+void vStartLongDelay(uint32_t ulMinutes)
+{
+    ulRemainingMinutes = ulMinutes - 1;
+    xTimerChangePeriod(xLongDelayTimer, pdMS_TO_TICKS(60000), portMAX_DELAY);
+}

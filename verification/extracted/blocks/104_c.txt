@@ -1,0 +1,6 @@
+if (xSemaphoreTake(xMutexUART, pdMS_TO_TICKS(50)) != pdTRUE)
+{
+    /* Release already-held mutexes and retry */
+    xSemaphoreGive(xMutexLog);
+    /* Back off, log warning, or take corrective action */
+}

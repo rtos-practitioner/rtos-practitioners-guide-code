@@ -1,0 +1,10 @@
+  +-------------------------------+  <- Pre-exception SP
+  |  xPSR                         |
+  |  PC  (Return Address)         |
+  |  LR  (R14)                    |
+  |  R12                          |
+  |  R3                           |
+  |  R2                           |
+  |  R1                           |
+  |  R0                           |
+  +-------------------------------+  <- SP after hardware push (8 words = 32 bytes)

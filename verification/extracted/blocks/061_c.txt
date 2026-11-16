@@ -1,0 +1,7 @@
+BaseType_t xQueueSendFromISR( QueueHandle_t xQueue,
+                              const void *pvItemToQueue,
+                              BaseType_t *pxHigherPriorityTaskWoken );
+
+BaseType_t xQueueReceiveFromISR( QueueHandle_t xQueue,
+                                 void *pvBuffer,
+                                 BaseType_t *pxHigherPriorityTaskWoken );

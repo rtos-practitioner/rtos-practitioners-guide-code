@@ -1,0 +1,2 @@
+UBaseType_t waiting = uxQueueMessagesWaiting(xSensorQueue);
+UBaseType_t spaces  = uxQueueSpacesAvailable(xSensorQueue);

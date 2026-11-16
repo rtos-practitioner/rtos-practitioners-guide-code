@@ -1,0 +1,43 @@
+void vDiagnosticTask(void *pvParameters)
+{
+    char buf[512];
+    TickType_t xLastWakeTime = xTaskGetTickCount();
+
+    for (;;) {
+        vTaskDelayUntil(&xLastWakeTime, pdMS_TO_TICKS(10000));
+
+        /* System uptime */
+        uint32_t uptime_sec = xTaskGetTickCount() / configTICK_RATE_HZ;
+        printf("\n=== Diagnostics [uptime: %lu s] ===\n",
+               (unsigned long)uptime_sec);
+
+        /* Task list */
+        printf("--- Task List ---\n");
+        printf("Name          State Prio Stack  Num\n");
+        vTaskList(buf);
+        printf("%s\n", buf);
+
+        /* CPU utilization */
+        printf("--- CPU Usage ---\n");
+        printf("Name          Abs Time      %% Time\n");
+        vTaskGetRunTimeStats(buf);
+        printf("%s\n", buf);
+
+        /* Queue levels */
+        printf("--- Queues ---\n");
+        printf("SensorQ: %lu/%lu  CmdQ: %lu/%lu\n",
+               (unsigned long)uxQueueMessagesWaiting(xSensorQueue),
+               (unsigned long)(uxQueueMessagesWaiting(xSensorQueue)
+                             + uxQueueSpacesAvailable(xSensorQueue)),
+               (unsigned long)uxQueueMessagesWaiting(xCommandQueue),
+               (unsigned long)(uxQueueMessagesWaiting(xCommandQueue)
+                             + uxQueueSpacesAvailable(xCommandQueue)));
+
+        /* Stack high-water marks */
+        printf("--- Stack HWM (words) ---\n");
+        printf("Motor: %lu  Comm: %lu  Diag: %lu\n",
+               (unsigned long)uxTaskGetStackHighWaterMark(xMotorTaskHandle),
+               (unsigned long)uxTaskGetStackHighWaterMark(xCommTaskHandle),
+               (unsigned long)uxTaskGetStackHighWaterMark(NULL));
+    }
+}

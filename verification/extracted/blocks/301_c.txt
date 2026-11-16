@@ -1,0 +1,6 @@
+void system_reset_with_log(uint32_t fault_code)
+{
+    __disable_irq();
+    fault_log_to_backup_sram(fault_code, 0, 0, 0);
+    NVIC_SystemReset();     /* Triggers SCB->AIRCR write */
+}

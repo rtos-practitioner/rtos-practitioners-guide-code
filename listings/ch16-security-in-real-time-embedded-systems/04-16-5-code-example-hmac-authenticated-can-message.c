@@ -1,0 +1,112 @@
+/*
+ * Real-Time Operating Systems: A Practitioner's Guide to FreeRTOS, QNX, and Zephyr
+ * Chapter 16: Security in Real-Time Embedded Systems
+ * 16.5 Secure Communication > Code Example: HMAC-Authenticated CAN Message
+ * Verification: changed since the reference run - re-run tools/run_suite.py
+ * SPDX-License-Identifier: MIT
+ */
+#include <stdint.h>
+#include <string.h>
+#include "hmac_sha256.h"   /* Software HMAC-SHA256 implementation */
+#include "can_driver.h"    /* RTOS-aware CAN driver from Chapter 9 */
+
+#define HMAC_KEY_LEN      32
+#define HMAC_TAG_LEN       4  /* Truncated HMAC for CAN (8-byte payload limit) */
+#define CAN_AUTH_MAX_DATA  3
+#define SEQ_LO_BITS        6  /* Low counter bits sent on the bus */
+#define SEQ_LO_MASK       ((1U << SEQ_LO_BITS) - 1U)
+
+/* Shared secret (in production, load from secure element) */
+static const uint8_t hmac_key[HMAC_KEY_LEN] = { /* ... */ };
+
+/* Starts at 1 and only increases. Persist it across resets (or derive a
+ * fresh session key at startup) so a value is never reused under one key. */
+static uint32_t tx_sequence = 1U;
+
+/* Tag over CAN ID || full 32-bit sequence || length || data.
+ * Sender and receiver both call this, so the MAC input is identical. */
+static void compute_tag(uint32_t can_id, uint32_t seq, uint8_t len,
+                        const uint8_t *data, uint8_t tag[HMAC_TAG_LEN])
+{
+    uint8_t hmac_input[4 + 4 + 1 + CAN_AUTH_MAX_DATA];
+    uint8_t full_hmac[32];
+
+    hmac_input[0] = (uint8_t)(can_id >> 24);
+    hmac_input[1] = (uint8_t)(can_id >> 16);
+    hmac_input[2] = (uint8_t)(can_id >>  8);
+    hmac_input[3] = (uint8_t)(can_id >>  0);
+    hmac_input[4] = (uint8_t)(seq >> 24);
+    hmac_input[5] = (uint8_t)(seq >> 16);
+    hmac_input[6] = (uint8_t)(seq >>  8);
+    hmac_input[7] = (uint8_t)(seq >>  0);
+    hmac_input[8] = len;
+    memcpy(&hmac_input[9], data, len);
+
+    hmac_sha256(hmac_key, HMAC_KEY_LEN, hmac_input, 9U + len, full_hmac);
+    memcpy(tag, full_hmac, HMAC_TAG_LEN);
+}
+
+/* Build and send an authenticated CAN message.
+ * Frame: [len:2 | seq_lo:6][data 0-3 bytes, zero-padded][4-byte HMAC] */
+int can_send_authenticated(uint32_t can_id,
+                           const uint8_t *data, uint8_t data_len)
+{
+    if (data_len > CAN_AUTH_MAX_DATA) return -1;
+    if (tx_sequence == UINT32_MAX) return -5;  /* Exhausted: re-key */
+
+    uint8_t frame[8];
+    memset(frame, 0, sizeof(frame));
+
+    uint32_t seq = tx_sequence++;
+    frame[0] = (uint8_t)((data_len << SEQ_LO_BITS) | (seq & SEQ_LO_MASK));
+    memcpy(&frame[1], data, data_len);
+    compute_tag(can_id, seq, data_len, data, &frame[4]);
+
+    can_msg_t msg = { .id = can_id, .id_type = (can_id > 0x7FFU) ? 1U : 0U,
+                      .dlc = 8 };
+    memcpy(msg.data, frame, sizeof(frame));
+    return can_send(&msg, 10);
+}
+
+/* Receive and verify an authenticated CAN message.
+ * *last_rx_seq starts at 0 and holds the last accepted sequence number. */
+int can_receive_authenticated(uint32_t expected_id,
+                              uint8_t *data_out, uint8_t *data_len_out,
+                              uint32_t *last_rx_seq)
+{
+    can_msg_t msg;
+
+    if (can_receive(&msg, 100) != 0) {
+        return -1;  /* Timeout or error */
+    }
+    if (msg.id != expected_id || msg.dlc != 8) return -2;
+
+    const uint8_t *frame = msg.data;
+    uint32_t rx_id = msg.id;
+
+    uint8_t len = (uint8_t)(frame[0] >> SEQ_LO_BITS);
+    if (len > CAN_AUTH_MAX_DATA) return -2;
+
+    /* Reconstruct the full counter: smallest value > last with these low bits */
+    uint32_t last = *last_rx_seq;
+    uint32_t seq  = (last & ~SEQ_LO_MASK) | (frame[0] & SEQ_LO_MASK);
+    if (seq <= last) {
+        seq += SEQ_LO_MASK + 1U;
+    }
+    if (seq <= last) return -3;  /* Counter space exhausted: re-key */
+
+    uint8_t expected_tag[HMAC_TAG_LEN];
+    compute_tag(rx_id, seq, len, &frame[1], expected_tag);
+
+    /* Constant-time comparison of truncated tag */
+    uint8_t diff = 0;
+    for (int i = 0; i < HMAC_TAG_LEN; i++) {
+        diff |= frame[4 + i] ^ expected_tag[i];
+    }
+    if (diff != 0) return -4;  /* Forged, replayed, or out of sync */
+
+    *last_rx_seq  = seq;       /* Only accepted values advance the window */
+    *data_len_out = len;
+    memcpy(data_out, &frame[1], len);
+    return 0;
+}

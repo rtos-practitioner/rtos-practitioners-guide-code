@@ -1,0 +1,4 @@
+BaseType_t xTaskNotifyWait( uint32_t ulBitsToClearOnEntry,
+                            uint32_t ulBitsToClearOnExit,
+                            uint32_t *pulNotificationValue,
+                            TickType_t xTicksToWait );

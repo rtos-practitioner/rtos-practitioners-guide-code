@@ -1,0 +1,6 @@
+/* Code blocks show complete, compilable examples */
+void vExampleTask(void *pvParameters) {
+    for (;;) {
+        /* Task body */
+    }
+}

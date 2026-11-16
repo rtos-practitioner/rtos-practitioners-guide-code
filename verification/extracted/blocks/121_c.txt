@@ -1,0 +1,2 @@
+void *pvTimerGetTimerID(TimerHandle_t xTimer);
+void  vTimerSetTimerID(TimerHandle_t xTimer, void *pvNewID);

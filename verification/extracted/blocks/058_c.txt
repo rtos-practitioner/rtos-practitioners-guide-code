@@ -1,0 +1,5 @@
+if( xQueueSend( xSensorQueue, &xReading, pdMS_TO_TICKS( 50 ) ) != pdPASS )
+{
+    /* Queue full for 50 ms --- log overflow, increment error counter */
+    ulQueueOverflowCount++;
+}

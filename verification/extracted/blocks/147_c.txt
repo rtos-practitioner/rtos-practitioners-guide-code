@@ -1,0 +1,4 @@
+/* FreeRTOSConfig.h */
+#define configSUPPORT_STATIC_ALLOCATION     1
+#define configSUPPORT_DYNAMIC_ALLOCATION    0
+/* configTOTAL_HEAP_SIZE is not needed---no heap_N.c file is compiled */

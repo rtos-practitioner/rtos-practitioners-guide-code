@@ -1,0 +1,58 @@
+/*
+ * Real-Time Operating Systems: A Practitioner's Guide to FreeRTOS, QNX, and Zephyr
+ * Chapter 14: Testing Real-Time Systems
+ * 14.2 Unit Testing on Host > Code Example: Testing a State Machine with Stub Inputs
+ * Verification: executed
+ * SPDX-License-Identifier: MIT
+ */
+/* tests/test_motor_sm.c */
+#include "unity.h"
+#include "motor_state_machine.h"
+
+/* Stub: no real hardware */
+static bool     stub_limit_switch = false;
+static int32_t  stub_encoder_count = 0;
+
+bool hw_read_limit_switch(void) { return stub_limit_switch; }
+int32_t hw_read_encoder(void)   { return stub_encoder_count; }
+
+static MotorSM sm;
+
+void setUp(void) {
+    motor_sm_init(&sm);
+    stub_limit_switch = false;
+    stub_encoder_count = 0;
+}
+
+void tearDown(void) { }
+
+void test_starts_in_idle(void) {
+    TEST_ASSERT_EQUAL(MOTOR_STATE_IDLE, motor_sm_get_state(&sm));
+}
+
+void test_start_command_transitions_to_homing(void) {
+    motor_sm_event(&sm, MOTOR_EVT_START);
+    TEST_ASSERT_EQUAL(MOTOR_STATE_HOMING, motor_sm_get_state(&sm));
+}
+
+void test_limit_switch_during_homing_transitions_to_ready(void) {
+    motor_sm_event(&sm, MOTOR_EVT_START);
+    stub_limit_switch = true;                /* simulate switch hit */
+    motor_sm_event(&sm, MOTOR_EVT_TICK);     /* state machine polls */
+    TEST_ASSERT_EQUAL(MOTOR_STATE_READY, motor_sm_get_state(&sm));
+}
+
+void test_fault_from_any_state_goes_to_fault(void) {
+    motor_sm_event(&sm, MOTOR_EVT_START);
+    motor_sm_event(&sm, MOTOR_EVT_FAULT);
+    TEST_ASSERT_EQUAL(MOTOR_STATE_FAULT, motor_sm_get_state(&sm));
+}
+
+int main(void) {
+    UNITY_BEGIN();
+    RUN_TEST(test_starts_in_idle);
+    RUN_TEST(test_start_command_transitions_to_homing);
+    RUN_TEST(test_limit_switch_during_homing_transitions_to_ready);
+    RUN_TEST(test_fault_from_any_state_goes_to_fault);
+    return UNITY_END();
+}

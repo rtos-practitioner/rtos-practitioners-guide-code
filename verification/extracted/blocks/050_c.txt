@@ -1,0 +1,10 @@
+void vTaskA(void *pvParameters)
+{
+    for (;;)
+    {
+        ReadSensor();
+        ComputeOutput();
+        DriveActuator();
+        /* No vTaskDelay(), no blocking call — CPU never released */
+    }
+}

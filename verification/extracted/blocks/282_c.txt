@@ -1,0 +1,6 @@
+void USART2_IRQHandler(void)
+{
+    FR_Record(FR_EVT_ISR_ENTER, 0, 38);  /* IRQ number 38 */
+    HAL_UART_IRQHandler(&huart2);
+    FR_Record(FR_EVT_ISR_EXIT,  0, 38);
+}

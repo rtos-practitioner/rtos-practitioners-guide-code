@@ -1,0 +1,13 @@
+void decode_reset_cause(void)
+{
+    uint32_t csr = RCC->CSR;
+    RCC->CSR |= RCC_CSR_RMVF;          /* Clear flags for next time */
+
+    if (csr & RCC_CSR_LPWRRSTF)  log_info("Reset: low-power\r\n");
+    if (csr & RCC_CSR_WWDGRSTF)  log_info("Reset: WWDG\r\n");
+    if (csr & RCC_CSR_IWDGRSTF)  log_info("Reset: IWDG\r\n");
+    if (csr & RCC_CSR_SFTRSTF)   log_info("Reset: software\r\n");
+    if (csr & RCC_CSR_PORRSTF)   log_info("Reset: power-on\r\n");
+    if (csr & RCC_CSR_PINRSTF)   log_info("Reset: NRST pin\r\n");
+    if (csr & RCC_CSR_BORRSTF)   log_info("Reset: brown-out\r\n");
+}

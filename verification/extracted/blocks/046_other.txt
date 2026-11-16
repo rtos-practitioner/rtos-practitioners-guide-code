@@ -1,0 +1,1 @@
+Ri = Ci + SUM over higher-priority tasks j of: ceil(Ri / Tj) * Cj

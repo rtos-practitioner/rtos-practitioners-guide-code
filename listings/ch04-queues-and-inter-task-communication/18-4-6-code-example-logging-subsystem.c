@@ -1,0 +1,50 @@
+/*
+ * Real-Time Operating Systems: A Practitioner's Guide to FreeRTOS, QNX, and Zephyr
+ * Chapter 4: Queues and Inter-Task Communication
+ * 4.6 Message Buffers and Stream Buffers > Code Example: Logging Subsystem
+ * Verification: executed
+ * SPDX-License-Identifier: MIT
+ */
+static MessageBufferHandle_t xLogBuffer;
+
+void vLogInit( void )
+{
+    xLogBuffer = xMessageBufferCreate( 1024 );
+    configASSERT( xLogBuffer != NULL );
+}
+
+/* Any task can call this (but only ONE task should!) */
+void vLogWrite( const char *pcTag, const char *pcMessage )
+{
+    char cEntry[ 128 ];
+    int iLen = snprintf( cEntry, sizeof( cEntry ), "[%lu] %s: %s\r\n",
+                         ( unsigned long ) xTaskGetTickCount(),
+                         pcTag, pcMessage );
+    if( iLen >= ( int ) sizeof( cEntry ) )
+    {
+        iLen = ( int ) sizeof( cEntry ) - 1;   /* snprintf truncated the entry */
+    }
+    if( iLen > 0 )
+    {
+        xMessageBufferSend( xLogBuffer, cEntry,
+                            ( size_t ) iLen, pdMS_TO_TICKS( 5 ) );
+    }
+}
+
+/* Dedicated log consumer task */
+void vLogTask( void *pvParameters )
+{
+    char cRxBuf[ 128 ];
+    size_t xLen;
+
+    for( ;; )
+    {
+        xLen = xMessageBufferReceive( xLogBuffer, cRxBuf,
+                                       sizeof( cRxBuf ),
+                                       portMAX_DELAY );
+        if( xLen > 0 )
+        {
+            vUartTransmit( ( uint8_t * ) cRxBuf, xLen );
+        }
+    }
+}

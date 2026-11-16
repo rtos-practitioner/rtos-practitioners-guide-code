@@ -1,0 +1,3 @@
+uint32_t start = DWT->CYCCNT;
+/* ... code under measurement ... */
+uint32_t elapsed = DWT->CYCCNT - start;  /* Correct even if wrapped once */

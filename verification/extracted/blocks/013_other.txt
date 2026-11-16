@@ -1,0 +1,9 @@
+/* Key compiler flags for Cortex-M4F */
+// -mcpu=cortex-m4       Target CPU
+// -mthumb               Thumb-2 instruction set
+// -mfpu=fpv4-sp-d16     Single-precision FPU
+// -mfloat-abi=hard      Hardware floating point ABI
+// -Wall -Wextra          Full warnings
+// -ffunction-sections    Enable linker garbage collection
+// -fdata-sections        Enable linker garbage collection
+// -Og (debug) / -O2 (release)   Optimization level

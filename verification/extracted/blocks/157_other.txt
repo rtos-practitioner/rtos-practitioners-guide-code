@@ -1,0 +1,1 @@
+Total response time = Interrupt latency + ISR execution time + Deferred processing time

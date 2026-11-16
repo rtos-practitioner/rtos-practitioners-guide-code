@@ -1,0 +1,18 @@
+WITHOUT Priority Inheritance:
+                                                    watchdog
+  H: |===|          |--------BLOCKED-------------------!RESET!
+  M:      |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+  L:           |===|                       |===|
+       ^       ^    ^                       ^
+       H runs  L    M preempts L            L finally
+       blocks  runs (H and L both stalled)  resumes
+
+WITH Priority Inheritance:
+  H: |===|     |================|
+  M:      |    |                 |xxxxxxxxxxxx|
+  L: .....|=~=~|                                  (~ = runs at H's priority)
+       ^   ^    ^                ^
+       H   L    L gives mutex,  M runs
+       blk runs H acquires it   (no deadline miss)
+       on  at H's
+       mtx priority

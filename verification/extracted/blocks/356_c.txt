@@ -1,0 +1,11 @@
+void vControlTask(void *pvParam)
+{
+    for (;;) {
+        vTaskDelay(pdMS_TO_TICKS(10));
+        xSemaphoreTake(xSharedBusSemaphore, portMAX_DELAY);
+        vPerformBusTransaction();     /* 2 ms */
+        xSemaphoreGive(xSharedBusSemaphore);
+    }
+}
+/* xSharedBusSemaphore was created with xSemaphoreCreateBinary() */
+/* Three tasks at priorities 1, 3, and 5 all use this semaphore */

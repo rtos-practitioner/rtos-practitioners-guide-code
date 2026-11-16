@@ -1,0 +1,9 @@
+/* Send a variable-length log entry */
+size_t xSent = xMessageBufferSend( xMsgBuf,
+                                    pucLogEntry, uxEntryLen,
+                                    pdMS_TO_TICKS( 20 ) );
+
+/* Receive the next complete message */
+size_t xReceived = xMessageBufferReceive( xMsgBuf,
+                                           ucRxBuf, sizeof( ucRxBuf ),
+                                           portMAX_DELAY );

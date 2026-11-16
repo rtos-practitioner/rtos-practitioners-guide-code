@@ -1,0 +1,13 @@
+Flash Layout (1 MB STM32F407, single bank):
++-------------------------+  0x08000000
+| Bootloader (32 KB)      |  Sectors 0-1 (2 x 16 KB), write-protected
++-------------------------+  0x08008000
+| Metadata (32 KB)        |  Sectors 2-3 (2 x 16 KB): update state,
+|                         |  versions, flags (one copy per sector)
++-------------------------+  0x08010000
+| Slot A: Active App      |  Sectors 4-7 (64 + 3 x 128 = 448 KB)
+| (currently running)     |
++-------------------------+  0x08080000
+| Slot B: Staging         |  Sectors 8-11 (4 x 128 = 512 KB)
+| (download target)       |  Images limited to 448 KB (slot A size)
++-------------------------+  0x08100000

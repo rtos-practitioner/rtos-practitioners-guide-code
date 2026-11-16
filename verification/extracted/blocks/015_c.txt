@@ -1,0 +1,28 @@
+/* Pseudo-code of startup sequence */
+extern uint32_t _sidata, _sdata, _edata, _sbss, _ebss;  /* Linker symbols */
+extern void SystemInit(void);
+extern int main(void);
+
+void Reset_Handler(void) {
+    /* Step 1: Copy .data section from flash (ROM) to RAM */
+    uint32_t *src = &_sidata;    /* Flash address of .data initializers */
+    uint32_t *dst = &_sdata;     /* RAM start of .data */
+    while (dst < &_edata) {
+        *dst++ = *src++;
+    }
+
+    /* Step 2: Zero-fill .bss section in RAM */
+    dst = &_sbss;
+    while (dst < &_ebss) {
+        *dst++ = 0;
+    }
+
+    /* Step 3: Call system initialization (clock, flash latency) */
+    SystemInit();
+
+    /* Step 4: Call C main function */
+    main();
+
+    /* Step 5: Infinite loop if main returns (should not happen) */
+    while (1) {}
+}

@@ -1,0 +1,6 @@
+Power Supply          Shunt              STM32F407
+    +  ----+---[10 Ω]---+---- VDD
+           |             |
+           +-- V_shunt --+     I = V_shunt / R_shunt
+           (oscilloscope
+            probes here)

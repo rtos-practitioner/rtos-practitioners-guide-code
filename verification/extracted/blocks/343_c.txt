@@ -1,0 +1,29 @@
+SemaphoreHandle_t xDataSemaphore;
+QueueHandle_t xDataQueue;
+
+void EXTI0_IRQHandler(void)
+{
+    BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+
+    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
+
+    uint32_t ulSensorValue = READ_SENSOR();
+
+    /* CORRECT: FromISR variant, non-blocking */
+    xQueueSendFromISR(xDataQueue, &ulSensorValue,
+                      &xHigherPriorityTaskWoken);
+
+    /* Request context switch if a higher-priority task was woken */
+    portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+}
+
+/* Handler task performs the actual processing */
+void vDataHandlerTask(void *pvParam)
+{
+    uint32_t ulReceived;
+    for (;;) {
+        if (xQueueReceive(xDataQueue, &ulReceived, portMAX_DELAY) == pdPASS) {
+            vProcessSensorData(ulReceived);
+        }
+    }
+}

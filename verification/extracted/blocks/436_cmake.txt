@@ -1,0 +1,16 @@
+set(FREERTOS_SRC
+    third-party/FreeRTOS/tasks.c
+    third-party/FreeRTOS/queue.c
+    third-party/FreeRTOS/list.c
+    third-party/FreeRTOS/timers.c
+    third-party/FreeRTOS/event_groups.c
+    third-party/FreeRTOS/stream_buffer.c
+    third-party/FreeRTOS/portable/GCC/ARM_CM4F/port.c
+    third-party/FreeRTOS/portable/MemMang/heap_4.c
+)
+
+target_include_directories(app PRIVATE
+    include                                          # FreeRTOSConfig.h
+    third-party/FreeRTOS/include                     # FreeRTOS headers
+    third-party/FreeRTOS/portable/GCC/ARM_CM4F       # portmacro.h
+)

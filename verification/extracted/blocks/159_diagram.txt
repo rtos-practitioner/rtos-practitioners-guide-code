@@ -1,0 +1,12 @@
+High address (pre-interrupt SP)
++------------------+
+| xPSR             |   SP + 28
+| PC (return addr) |   SP + 24
+| LR               |   SP + 20
+| R12              |   SP + 16
+| R3               |   SP + 12
+| R2               |   SP + 8
+| R1               |   SP + 4
+| R0               |   SP + 0   <-- new SP after stacking
++------------------+
+Low address

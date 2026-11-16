@@ -1,0 +1,4 @@
+taskENTER_CRITICAL();       /* nesting = 1, BASEPRI set */
+    taskENTER_CRITICAL();   /* nesting = 2, BASEPRI unchanged */
+    taskEXIT_CRITICAL();    /* nesting = 1, BASEPRI unchanged */
+taskEXIT_CRITICAL();        /* nesting = 0, BASEPRI restored */

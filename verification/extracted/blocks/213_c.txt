@@ -1,0 +1,3 @@
+/* Sleep mode entry */
+SCB->SCR &= ~SCB_SCR_SLEEPDEEP_Msk;  /* Clear SLEEPDEEP bit */
+__WFI();                               /* Wait For Interrupt  */

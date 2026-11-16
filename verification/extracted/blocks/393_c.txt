@@ -1,0 +1,3 @@
+if ((fTemperature >= fHighThreshold) && (xAlarmActive == pdFALSE)) {
+    vActivateAlarm();
+}

@@ -1,0 +1,17 @@
+                  Is the shared resource accessed by an ISR?
+                        /                          \
+                      YES                           NO
+                      /                              \
+            Is it very short                  Is it a single
+            (< ~10 instructions)?             signaling event?
+              /          \                      /          \
+            YES          NO                   YES          NO
+            /              \                  /              \
+  taskENTER_       Binary semaphore    Binary/counting     Need mutual
+  CRITICAL()       (ISR gives,         semaphore or        exclusion?
+                    task takes)        event group           /      \
+                                                           YES      NO
+                                                           /          \
+                                                        Mutex      Queue to
+                                                     (priority     gatekeeper
+                                                    inheritance)    task

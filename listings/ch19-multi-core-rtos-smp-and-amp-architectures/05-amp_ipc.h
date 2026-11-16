@@ -1,0 +1,72 @@
+/*
+ * Real-Time Operating Systems: A Practitioner's Guide to FreeRTOS, QNX, and Zephyr
+ * Chapter 19: Multi-Core RTOS: SMP and AMP Architectures
+ * 19.4 AMP with FreeRTOS > 19.4.1 Memory Map Separation
+ * Verification: changed since the reference run - re-run tools/run_suite.py
+ * SPDX-License-Identifier: MIT
+ */
+/* amp_ipc.h — shared-memory layout for the Section 19.4 example */
+#ifndef AMP_IPC_H
+#define AMP_IPC_H
+
+#include <stdbool.h>
+#include <stdint.h>
+#include <string.h>
+#include "stm32h7xx.h"
+
+#define HSEM_ID_IPC_NOTIFY  0U
+#define IPC_RING_SLOTS      64U   /* Must be power of 2 */
+#define IPC_SLOT_SIZE       32U   /* Bytes per slot      */
+
+typedef struct {
+    uint32_t timestamp_us;
+    float    speed_rpm;
+    float    current_a;
+    float    temperature_c;
+} Telemetry_t;
+
+typedef struct {
+    volatile uint32_t head;       /* Written only by the producer */
+    volatile uint32_t tail;       /* Written only by the consumer */
+    uint8_t           slot[IPC_RING_SLOTS][IPC_SLOT_SIZE];
+} IPC_SlotRing_t;
+
+typedef struct {
+    volatile uint32_t initialized;  /* 0xDEADBEEF once the M7 is done */
+    IPC_SlotRing_t    telemetry_ring;
+} SharedIPC_t;
+
+static inline bool ipc_ring_push(volatile IPC_SlotRing_t *r,
+                                 const void *data, uint32_t len)
+{
+    uint32_t h = r->head;
+    uint32_t next = (h + 1U) & (IPC_RING_SLOTS - 1U);
+    if (len > IPC_SLOT_SIZE || next == r->tail) return false;
+    __DMB();                      /* Tail read before slot overwrite */
+    memcpy((void *)r->slot[h], data, len);
+    __DMB();                      /* Payload visible before head    */
+    r->head = next;
+    return true;
+}
+
+static inline bool ipc_ring_pop(volatile IPC_SlotRing_t *r,
+                                void *data, uint32_t len)
+{
+    uint32_t t = r->tail;
+    if (len > IPC_SLOT_SIZE || t == r->head) return false;
+    __DMB();                      /* Head read before payload read  */
+    memcpy(data, (const void *)r->slot[t], len);
+    __DMB();                      /* Payload read before slot reuse */
+    r->tail = (t + 1U) & (IPC_RING_SLOTS - 1U);
+    return true;
+}
+
+static inline void ipc_shared_init(volatile SharedIPC_t *ipc)
+{
+    ipc->telemetry_ring.head = 0U;
+    ipc->telemetry_ring.tail = 0U;
+    __DMB();
+    ipc->initialized = 0xDEADBEEFU;
+}
+
+#endif /* AMP_IPC_H */

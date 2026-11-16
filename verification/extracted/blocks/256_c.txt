@@ -1,0 +1,17 @@
+/* WRONG: vTaskDelay causes cumulative drift */
+void vPeriodicTask(void *pvParameters) {
+    for (;;) {
+        do_work();          /* Variable execution time */
+        vTaskDelay(pdMS_TO_TICKS(10));  /* 10 ms from NOW */
+    }
+}
+
+/* CORRECT: vTaskDelayUntil maintains absolute period */
+void vPeriodicTask(void *pvParameters) {
+    TickType_t xLastWakeTime = xTaskGetTickCount();
+    const TickType_t xPeriod = pdMS_TO_TICKS(10);
+    for (;;) {
+        do_work();
+        vTaskDelayUntil(&xLastWakeTime, xPeriod);  /* 10 ms from LAST WAKE */
+    }
+}

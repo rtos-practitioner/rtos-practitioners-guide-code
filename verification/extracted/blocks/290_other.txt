@@ -1,0 +1,1 @@
+timeout = (prescaler_value * reload) / f_LSI

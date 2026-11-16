@@ -1,0 +1,79 @@
+/*
+ * Real-Time Operating Systems: A Practitioner's Guide to FreeRTOS, QNX, and Zephyr
+ * Chapter 14: Testing Real-Time Systems
+ * 14.4 Integration Testing > Code Example: Integration Test on FreeRTOS Simulator
+ * Verification: executed
+ * SPDX-License-Identifier: MIT
+ */
+/* tests/integration/test_pipeline.c
+ * Build with FreeRTOS POSIX simulator port */
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+#include "unity.h"
+#include <stdio.h>
+
+#define QUEUE_LEN     16
+#define NUM_ITEMS     100
+#define PRODUCER_PRIO  2
+#define CONSUMER_PRIO  3
+
+static QueueHandle_t   data_queue;
+static volatile int    consumed_count;
+static volatile int    consumed_sum;
+static volatile bool   test_complete;
+
+static void producer_task(void *param) {
+    for (int i = 1; i <= NUM_ITEMS; i++) {
+        int32_t value = i;
+        xQueueSend(data_queue, &value, portMAX_DELAY);
+    }
+    vTaskDelete(NULL);
+}
+
+static void consumer_task(void *param) {
+    int32_t value;
+    while (consumed_count < NUM_ITEMS) {
+        if (xQueueReceive(data_queue, &value, pdMS_TO_TICKS(1000))
+                == pdTRUE) {
+            consumed_count++;
+            consumed_sum += value;
+        }
+    }
+    test_complete = true;
+    vTaskDelete(NULL);
+}
+
+static void test_runner_task(void *param) {
+    /* Wait for pipeline completion */
+    while (!test_complete) {
+        vTaskDelay(pdMS_TO_TICKS(10));
+    }
+    /* Verify results */
+    int expected_sum = (NUM_ITEMS * (NUM_ITEMS + 1)) / 2;
+    TEST_ASSERT_EQUAL_INT(NUM_ITEMS, consumed_count);
+    TEST_ASSERT_EQUAL_INT(expected_sum, consumed_sum);
+
+    printf("Integration test PASSED\n");
+    /* Exit the simulator */
+    exit(UNITY_END());
+}
+
+int main(void) {
+    UNITY_BEGIN();
+
+    data_queue    = xQueueCreate(QUEUE_LEN, sizeof(int32_t));
+    consumed_count = 0;
+    consumed_sum   = 0;
+    test_complete  = false;
+
+    xTaskCreate(producer_task,    "Producer", 1024, NULL,
+                PRODUCER_PRIO, NULL);
+    xTaskCreate(consumer_task,    "Consumer", 1024, NULL,
+                CONSUMER_PRIO, NULL);
+    xTaskCreate(test_runner_task, "TestRun",  1024, NULL,
+                configMAX_PRIORITIES - 1, NULL);
+
+    vTaskStartScheduler();
+    return 1;  /* should not reach here */
+}

@@ -1,0 +1,7 @@
+const struct device *temp_dev =
+    DEVICE_DT_GET(DT_NODELABEL(lm75));
+
+sensor_sample_fetch(temp_dev);
+struct sensor_value val;
+sensor_channel_get(temp_dev, SENSOR_CHAN_AMBIENT_TEMP, &val);
+float temperature = sensor_value_to_float(&val);

@@ -1,0 +1,20 @@
+#define SPI_ACQUIRE(mutex, timeout)                          \
+    do {                                                     \
+        if (xSemaphoreTake((mutex), (timeout)) != pdTRUE) {  \
+            vLogError("SPI acquire timeout");                \
+            return ERROR_TIMEOUT;                            \
+        }                                                    \
+    } while (0)
+
+#define SPI_RELEASE(mutex)                                   \
+    do { xSemaphoreGive((mutex)); } while (0)
+
+ErrorCode_t eSpiWriteDisplay(const uint8_t *pucData, size_t xLen)
+{
+    SPI_ACQUIRE(xSpiMutex, pdMS_TO_TICKS(100));
+    vSpiSelectChip(SPI_CS_DISPLAY);
+    ErrorCode_t eResult = eSpiTransmit(pucData, xLen);
+    vSpiDeselectChip(SPI_CS_DISPLAY);
+    SPI_RELEASE(xSpiMutex);
+    return eResult;
+}

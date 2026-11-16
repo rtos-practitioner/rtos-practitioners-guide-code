@@ -1,0 +1,15 @@
+/* Task created with 256-word (1024-byte) stack */
+xTaskCreate(vLogTask, "Log", 256, NULL, 2, NULL);
+
+void vLogTask(void *pvParam)
+{
+    for (;;) {
+        char cBuffer[512];  /* 512 bytes — half the stack, in one frame */
+        /* After accounting for context save, local variables in called
+           functions, and return addresses, this overflows */
+        snprintf(cBuffer, sizeof(cBuffer), "Sensor: %d, Temp: %d",
+                 xReadSensor(), xReadTemperature());
+        vSendToUART(cBuffer);
+        vTaskDelay(pdMS_TO_TICKS(1000));
+    }
+}

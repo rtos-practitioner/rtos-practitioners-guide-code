@@ -1,0 +1,95 @@
+/*
+ * Real-Time Operating Systems: A Practitioner's Guide to FreeRTOS, QNX, and Zephyr
+ * Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring
+ * 13.4 Task-Level Health Monitoring > 13.4.2 Implementation
+ * Verification: executed
+ * SPDX-License-Identifier: MIT
+ */
+#include "FreeRTOS.h"
+#include "task.h"
+#include "semphr.h"
+
+/* ----- Configuration ----- */
+#define MONITOR_PERIOD_MS       500
+#define NUM_MONITORED_TASKS     3
+#define EXPECTED_CHECKIN_MASK   ((1U << NUM_MONITORED_TASKS) - 1)  /* 0x07 */
+
+/* Bit assignments */
+#define TASK_CONTROL_BIT        (1U << 0)
+#define TASK_COMMS_BIT          (1U << 1)
+#define TASK_LOGGING_BIT        (1U << 2)
+
+/* ----- Shared state ----- */
+static volatile uint32_t health_bitmap = 0;
+static volatile uint32_t miss_count[NUM_MONITORED_TASKS] = {0};
+
+/* Escalation thresholds */
+#define WARN_THRESHOLD          1
+#define RECOVER_THRESHOLD       3
+#define SAFE_STATE_THRESHOLD    5
+
+/* ----- Check-in API ----- */
+void health_checkin(uint32_t task_bit)
+{
+    /* Atomic set — no mutex needed for single-bit OR on Cortex-M */
+    uint32_t primask = __get_PRIMASK();
+    __disable_irq();
+    health_bitmap |= task_bit;
+    __set_PRIMASK(primask);
+}
+
+/* ----- Escalation handler ----- */
+static void escalate(uint32_t missed_mask)
+{
+    for (int i = 0; i < NUM_MONITORED_TASKS; i++) {
+        if (missed_mask & (1U << i)) {
+            miss_count[i]++;
+
+            if (miss_count[i] >= SAFE_STATE_THRESHOLD) {
+                /* Level 3: enter safe state and reset */
+                fault_log_to_backup_sram(0, 0, missed_mask,
+                                         miss_count[i]);
+                safe_state();            /* defined in Section 13.8 */
+            }
+            else if (miss_count[i] >= RECOVER_THRESHOLD) {
+                /* Level 2: attempt task restart */
+                recover_task(i);         /* defined in Section 13.9 */
+            }
+            else if (miss_count[i] >= WARN_THRESHOLD) {
+                /* Level 1: log warning */
+                log_warning("Task %d missed check-in (%lu)\r\n",
+                            i, miss_count[i]);
+            }
+        } else {
+            miss_count[i] = 0;          /* Reset on successful check-in */
+        }
+    }
+}
+
+/* ----- Monitor task ----- */
+void monitor_task(void *pv)
+{
+    TickType_t last_wake = xTaskGetTickCount();
+
+    for (;;) {
+        vTaskDelayUntil(&last_wake, pdMS_TO_TICKS(MONITOR_PERIOD_MS));
+
+        uint32_t snapshot;
+        uint32_t primask = __get_PRIMASK();
+        __disable_irq();
+        snapshot = health_bitmap;
+        health_bitmap = 0;              /* Reset for next period */
+        __set_PRIMASK(primask);
+
+        uint32_t missed = EXPECTED_CHECKIN_MASK & ~snapshot;
+
+        if (missed != 0) {
+            escalate(missed);           /* safe_state() never returns */
+        }
+
+        /* Feed only while the monitor itself is running and escalation
+           is still in control. If this task stalls, or safe_state()
+           spins with interrupts disabled, the IWDG forces a reset. */
+        iwdg_refresh();
+    }
+}

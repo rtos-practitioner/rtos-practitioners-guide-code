@@ -1,0 +1,7 @@
+/* QNX application code */
+int fd = open("/dev/ser1", O_RDWR);
+tcsetattr(fd, TCSANOW, &termios_config);
+write(fd, data, len);
+read(fd, buf, len);
+devctl(fd, DCMD_CHR_LINESTATUS, &status, sizeof(status), NULL);
+close(fd);

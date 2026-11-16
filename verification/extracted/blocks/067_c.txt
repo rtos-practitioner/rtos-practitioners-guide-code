@@ -1,0 +1,4 @@
+StreamBufferHandle_t xStreamBuf = xStreamBufferCreate(
+    256,   /* total buffer size in bytes */
+    1      /* trigger level: minimum bytes to unblock reader */
+);

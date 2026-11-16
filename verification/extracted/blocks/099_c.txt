@@ -1,0 +1,4 @@
+vTaskSuspendAll();
+/* No context switch can occur here, but interrupts still fire */
+/* Modify task-only shared data */
+xTaskResumeAll();

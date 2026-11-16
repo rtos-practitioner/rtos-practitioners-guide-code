@@ -1,0 +1,5 @@
+UBaseType_t hwm = uxTaskGetStackHighWaterMark(xMotorTaskHandle);
+if (hwm < 32) {
+    /* Dangerously low — increase stack allocation */
+    FR_Record(FR_EVT_STACK_LOW, MOTOR_TASK_ID, (uint16_t)hwm);
+}

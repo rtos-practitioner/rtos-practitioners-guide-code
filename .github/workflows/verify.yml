@@ -1,0 +1,41 @@
+name: verify-listings
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  qemu:
+    # Ubuntu 22.04 ships the versions the harness was validated with:
+    # QEMU 6.2 and arm-none-eabi-gcc 10.3.
+    runs-on: ubuntu-22.04
+    defaults:
+      run:
+        working-directory: verification
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install toolchain and QEMU
+        run: bash tools/setup_toolchain.sh
+
+      - name: Install Python requirements
+        run: pip install -r requirements.txt
+
+      - name: Fetch FreeRTOS, CMSIS, STM32F4 HAL, Unity
+        run: bash tools/fetch_deps.sh
+
+      - name: Build and run every listing on QEMU
+        run: python3 tools/run_suite.py --jobs "$(nproc)"
+
+      - name: Write report
+        run: python3 tools/report.py
+
+      - name: Summary
+        run: |
+          { echo '```json'; cat results/summary.json; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qemu-results
+          path: verification/results/

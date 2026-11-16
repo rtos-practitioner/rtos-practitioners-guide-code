@@ -1,0 +1,12 @@
+/* Enable the DWT cycle counter */
+CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
+DWT->CYCCNT = 0;
+DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
+
+/* In a test task, record timestamp before yielding */
+uint32_t t1 = DWT->CYCCNT;
+taskYIELD();
+/* After rescheduling, record timestamp */
+uint32_t t2 = DWT->CYCCNT;
+
+/* Context switch time (us) ≈ (t2 - t1) / 168  (168 cycles per us at 168 MHz) */

@@ -1,0 +1,8 @@
+Tickless Idle (next task due in 50ms):
+
+  Deep Sleep (50ms)                   Deep Sleep
+  ___________________________________|____________
+  ^                                   ^
+  SysTick programmed for 50ms         Next wakeup
+
+  vs. 50 individual 1ms wakeups in standard mode

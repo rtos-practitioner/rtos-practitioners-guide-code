@@ -1,0 +1,8 @@
+void k_sys_fatal_error_handler(unsigned int reason,
+                               const struct arch_esf *esf)
+{
+    LOG_PANIC();                        /* Flush any buffered log data */
+    save_crash_dump(reason, esf);       /* Persist to retained memory  */
+    safe_state();
+    sys_reboot(SYS_REBOOT_COLD);
+}

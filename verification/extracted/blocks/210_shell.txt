@@ -1,0 +1,10 @@
+# Host build using fake HAL
+gcc -I hal/fake -I src/drivers -I test \
+    src/drivers/uart_rtos.c \
+    src/drivers/uart_api.c \
+    hal/fake/uart_hal.c \
+    test/test_command_parser.c \
+    test/unity.c \
+    -o test_runner
+
+./test_runner

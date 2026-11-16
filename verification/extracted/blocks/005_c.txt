@@ -1,0 +1,10 @@
+int main(void) {
+    system_init();
+
+    for (;;) {
+        read_sensors();
+        run_control();
+        update_display();
+        check_communications();
+    }
+}

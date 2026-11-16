@@ -1,0 +1,2 @@
+/* Both Task A and Task B execute this */
+g_count++;

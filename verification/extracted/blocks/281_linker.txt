@@ -1,0 +1,6 @@
+/* In STM32F407VGTx_FLASH.ld, add before .bss: */
+.noinit (NOLOAD) :
+{
+    *(.noinit)
+    *(.noinit*)
+} >RAM

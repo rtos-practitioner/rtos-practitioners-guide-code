@@ -1,0 +1,2 @@
+/* In STM32F407VGTx_FLASH.ld */
+_Min_Stack_Size = 0x800;  /* 2048 bytes -- conservative for nesting */

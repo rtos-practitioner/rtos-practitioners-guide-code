@@ -1,0 +1,13 @@
+BaseType_t xTimerPendFunctionCall(
+    PendedFunction_t xFunctionToPend,   /* Function to execute */
+    void *pvParameter1,                 /* First parameter */
+    uint32_t ulParameter2,              /* Second parameter */
+    TickType_t xTicksToWait            /* Block time if queue full */
+);
+
+BaseType_t xTimerPendFunctionCallFromISR(
+    PendedFunction_t xFunctionToPend,
+    void *pvParameter1,
+    uint32_t ulParameter2,
+    BaseType_t *pxHigherPriorityTaskWoken
+);

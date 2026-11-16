@@ -1,0 +1,27 @@
+                    +-----------+
+      vTaskResume() |           | vTaskSuspend()
+   +--------------->|  READY    |<-----------+
+   |                |           |----+        |
+   |                +-----------+    |        |
+   |                  |    ^         |        |
+   |  Scheduler       |    |        Scheduler picks
+   |  preempts        |    |        highest-priority
+   |                  v    |        ready task
+   |                +-----------+    |
+   |                |           |----+
+   |                |  RUNNING  |
+   |                |           |
+   |                +-----------+
+   |                  |    |
+   |   Block on queue |    | vTaskSuspend()
+   |   semaphore,     |    |
+   |   vTaskDelay()   |    |
+   |                  v    v
+   |   +-----------+    +-----------+
+   |   |           |    |           |
+   +---|  BLOCKED  |    | SUSPENDED |
+       |           |    |           |
+       +-----------+    +-----------+
+        Event occurs     Only explicit
+        or timeout       vTaskResume()
+        expires          can exit this

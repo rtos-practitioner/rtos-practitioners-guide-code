@@ -1,0 +1,6 @@
+#define DWT_CYCLES_TO_US(cycles)  ((uint32_t)((uint64_t)(cycles) * 1000000ULL \
+                                   / configCPU_CLOCK_HZ))
+#define DWT_CYCLES_TO_NS(cycles)  ((uint32_t)((uint64_t)(cycles) * 1000000000ULL \
+                                   / configCPU_CLOCK_HZ))
+#define DWT_US_TO_CYCLES(us)      ((uint32_t)((uint64_t)(us) \
+                                   * configCPU_CLOCK_HZ / 1000000ULL))

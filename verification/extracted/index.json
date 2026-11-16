@@ -1,0 +1,3935 @@
+[
+ {
+  "chapter": "How to Use This Book",
+  "section": "",
+  "sub": "Conventions Used in This Book",
+  "idx": 1,
+  "kind": "c",
+  "lines": 6,
+  "file": "blocks/001_c.txt"
+ },
+ {
+  "chapter": "Chapter 1: Real-Time Systems and RTOS Fundamentals",
+  "section": "1.2 Core Timing Concepts",
+  "sub": "Latency",
+  "idx": 2,
+  "kind": "diagram",
+  "lines": 10,
+  "file": "blocks/002_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 1: Real-Time Systems and RTOS Fundamentals",
+  "section": "1.2 Core Timing Concepts",
+  "sub": "Utilization",
+  "idx": 3,
+  "kind": "other",
+  "lines": 1,
+  "file": "blocks/003_other.txt"
+ },
+ {
+  "chapter": "Chapter 1: Real-Time Systems and RTOS Fundamentals",
+  "section": "1.2 Core Timing Concepts",
+  "sub": "Rate Monotonic Analysis",
+  "idx": 4,
+  "kind": "other",
+  "lines": 1,
+  "file": "blocks/004_other.txt"
+ },
+ {
+  "chapter": "Chapter 1: Real-Time Systems and RTOS Fundamentals",
+  "section": "1.3 Bare Metal vs RTOS vs Linux",
+  "sub": "Bare Metal (Superloop)",
+  "idx": 5,
+  "kind": "c",
+  "lines": 10,
+  "file": "blocks/005_c.txt"
+ },
+ {
+  "chapter": "Chapter 1: Real-Time Systems and RTOS Fundamentals",
+  "section": "1.3 Bare Metal vs RTOS vs Linux",
+  "sub": "Real-Time Operating System (RTOS)",
+  "idx": 6,
+  "kind": "c",
+  "lines": 18,
+  "file": "blocks/006_c.txt"
+ },
+ {
+  "chapter": "Chapter 1: Real-Time Systems and RTOS Fundamentals",
+  "section": "1.4 RTOS Kernel Architecture",
+  "sub": "The Scheduler",
+  "idx": 7,
+  "kind": "other",
+  "lines": 6,
+  "file": "blocks/007_other.txt"
+ },
+ {
+  "chapter": "Chapter 1: Real-Time Systems and RTOS Fundamentals",
+  "section": "1.4 RTOS Kernel Architecture",
+  "sub": "Task States",
+  "idx": 8,
+  "kind": "diagram",
+  "lines": 17,
+  "file": "blocks/008_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 1: Real-Time Systems and RTOS Fundamentals",
+  "section": "1.5 FreeRTOS Architecture Overview",
+  "sub": "Source Tree Structure",
+  "idx": 9,
+  "kind": "diagram",
+  "lines": 29,
+  "file": "blocks/009_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 1: Real-Time Systems and RTOS Fundamentals",
+  "section": "1.5 FreeRTOS Architecture Overview",
+  "sub": "The Configuration Model",
+  "idx": 10,
+  "kind": "c",
+  "lines": 25,
+  "file": "blocks/010_c.txt"
+ },
+ {
+  "chapter": "Chapter 1: Real-Time Systems and RTOS Fundamentals",
+  "section": "1.10 Lab 1: Baseline Timing Characterization",
+  "sub": "Implementation",
+  "idx": 11,
+  "kind": "c",
+  "lines": 119,
+  "file": "blocks/011_c.txt"
+ },
+ {
+  "chapter": "Chapter 2: Development Environment, Project Layout, and Board Bring-Up",
+  "section": "2.2 Toolchain Setup",
+  "sub": "ARM GCC Toolchain",
+  "idx": 12,
+  "kind": "shell",
+  "lines": 2,
+  "file": "blocks/012_shell.txt"
+ },
+ {
+  "chapter": "Chapter 2: Development Environment, Project Layout, and Board Bring-Up",
+  "section": "2.2 Toolchain Setup",
+  "sub": "Build System with CMake",
+  "idx": 13,
+  "kind": "other",
+  "lines": 9,
+  "file": "blocks/013_other.txt"
+ },
+ {
+  "chapter": "Chapter 2: Development Environment, Project Layout, and Board Bring-Up",
+  "section": "2.3 Project Repository Structure",
+  "sub": "",
+  "idx": 14,
+  "kind": "other",
+  "lines": 43,
+  "file": "blocks/014_other.txt"
+ },
+ {
+  "chapter": "Chapter 2: Development Environment, Project Layout, and Board Bring-Up",
+  "section": "2.4 The Boot Sequence Explained",
+  "sub": "Phase 2: C Runtime Initialization (Startup Assembly)",
+  "idx": 15,
+  "kind": "c",
+  "lines": 28,
+  "file": "blocks/015_c.txt"
+ },
+ {
+  "chapter": "Chapter 2: Development Environment, Project Layout, and Board Bring-Up",
+  "section": "2.4 The Boot Sequence Explained",
+  "sub": "Phase 3: System Initialization and main()",
+  "idx": 16,
+  "kind": "c",
+  "lines": 30,
+  "file": "blocks/016_c.txt"
+ },
+ {
+  "chapter": "Chapter 2: Development Environment, Project Layout, and Board Bring-Up",
+  "section": "2.5 Clock Tree Configuration",
+  "sub": "",
+  "idx": 17,
+  "kind": "diagram",
+  "lines": 17,
+  "file": "blocks/017_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 2: Development Environment, Project Layout, and Board Bring-Up",
+  "section": "2.7 FreeRTOSConfig.h Deep Dive",
+  "sub": "Scheduling and Timing Configuration",
+  "idx": 18,
+  "kind": "c",
+  "lines": 1,
+  "file": "blocks/018_c.txt"
+ },
+ {
+  "chapter": "Chapter 2: Development Environment, Project Layout, and Board Bring-Up",
+  "section": "2.7 FreeRTOSConfig.h Deep Dive",
+  "sub": "Scheduling and Timing Configuration",
+  "idx": 19,
+  "kind": "c",
+  "lines": 1,
+  "file": "blocks/019_c.txt"
+ },
+ {
+  "chapter": "Chapter 2: Development Environment, Project Layout, and Board Bring-Up",
+  "section": "2.7 FreeRTOSConfig.h Deep Dive",
+  "sub": "Scheduling and Timing Configuration",
+  "idx": 20,
+  "kind": "c",
+  "lines": 1,
+  "file": "blocks/020_c.txt"
+ },
+ {
+  "chapter": "Chapter 2: Development Environment, Project Layout, and Board Bring-Up",
+  "section": "2.7 FreeRTOSConfig.h Deep Dive",
+  "sub": "Scheduling and Timing Configuration",
+  "idx": 21,
+  "kind": "c",
+  "lines": 1,
+  "file": "blocks/021_c.txt"
+ },
+ {
+  "chapter": "Chapter 2: Development Environment, Project Layout, and Board Bring-Up",
+  "section": "2.7 FreeRTOSConfig.h Deep Dive",
+  "sub": "Resource Limits",
+  "idx": 22,
+  "kind": "c",
+  "lines": 1,
+  "file": "blocks/022_c.txt"
+ },
+ {
+  "chapter": "Chapter 2: Development Environment, Project Layout, and Board Bring-Up",
+  "section": "2.7 FreeRTOSConfig.h Deep Dive",
+  "sub": "Resource Limits",
+  "idx": 23,
+  "kind": "c",
+  "lines": 1,
+  "file": "blocks/023_c.txt"
+ },
+ {
+  "chapter": "Chapter 2: Development Environment, Project Layout, and Board Bring-Up",
+  "section": "2.7 FreeRTOSConfig.h Deep Dive",
+  "sub": "Resource Limits",
+  "idx": 24,
+  "kind": "c",
+  "lines": 1,
+  "file": "blocks/024_c.txt"
+ },
+ {
+  "chapter": "Chapter 2: Development Environment, Project Layout, and Board Bring-Up",
+  "section": "2.7 FreeRTOSConfig.h Deep Dive",
+  "sub": "Debug and Safety Configuration",
+  "idx": 25,
+  "kind": "c",
+  "lines": 1,
+  "file": "blocks/025_c.txt"
+ },
+ {
+  "chapter": "Chapter 2: Development Environment, Project Layout, and Board Bring-Up",
+  "section": "2.7 FreeRTOSConfig.h Deep Dive",
+  "sub": "Debug and Safety Configuration",
+  "idx": 26,
+  "kind": "c",
+  "lines": 1,
+  "file": "blocks/026_c.txt"
+ },
+ {
+  "chapter": "Chapter 2: Development Environment, Project Layout, and Board Bring-Up",
+  "section": "2.7 FreeRTOSConfig.h Deep Dive",
+  "sub": "Cortex-M Interrupt Configuration",
+  "idx": 27,
+  "kind": "c",
+  "lines": 7,
+  "file": "blocks/027_c.txt"
+ },
+ {
+  "chapter": "Chapter 2: Development Environment, Project Layout, and Board Bring-Up",
+  "section": "2.8 First Two Tasks",
+  "sub": "Heartbeat Task (Priority 2)",
+  "idx": 28,
+  "kind": "c",
+  "lines": 10,
+  "file": "blocks/028_c.txt"
+ },
+ {
+  "chapter": "Chapter 2: Development Environment, Project Layout, and Board Bring-Up",
+  "section": "2.8 First Two Tasks",
+  "sub": "Monitor Task (Priority 4)",
+  "idx": 29,
+  "kind": "c",
+  "lines": 20,
+  "file": "blocks/029_c.txt"
+ },
+ {
+  "chapter": "Chapter 2: Development Environment, Project Layout, and Board Bring-Up",
+  "section": "2.10 FreeRTOS Hook Functions",
+  "sub": "",
+  "idx": 30,
+  "kind": "c",
+  "lines": 24,
+  "file": "blocks/030_c.txt"
+ },
+ {
+  "chapter": "Chapter 2: Development Environment, Project Layout, and Board Bring-Up",
+  "section": "2.13 Zephyr Portability Note",
+  "sub": "",
+  "idx": 31,
+  "kind": "other-rtos",
+  "lines": 1,
+  "file": "blocks/031_other-rtos.txt"
+ },
+ {
+  "chapter": "Chapter 3: Tasks, Priorities, and the Scheduler",
+  "section": "3.1 The Task Abstraction",
+  "sub": "3.1.2 Stack Frame Layout on Cortex-M4",
+  "idx": 32,
+  "kind": "diagram",
+  "lines": 10,
+  "file": "blocks/032_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 3: Tasks, Priorities, and the Scheduler",
+  "section": "3.1 The Task Abstraction",
+  "sub": "3.1.2 Stack Frame Layout on Cortex-M4",
+  "idx": 33,
+  "kind": "diagram",
+  "lines": 12,
+  "file": "blocks/033_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 3: Tasks, Priorities, and the Scheduler",
+  "section": "3.1 The Task Abstraction",
+  "sub": "3.1.3 Memory Footprint of a Task",
+  "idx": 34,
+  "kind": "other",
+  "lines": 2,
+  "file": "blocks/034_other.txt"
+ },
+ {
+  "chapter": "Chapter 3: Tasks, Priorities, and the Scheduler",
+  "section": "3.2 Task States and Transitions",
+  "sub": "3.2.1 The Four States",
+  "idx": 35,
+  "kind": "diagram",
+  "lines": 27,
+  "file": "blocks/035_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 3: Tasks, Priorities, and the Scheduler",
+  "section": "3.3 Creating Tasks",
+  "sub": "3.3.1 xTaskCreate() — Dynamic Allocation",
+  "idx": 36,
+  "kind": "c",
+  "lines": 8,
+  "file": "blocks/036_c.txt"
+ },
+ {
+  "chapter": "Chapter 3: Tasks, Priorities, and the Scheduler",
+  "section": "3.3 Creating Tasks",
+  "sub": "3.3.2 xTaskCreateStatic() — Static Allocation",
+  "idx": 37,
+  "kind": "c",
+  "lines": 9,
+  "file": "blocks/037_c.txt"
+ },
+ {
+  "chapter": "Chapter 3: Tasks, Priorities, and the Scheduler",
+  "section": "3.3 Creating Tasks",
+  "sub": "3.3.4 Code Example: Creating Three Tasks",
+  "idx": 38,
+  "kind": "c",
+  "lines": 60,
+  "file": "blocks/038_c.txt"
+ },
+ {
+  "chapter": "Chapter 3: Tasks, Priorities, and the Scheduler",
+  "section": "3.4 Priority Assignment Methodology",
+  "sub": "3.4.5 Practical Example: Automotive Engine Controller",
+  "idx": 39,
+  "kind": "other",
+  "lines": 3,
+  "file": "blocks/039_other.txt"
+ },
+ {
+  "chapter": "Chapter 3: Tasks, Priorities, and the Scheduler",
+  "section": "3.6 Context Switch Internals",
+  "sub": "3.6.3 Step-by-Step Context Switch Sequence",
+  "idx": 40,
+  "kind": "other",
+  "lines": 29,
+  "file": "blocks/040_other.txt"
+ },
+ {
+  "chapter": "Chapter 3: Tasks, Priorities, and the Scheduler",
+  "section": "3.6 Context Switch Internals",
+  "sub": "3.6.4 Measuring Context Switch Time",
+  "idx": 41,
+  "kind": "c",
+  "lines": 12,
+  "file": "blocks/041_c.txt"
+ },
+ {
+  "chapter": "Chapter 3: Tasks, Priorities, and the Scheduler",
+  "section": "3.7 The Idle Task and Idle Hook",
+  "sub": "3.7.2 The Idle Hook",
+  "idx": 42,
+  "kind": "c",
+  "lines": 5,
+  "file": "blocks/042_c.txt"
+ },
+ {
+  "chapter": "Chapter 3: Tasks, Priorities, and the Scheduler",
+  "section": "3.8 Runtime Statistics and Schedulability Analysis",
+  "sub": "3.8.1 vTaskGetRunTimeStats()",
+  "idx": 43,
+  "kind": "c",
+  "lines": 3,
+  "file": "blocks/043_c.txt"
+ },
+ {
+  "chapter": "Chapter 3: Tasks, Priorities, and the Scheduler",
+  "section": "3.8 Runtime Statistics and Schedulability Analysis",
+  "sub": "3.8.1 vTaskGetRunTimeStats()",
+  "idx": 44,
+  "kind": "other",
+  "lines": 7,
+  "file": "blocks/044_other.txt"
+ },
+ {
+  "chapter": "Chapter 3: Tasks, Priorities, and the Scheduler",
+  "section": "3.8 Runtime Statistics and Schedulability Analysis",
+  "sub": "3.8.2 Liu & Layland Utilization Bound",
+  "idx": 45,
+  "kind": "other",
+  "lines": 1,
+  "file": "blocks/045_other.txt"
+ },
+ {
+  "chapter": "Chapter 3: Tasks, Priorities, and the Scheduler",
+  "section": "3.8 Runtime Statistics and Schedulability Analysis",
+  "sub": "3.8.3 Response Time Analysis (RTA)",
+  "idx": 46,
+  "kind": "other",
+  "lines": 1,
+  "file": "blocks/046_other.txt"
+ },
+ {
+  "chapter": "Chapter 3: Tasks, Priorities, and the Scheduler",
+  "section": "3.8 Runtime Statistics and Schedulability Analysis",
+  "sub": "3.8.3 Response Time Analysis (RTA)",
+  "idx": 47,
+  "kind": "other",
+  "lines": 1,
+  "file": "blocks/047_other.txt"
+ },
+ {
+  "chapter": "Chapter 3: Tasks, Priorities, and the Scheduler",
+  "section": "3.8 Runtime Statistics and Schedulability Analysis",
+  "sub": "3.8.4 Worked Example",
+  "idx": 48,
+  "kind": "other",
+  "lines": 3,
+  "file": "blocks/048_other.txt"
+ },
+ {
+  "chapter": "Chapter 3: Tasks, Priorities, and the Scheduler",
+  "section": "3.8 Runtime Statistics and Schedulability Analysis",
+  "sub": "3.8.4 Worked Example",
+  "idx": 49,
+  "kind": "other",
+  "lines": 17,
+  "file": "blocks/049_other.txt"
+ },
+ {
+  "chapter": "Chapter 3: Tasks, Priorities, and the Scheduler",
+  "section": "3.9 Starvation and Design Guidelines",
+  "sub": "3.9.1 How Starvation Occurs",
+  "idx": 50,
+  "kind": "c",
+  "lines": 10,
+  "file": "blocks/050_c.txt"
+ },
+ {
+  "chapter": "Chapter 3: Tasks, Priorities, and the Scheduler",
+  "section": "3.12 Lab 3: Multi-Task Scheduling Analysis",
+  "sub": "Complete Code Listing",
+  "idx": 51,
+  "kind": "c",
+  "lines": 210,
+  "file": "blocks/051_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.2 Queue Fundamentals",
+  "sub": "Creating a Queue",
+  "idx": 52,
+  "kind": "c",
+  "lines": 2,
+  "file": "blocks/052_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.2 Queue Fundamentals",
+  "sub": "Creating a Queue",
+  "idx": 53,
+  "kind": "c",
+  "lines": 3,
+  "file": "blocks/053_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.2 Queue Fundamentals",
+  "sub": "Creating a Queue",
+  "idx": 54,
+  "kind": "c",
+  "lines": 8,
+  "file": "blocks/054_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.2 Queue Fundamentals",
+  "sub": "Memory Layout",
+  "idx": 55,
+  "kind": "other",
+  "lines": 1,
+  "file": "blocks/055_other.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.2 Queue Fundamentals",
+  "sub": "When to Send Pointers",
+  "idx": 56,
+  "kind": "other",
+  "lines": 3,
+  "file": "blocks/056_other.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.3 Sending and Receiving",
+  "sub": "Sending to a Queue",
+  "idx": 57,
+  "kind": "c",
+  "lines": 11,
+  "file": "blocks/057_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.3 Sending and Receiving",
+  "sub": "Sending to a Queue",
+  "idx": 58,
+  "kind": "c",
+  "lines": 5,
+  "file": "blocks/058_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.3 Sending and Receiving",
+  "sub": "Receiving from a Queue",
+  "idx": 59,
+  "kind": "c",
+  "lines": 7,
+  "file": "blocks/059_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.3 Sending and Receiving",
+  "sub": "Code Example: Sensor Producer-Consumer",
+  "idx": 60,
+  "kind": "c",
+  "lines": 52,
+  "file": "blocks/060_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.4 ISR-Safe Queue Operations",
+  "sub": "",
+  "idx": 61,
+  "kind": "c",
+  "lines": 7,
+  "file": "blocks/061_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.4 ISR-Safe Queue Operations",
+  "sub": "The pxHigherPriorityTaskWoken Parameter",
+  "idx": 62,
+  "kind": "c",
+  "lines": 1,
+  "file": "blocks/062_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.4 ISR-Safe Queue Operations",
+  "sub": "The pxHigherPriorityTaskWoken Parameter",
+  "idx": 63,
+  "kind": "c",
+  "lines": 1,
+  "file": "blocks/063_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.4 ISR-Safe Queue Operations",
+  "sub": "Code Example: UART RX Interrupt to Queue",
+  "idx": 64,
+  "kind": "c",
+  "lines": 31,
+  "file": "blocks/064_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.5 Queue Sets",
+  "sub": "",
+  "idx": 65,
+  "kind": "c",
+  "lines": 8,
+  "file": "blocks/065_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.5 Queue Sets",
+  "sub": "",
+  "idx": 66,
+  "kind": "c",
+  "lines": 21,
+  "file": "blocks/066_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.6 Message Buffers and Stream Buffers",
+  "sub": "Stream Buffers",
+  "idx": 67,
+  "kind": "c",
+  "lines": 4,
+  "file": "blocks/067_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.6 Message Buffers and Stream Buffers",
+  "sub": "Stream Buffers",
+  "idx": 68,
+  "kind": "c",
+  "lines": 9,
+  "file": "blocks/068_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.6 Message Buffers and Stream Buffers",
+  "sub": "Message Buffers",
+  "idx": 69,
+  "kind": "c",
+  "lines": 1,
+  "file": "blocks/069_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.6 Message Buffers and Stream Buffers",
+  "sub": "Message Buffers",
+  "idx": 70,
+  "kind": "c",
+  "lines": 9,
+  "file": "blocks/070_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.6 Message Buffers and Stream Buffers",
+  "sub": "Code Example: Logging Subsystem",
+  "idx": 71,
+  "kind": "c",
+  "lines": 43,
+  "file": "blocks/071_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.7 Task Notifications as Lightweight IPC",
+  "sub": "Lightweight Binary/Counting Semaphore",
+  "idx": 72,
+  "kind": "c",
+  "lines": 19,
+  "file": "blocks/072_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.7 Task Notifications as Lightweight IPC",
+  "sub": "General-Purpose Notification",
+  "idx": 73,
+  "kind": "c",
+  "lines": 3,
+  "file": "blocks/073_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.7 Task Notifications as Lightweight IPC",
+  "sub": "General-Purpose Notification",
+  "idx": 74,
+  "kind": "c",
+  "lines": 4,
+  "file": "blocks/074_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.8 Design Patterns and Best Practices",
+  "sub": "Command Queue Pattern",
+  "idx": 75,
+  "kind": "c",
+  "lines": 18,
+  "file": "blocks/075_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.8 Design Patterns and Best Practices",
+  "sub": "Mailbox Pattern",
+  "idx": 76,
+  "kind": "c",
+  "lines": 7,
+  "file": "blocks/076_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.8 Design Patterns and Best Practices",
+  "sub": "Timeout Strategy",
+  "idx": 77,
+  "kind": "c",
+  "lines": 5,
+  "file": "blocks/077_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.11 Lab 4: Multi-Channel Data Pipeline",
+  "sub": "System Architecture",
+  "idx": 78,
+  "kind": "diagram",
+  "lines": 22,
+  "file": "blocks/078_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.11 Lab 4: Multi-Channel Data Pipeline",
+  "sub": "Data Structures",
+  "idx": 79,
+  "kind": "c",
+  "lines": 23,
+  "file": "blocks/079_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.11 Lab 4: Multi-Channel Data Pipeline",
+  "sub": "Sensor Tasks (Producer)",
+  "idx": 80,
+  "kind": "c",
+  "lines": 36,
+  "file": "blocks/080_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.11 Lab 4: Multi-Channel Data Pipeline",
+  "sub": "Timer ISR (Vibration Sensor at 1 kHz)",
+  "idx": 81,
+  "kind": "c",
+  "lines": 40,
+  "file": "blocks/081_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.11 Lab 4: Multi-Channel Data Pipeline",
+  "sub": "Aggregator Task (Consumer)",
+  "idx": 82,
+  "kind": "c",
+  "lines": 55,
+  "file": "blocks/082_c.txt"
+ },
+ {
+  "chapter": "Chapter 4: Queues and Inter-Task Communication",
+  "section": "4.11 Lab 4: Multi-Channel Data Pipeline",
+  "sub": "Application Entry Point",
+  "idx": 83,
+  "kind": "c",
+  "lines": 28,
+  "file": "blocks/083_c.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.1 The Critical Section Problem",
+  "sub": "5.1.1 A Concrete Race: Read-Modify-Write",
+  "idx": 84,
+  "kind": "c",
+  "lines": 2,
+  "file": "blocks/084_c.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.1 The Critical Section Problem",
+  "sub": "5.1.1 A Concrete Race: Read-Modify-Write",
+  "idx": 85,
+  "kind": "asm",
+  "lines": 3,
+  "file": "blocks/085_asm.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.1 The Critical Section Problem",
+  "sub": "5.1.2 Why Disabling Interrupts Is Insufficient",
+  "idx": 86,
+  "kind": "c",
+  "lines": 3,
+  "file": "blocks/086_c.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.2 Binary Semaphores",
+  "sub": "5.2.1 Creation and API",
+  "idx": 87,
+  "kind": "c",
+  "lines": 1,
+  "file": "blocks/087_c.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.2 Binary Semaphores",
+  "sub": "5.2.1 Creation and API",
+  "idx": 88,
+  "kind": "c",
+  "lines": 4,
+  "file": "blocks/088_c.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.2 Binary Semaphores",
+  "sub": "5.2.1 Creation and API",
+  "idx": 89,
+  "kind": "c",
+  "lines": 2,
+  "file": "blocks/089_c.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.2 Binary Semaphores",
+  "sub": "5.2.2 Primary Use: ISR-to-Task Synchronization (Deferred Processing)",
+  "idx": 90,
+  "kind": "c",
+  "lines": 41,
+  "file": "blocks/090_c.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.3 Counting Semaphores",
+  "sub": "",
+  "idx": 91,
+  "kind": "c",
+  "lines": 2,
+  "file": "blocks/091_c.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.3 Counting Semaphores",
+  "sub": "5.3.2 Use Case 2: Resource Pool Management",
+  "idx": 92,
+  "kind": "c",
+  "lines": 27,
+  "file": "blocks/092_c.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.4 Mutexes and Priority Inheritance",
+  "sub": "5.4.1 Creation and API",
+  "idx": 93,
+  "kind": "c",
+  "lines": 1,
+  "file": "blocks/093_c.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.4 Mutexes and Priority Inheritance",
+  "sub": "5.4.3 Priority Inheritance Protocol",
+  "idx": 94,
+  "kind": "other",
+  "lines": 18,
+  "file": "blocks/094_other.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.4 Mutexes and Priority Inheritance",
+  "sub": "5.4.4 Recursive Mutexes",
+  "idx": 95,
+  "kind": "c",
+  "lines": 6,
+  "file": "blocks/095_c.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.5 Critical Sections and Interrupt Masking",
+  "sub": "5.5.1 taskENTER_CRITICAL / taskEXIT_CRITICAL",
+  "idx": 96,
+  "kind": "c",
+  "lines": 4,
+  "file": "blocks/096_c.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.5 Critical Sections and Interrupt Masking",
+  "sub": "5.5.1 taskENTER_CRITICAL / taskEXIT_CRITICAL",
+  "idx": 97,
+  "kind": "c",
+  "lines": 4,
+  "file": "blocks/097_c.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.5 Critical Sections and Interrupt Masking",
+  "sub": "5.5.2 ISR Versions",
+  "idx": 98,
+  "kind": "c",
+  "lines": 8,
+  "file": "blocks/098_c.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.5 Critical Sections and Interrupt Masking",
+  "sub": "5.5.3 Scheduler Suspension",
+  "idx": 99,
+  "kind": "c",
+  "lines": 4,
+  "file": "blocks/099_c.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.6 Deadlock",
+  "sub": "5.6.2 The ABBA Deadlock Pattern",
+  "idx": 100,
+  "kind": "diagram",
+  "lines": 6,
+  "file": "blocks/100_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.6 Deadlock",
+  "sub": "5.6.2 The ABBA Deadlock Pattern",
+  "idx": 101,
+  "kind": "diagram",
+  "lines": 10,
+  "file": "blocks/101_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.6 Deadlock",
+  "sub": "5.6.3 Code Example: Deadlock and Its Fix",
+  "idx": 102,
+  "kind": "c",
+  "lines": 28,
+  "file": "blocks/102_c.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.6 Deadlock",
+  "sub": "5.6.3 Code Example: Deadlock and Its Fix",
+  "idx": 103,
+  "kind": "c",
+  "lines": 27,
+  "file": "blocks/103_c.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.6 Deadlock",
+  "sub": "5.6.4 Prevention Strategies",
+  "idx": 104,
+  "kind": "c",
+  "lines": 6,
+  "file": "blocks/104_c.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.7 Event Groups",
+  "sub": "5.7.1 Creation",
+  "idx": 105,
+  "kind": "c",
+  "lines": 1,
+  "file": "blocks/105_c.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.7 Event Groups",
+  "sub": "5.7.2 Setting and Waiting",
+  "idx": 106,
+  "kind": "c",
+  "lines": 12,
+  "file": "blocks/106_c.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.7 Event Groups",
+  "sub": "5.7.3 Synchronization Rendezvous: xEventGroupSync",
+  "idx": 107,
+  "kind": "c",
+  "lines": 4,
+  "file": "blocks/107_c.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.7 Event Groups",
+  "sub": "5.7.4 Use Case: Multi-Subsystem Initialization Barrier",
+  "idx": 108,
+  "kind": "c",
+  "lines": 50,
+  "file": "blocks/108_c.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.8 Design Patterns",
+  "sub": "5.8.1 Gatekeeper Task Pattern",
+  "idx": 109,
+  "kind": "diagram",
+  "lines": 12,
+  "file": "blocks/109_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.8 Design Patterns",
+  "sub": "5.8.3 Double Buffering (Ping-Pong)",
+  "idx": 110,
+  "kind": "other",
+  "lines": 4,
+  "file": "blocks/110_other.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.8 Design Patterns",
+  "sub": "5.8.4 Choosing the Right Mechanism: Decision Flowchart",
+  "idx": 111,
+  "kind": "other",
+  "lines": 17,
+  "file": "blocks/111_other.txt"
+ },
+ {
+  "chapter": "Chapter 5: Semaphores, Mutexes, and Resource Sharing",
+  "section": "5.11 Lab 5: Priority Inversion Demonstration and Cure",
+  "sub": "Complete Code Listing",
+  "idx": 112,
+  "kind": "c",
+  "lines": 125,
+  "file": "blocks/112_c.txt"
+ },
+ {
+  "chapter": "Chapter 6: Software Timers and Deferred Execution",
+  "section": "6.1 The Need for Timed Actions",
+  "sub": "",
+  "idx": 113,
+  "kind": "c",
+  "lines": 7,
+  "file": "blocks/113_c.txt"
+ },
+ {
+  "chapter": "Chapter 6: Software Timers and Deferred Execution",
+  "section": "6.2 FreeRTOS Software Timer Architecture",
+  "sub": "The Timer Command Queue",
+  "idx": 114,
+  "kind": "diagram",
+  "lines": 7,
+  "file": "blocks/114_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 6: Software Timers and Deferred Execution",
+  "section": "6.3 Creating and Managing Timers",
+  "sub": "Timer Creation",
+  "idx": 115,
+  "kind": "c",
+  "lines": 7,
+  "file": "blocks/115_c.txt"
+ },
+ {
+  "chapter": "Chapter 6: Software Timers and Deferred Execution",
+  "section": "6.3 Creating and Managing Timers",
+  "sub": "Timer Creation",
+  "idx": 116,
+  "kind": "c",
+  "lines": 1,
+  "file": "blocks/116_c.txt"
+ },
+ {
+  "chapter": "Chapter 6: Software Timers and Deferred Execution",
+  "section": "6.3 Creating and Managing Timers",
+  "sub": "Timer Creation",
+  "idx": 117,
+  "kind": "c",
+  "lines": 8,
+  "file": "blocks/117_c.txt"
+ },
+ {
+  "chapter": "Chapter 6: Software Timers and Deferred Execution",
+  "section": "6.3 Creating and Managing Timers",
+  "sub": "One-Shot vs. Auto-Reload Timers",
+  "idx": 118,
+  "kind": "other",
+  "lines": 15,
+  "file": "blocks/118_other.txt"
+ },
+ {
+  "chapter": "Chapter 6: Software Timers and Deferred Execution",
+  "section": "6.3 Creating and Managing Timers",
+  "sub": "Starting, Stopping, and Modifying Timers",
+  "idx": 119,
+  "kind": "c",
+  "lines": 13,
+  "file": "blocks/119_c.txt"
+ },
+ {
+  "chapter": "Chapter 6: Software Timers and Deferred Execution",
+  "section": "6.3 Creating and Managing Timers",
+  "sub": "Starting, Stopping, and Modifying Timers",
+  "idx": 120,
+  "kind": "c",
+  "lines": 9,
+  "file": "blocks/120_c.txt"
+ },
+ {
+  "chapter": "Chapter 6: Software Timers and Deferred Execution",
+  "section": "6.3 Creating and Managing Timers",
+  "sub": "Timer ID Access",
+  "idx": 121,
+  "kind": "c",
+  "lines": 2,
+  "file": "blocks/121_c.txt"
+ },
+ {
+  "chapter": "Chapter 6: Software Timers and Deferred Execution",
+  "section": "6.3 Creating and Managing Timers",
+  "sub": "Code Example: Three Timer Patterns",
+  "idx": 122,
+  "kind": "c",
+  "lines": 61,
+  "file": "blocks/122_c.txt"
+ },
+ {
+  "chapter": "Chapter 6: Software Timers and Deferred Execution",
+  "section": "6.4 Timer Callback Rules and Restrictions",
+  "sub": "Rule 3: Delegate Long Work to a Worker Task",
+  "idx": 123,
+  "kind": "c",
+  "lines": 9,
+  "file": "blocks/123_c.txt"
+ },
+ {
+  "chapter": "Chapter 6: Software Timers and Deferred Execution",
+  "section": "6.5 Timing Accuracy and Jitter",
+  "sub": "Measuring Timer Jitter",
+  "idx": 124,
+  "kind": "c",
+  "lines": 5,
+  "file": "blocks/124_c.txt"
+ },
+ {
+  "chapter": "Chapter 6: Software Timers and Deferred Execution",
+  "section": "6.5 Timing Accuracy and Jitter",
+  "sub": "Measuring Timer Jitter",
+  "idx": 125,
+  "kind": "c",
+  "lines": 17,
+  "file": "blocks/125_c.txt"
+ },
+ {
+  "chapter": "Chapter 6: Software Timers and Deferred Execution",
+  "section": "6.6 Deferred Interrupt Processing Pattern",
+  "sub": "xTimerPendFunctionCall",
+  "idx": 126,
+  "kind": "c",
+  "lines": 13,
+  "file": "blocks/126_c.txt"
+ },
+ {
+  "chapter": "Chapter 6: Software Timers and Deferred Execution",
+  "section": "6.6 Deferred Interrupt Processing Pattern",
+  "sub": "xTimerPendFunctionCall",
+  "idx": 127,
+  "kind": "c",
+  "lines": 1,
+  "file": "blocks/127_c.txt"
+ },
+ {
+  "chapter": "Chapter 6: Software Timers and Deferred Execution",
+  "section": "6.6 Deferred Interrupt Processing Pattern",
+  "sub": "How It Differs from Semaphore-Based Deferred Processing",
+  "idx": 128,
+  "kind": "other",
+  "lines": 1,
+  "file": "blocks/128_other.txt"
+ },
+ {
+  "chapter": "Chapter 6: Software Timers and Deferred Execution",
+  "section": "6.6 Deferred Interrupt Processing Pattern",
+  "sub": "How It Differs from Semaphore-Based Deferred Processing",
+  "idx": 129,
+  "kind": "other",
+  "lines": 1,
+  "file": "blocks/129_other.txt"
+ },
+ {
+  "chapter": "Chapter 6: Software Timers and Deferred Execution",
+  "section": "6.6 Deferred Interrupt Processing Pattern",
+  "sub": "Code Example: Button Debounce with Deferred Processing",
+  "idx": 130,
+  "kind": "c",
+  "lines": 56,
+  "file": "blocks/130_c.txt"
+ },
+ {
+  "chapter": "Chapter 6: Software Timers and Deferred Execution",
+  "section": "6.7 Advanced Patterns",
+  "sub": "Watchdog Architecture",
+  "idx": 131,
+  "kind": "c",
+  "lines": 32,
+  "file": "blocks/131_c.txt"
+ },
+ {
+  "chapter": "Chapter 6: Software Timers and Deferred Execution",
+  "section": "6.7 Advanced Patterns",
+  "sub": "Timeout Pattern",
+  "idx": 132,
+  "kind": "c",
+  "lines": 24,
+  "file": "blocks/132_c.txt"
+ },
+ {
+  "chapter": "Chapter 6: Software Timers and Deferred Execution",
+  "section": "6.7 Advanced Patterns",
+  "sub": "Rate-Limiting Pattern",
+  "idx": 133,
+  "kind": "c",
+  "lines": 20,
+  "file": "blocks/133_c.txt"
+ },
+ {
+  "chapter": "Chapter 6: Software Timers and Deferred Execution",
+  "section": "6.7 Advanced Patterns",
+  "sub": "Cascaded Timers for Long Delays",
+  "idx": 134,
+  "kind": "c",
+  "lines": 17,
+  "file": "blocks/134_c.txt"
+ },
+ {
+  "chapter": "Chapter 6: Software Timers and Deferred Execution",
+  "section": "6.8 QNX and Zephyr Portability Notes",
+  "sub": "QNX Neutrino",
+  "idx": 135,
+  "kind": "other-rtos",
+  "lines": 12,
+  "file": "blocks/135_other-rtos.txt"
+ },
+ {
+  "chapter": "Chapter 6: Software Timers and Deferred Execution",
+  "section": "6.8 QNX and Zephyr Portability Notes",
+  "sub": "Zephyr RTOS",
+  "idx": 136,
+  "kind": "other-rtos",
+  "lines": 10,
+  "file": "blocks/136_other-rtos.txt"
+ },
+ {
+  "chapter": "Chapter 6: Software Timers and Deferred Execution",
+  "section": "6.8 QNX and Zephyr Portability Notes",
+  "sub": "Zephyr RTOS",
+  "idx": 137,
+  "kind": "other-rtos",
+  "lines": 8,
+  "file": "blocks/137_other-rtos.txt"
+ },
+ {
+  "chapter": "Chapter 6: Software Timers and Deferred Execution",
+  "section": "6.8 QNX and Zephyr Portability Notes",
+  "sub": "Zephyr RTOS",
+  "idx": 138,
+  "kind": "other-rtos",
+  "lines": 3,
+  "file": "blocks/138_other-rtos.txt"
+ },
+ {
+  "chapter": "Chapter 6: Software Timers and Deferred Execution",
+  "section": "6.10 Lab 6: Software Timer Precision and Patterns",
+  "sub": "Complete Code Listing",
+  "idx": 139,
+  "kind": "c",
+  "lines": 218,
+  "file": "blocks/139_c.txt"
+ },
+ {
+  "chapter": "Chapter 7: Memory Management in Resource-Constrained Systems",
+  "section": "7.1 Memory Landscape of a Cortex-M System",
+  "sub": "Linker Script Sections",
+  "idx": 140,
+  "kind": "diagram",
+  "lines": 18,
+  "file": "blocks/140_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 7: Memory Management in Resource-Constrained Systems",
+  "section": "7.2 FreeRTOS Heap Implementations",
+  "sub": "",
+  "idx": 141,
+  "kind": "c",
+  "lines": 2,
+  "file": "blocks/141_c.txt"
+ },
+ {
+  "chapter": "Chapter 7: Memory Management in Resource-Constrained Systems",
+  "section": "7.2 FreeRTOS Heap Implementations",
+  "sub": "heap_5: Spans Multiple Non-Contiguous Regions",
+  "idx": 142,
+  "kind": "c",
+  "lines": 8,
+  "file": "blocks/142_c.txt"
+ },
+ {
+  "chapter": "Chapter 7: Memory Management in Resource-Constrained Systems",
+  "section": "7.2 FreeRTOS Heap Implementations",
+  "sub": "Placement of ucHeap in CCM RAM",
+  "idx": 143,
+  "kind": "c",
+  "lines": 6,
+  "file": "blocks/143_c.txt"
+ },
+ {
+  "chapter": "Chapter 7: Memory Management in Resource-Constrained Systems",
+  "section": "7.2 FreeRTOS Heap Implementations",
+  "sub": "Placement of ucHeap in CCM RAM",
+  "idx": 144,
+  "kind": "linker",
+  "lines": 5,
+  "file": "blocks/144_linker.txt"
+ },
+ {
+  "chapter": "Chapter 7: Memory Management in Resource-Constrained Systems",
+  "section": "7.3 Static vs Dynamic Allocation",
+  "sub": "How Static Allocation Works",
+  "idx": 145,
+  "kind": "c",
+  "lines": 14,
+  "file": "blocks/145_c.txt"
+ },
+ {
+  "chapter": "Chapter 7: Memory Management in Resource-Constrained Systems",
+  "section": "7.3 Static vs Dynamic Allocation",
+  "sub": "Required Callbacks",
+  "idx": 146,
+  "kind": "c",
+  "lines": 23,
+  "file": "blocks/146_c.txt"
+ },
+ {
+  "chapter": "Chapter 7: Memory Management in Resource-Constrained Systems",
+  "section": "7.3 Static vs Dynamic Allocation",
+  "sub": "Example: Fully Static System with Zero Heap",
+  "idx": 147,
+  "kind": "c",
+  "lines": 4,
+  "file": "blocks/147_c.txt"
+ },
+ {
+  "chapter": "Chapter 7: Memory Management in Resource-Constrained Systems",
+  "section": "7.4 Stack Sizing and Overflow Detection",
+  "sub": "Stack Overflow Detection",
+  "idx": 148,
+  "kind": "c",
+  "lines": 11,
+  "file": "blocks/148_c.txt"
+ },
+ {
+  "chapter": "Chapter 7: Memory Management in Resource-Constrained Systems",
+  "section": "7.4 Stack Sizing and Overflow Detection",
+  "sub": "Runtime High-Water Mark Monitoring",
+  "idx": 149,
+  "kind": "c",
+  "lines": 29,
+  "file": "blocks/149_c.txt"
+ },
+ {
+  "chapter": "Chapter 7: Memory Management in Resource-Constrained Systems",
+  "section": "7.5 Memory Protection Unit (MPU)",
+  "sub": "FreeRTOS-MPU Port",
+  "idx": 150,
+  "kind": "c",
+  "lines": 19,
+  "file": "blocks/150_c.txt"
+ },
+ {
+  "chapter": "Chapter 7: Memory Management in Resource-Constrained Systems",
+  "section": "7.6 Fragmentation Analysis and Prevention",
+  "sub": "Detection",
+  "idx": 151,
+  "kind": "c",
+  "lines": 2,
+  "file": "blocks/151_c.txt"
+ },
+ {
+  "chapter": "Chapter 7: Memory Management in Resource-Constrained Systems",
+  "section": "7.6 Fragmentation Analysis and Prevention",
+  "sub": "Prevention Strategies",
+  "idx": 152,
+  "kind": "c",
+  "lines": 27,
+  "file": "blocks/152_c.txt"
+ },
+ {
+  "chapter": "Chapter 7: Memory Management in Resource-Constrained Systems",
+  "section": "7.7 Memory Debugging Techniques",
+  "sub": "Heap Allocation Tracing",
+  "idx": 153,
+  "kind": "c",
+  "lines": 7,
+  "file": "blocks/153_c.txt"
+ },
+ {
+  "chapter": "Chapter 7: Memory Management in Resource-Constrained Systems",
+  "section": "7.7 Memory Debugging Techniques",
+  "sub": "Memory Poisoning",
+  "idx": 154,
+  "kind": "c",
+  "lines": 5,
+  "file": "blocks/154_c.txt"
+ },
+ {
+  "chapter": "Chapter 7: Memory Management in Resource-Constrained Systems",
+  "section": "7.10 Lab 7: Memory Budget and Overflow Detection",
+  "sub": "FreeRTOSConfig.h Settings",
+  "idx": 155,
+  "kind": "c",
+  "lines": 5,
+  "file": "blocks/155_c.txt"
+ },
+ {
+  "chapter": "Chapter 7: Memory Management in Resource-Constrained Systems",
+  "section": "7.10 Lab 7: Memory Budget and Overflow Detection",
+  "sub": "Complete Source Code",
+  "idx": 156,
+  "kind": "c",
+  "lines": 155,
+  "file": "blocks/156_c.txt"
+ },
+ {
+  "chapter": "Chapter 8: Interrupt Management and ISR Design",
+  "section": "8.1 Interrupts in Real-Time Context",
+  "sub": "The Latency Budget",
+  "idx": 157,
+  "kind": "other",
+  "lines": 1,
+  "file": "blocks/157_other.txt"
+ },
+ {
+  "chapter": "Chapter 8: Interrupt Management and ISR Design",
+  "section": "8.2 ARM Cortex-M Interrupt Architecture",
+  "sub": "Vector Table",
+  "idx": 158,
+  "kind": "other",
+  "lines": 15,
+  "file": "blocks/158_other.txt"
+ },
+ {
+  "chapter": "Chapter 8: Interrupt Management and ISR Design",
+  "section": "8.2 ARM Cortex-M Interrupt Architecture",
+  "sub": "Exception Entry and Exit",
+  "idx": 159,
+  "kind": "diagram",
+  "lines": 12,
+  "file": "blocks/159_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 8: Interrupt Management and ISR Design",
+  "section": "8.3 FreeRTOS Interrupt Priority Model",
+  "sub": "configKERNEL_INTERRUPT_PRIORITY",
+  "idx": 160,
+  "kind": "c",
+  "lines": 1,
+  "file": "blocks/160_c.txt"
+ },
+ {
+  "chapter": "Chapter 8: Interrupt Management and ISR Design",
+  "section": "8.3 FreeRTOS Interrupt Priority Model",
+  "sub": "configMAX_SYSCALL_INTERRUPT_PRIORITY",
+  "idx": 161,
+  "kind": "c",
+  "lines": 1,
+  "file": "blocks/161_c.txt"
+ },
+ {
+  "chapter": "Chapter 8: Interrupt Management and ISR Design",
+  "section": "8.3 FreeRTOS Interrupt Priority Model",
+  "sub": "The Priority Map",
+  "idx": 162,
+  "kind": "other",
+  "lines": 20,
+  "file": "blocks/162_other.txt"
+ },
+ {
+  "chapter": "Chapter 8: Interrupt Management and ISR Design",
+  "section": "8.3 FreeRTOS Interrupt Priority Model",
+  "sub": "configASSERT Validation",
+  "idx": 163,
+  "kind": "c",
+  "lines": 1,
+  "file": "blocks/163_c.txt"
+ },
+ {
+  "chapter": "Chapter 8: Interrupt Management and ISR Design",
+  "section": "8.4 ISR Design Patterns",
+  "sub": "Pattern 1: Minimal ISR — Defer Everything",
+  "idx": 164,
+  "kind": "c",
+  "lines": 17,
+  "file": "blocks/164_c.txt"
+ },
+ {
+  "chapter": "Chapter 8: Interrupt Management and ISR Design",
+  "section": "8.4 ISR Design Patterns",
+  "sub": "Pattern 2: ISR with Immediate Data Capture",
+  "idx": 165,
+  "kind": "c",
+  "lines": 18,
+  "file": "blocks/165_c.txt"
+ },
+ {
+  "chapter": "Chapter 8: Interrupt Management and ISR Design",
+  "section": "8.4 ISR Design Patterns",
+  "sub": "Pattern 3: ISR with Critical Immediate Action",
+  "idx": 166,
+  "kind": "c",
+  "lines": 19,
+  "file": "blocks/166_c.txt"
+ },
+ {
+  "chapter": "Chapter 8: Interrupt Management and ISR Design",
+  "section": "8.5 The FromISR API Family",
+  "sub": "portYIELD_FROM_ISR",
+  "idx": 167,
+  "kind": "c",
+  "lines": 1,
+  "file": "blocks/167_c.txt"
+ },
+ {
+  "chapter": "Chapter 8: Interrupt Management and ISR Design",
+  "section": "8.5 The FromISR API Family",
+  "sub": "Multi-Operation ISR Pattern",
+  "idx": 168,
+  "kind": "c",
+  "lines": 20,
+  "file": "blocks/168_c.txt"
+ },
+ {
+  "chapter": "Chapter 8: Interrupt Management and ISR Design",
+  "section": "8.6 Interrupt Nesting",
+  "sub": "FreeRTOS Critical Sections and BASEPRI",
+  "idx": 169,
+  "kind": "c",
+  "lines": 10,
+  "file": "blocks/169_c.txt"
+ },
+ {
+  "chapter": "Chapter 8: Interrupt Management and ISR Design",
+  "section": "8.6 Interrupt Nesting",
+  "sub": "MSP Stack and Nesting Depth",
+  "idx": 170,
+  "kind": "diagram",
+  "lines": 10,
+  "file": "blocks/170_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 8: Interrupt Management and ISR Design",
+  "section": "8.6 Interrupt Nesting",
+  "sub": "Worst-Case Stack Calculation",
+  "idx": 171,
+  "kind": "other",
+  "lines": 6,
+  "file": "blocks/171_other.txt"
+ },
+ {
+  "chapter": "Chapter 8: Interrupt Management and ISR Design",
+  "section": "8.6 Interrupt Nesting",
+  "sub": "Worst-Case Stack Calculation",
+  "idx": 172,
+  "kind": "linker",
+  "lines": 2,
+  "file": "blocks/172_linker.txt"
+ },
+ {
+  "chapter": "Chapter 8: Interrupt Management and ISR Design",
+  "section": "8.6 Interrupt Nesting",
+  "sub": "Worst-Case Stack Calculation",
+  "idx": 173,
+  "kind": "asm",
+  "lines": 2,
+  "file": "blocks/173_asm.txt"
+ },
+ {
+  "chapter": "Chapter 8: Interrupt Management and ISR Design",
+  "section": "8.7 Direct Memory Access (DMA) Integration",
+  "sub": "UART DMA Receive with Idle Line Detection",
+  "idx": 174,
+  "kind": "c",
+  "lines": 45,
+  "file": "blocks/174_c.txt"
+ },
+ {
+  "chapter": "Chapter 8: Interrupt Management and ISR Design",
+  "section": "8.8 Measuring and Reducing Interrupt Latency",
+  "sub": "Measurement Techniques",
+  "idx": 175,
+  "kind": "c",
+  "lines": 11,
+  "file": "blocks/175_c.txt"
+ },
+ {
+  "chapter": "Chapter 8: Interrupt Management and ISR Design",
+  "section": "8.8 Measuring and Reducing Interrupt Latency",
+  "sub": "Measurement Techniques",
+  "idx": 176,
+  "kind": "c",
+  "lines": 3,
+  "file": "blocks/176_c.txt"
+ },
+ {
+  "chapter": "Chapter 8: Interrupt Management and ISR Design",
+  "section": "8.8 Measuring and Reducing Interrupt Latency",
+  "sub": "Reduction Strategies",
+  "idx": 177,
+  "kind": "c",
+  "lines": 2,
+  "file": "blocks/177_c.txt"
+ },
+ {
+  "chapter": "Chapter 8: Interrupt Management and ISR Design",
+  "section": "8.10 Common Pitfalls",
+  "sub": "",
+  "idx": 178,
+  "kind": "c",
+  "lines": 1,
+  "file": "blocks/178_c.txt"
+ },
+ {
+  "chapter": "Chapter 8: Interrupt Management and ISR Design",
+  "section": "8.11 Lab 8: Interrupt Latency Measurement and ISR Optimization",
+  "sub": "Complete Code Listing",
+  "idx": 179,
+  "kind": "c",
+  "lines": 304,
+  "file": "blocks/179_c.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.2 Four-Layer Driver Model",
+  "sub": "9.2.1 Layer 1: Hardware Register Access",
+  "idx": 180,
+  "kind": "c",
+  "lines": 10,
+  "file": "blocks/180_c.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.2 Four-Layer Driver Model",
+  "sub": "9.2.2 Layer 2: Vendor HAL",
+  "idx": 181,
+  "kind": "c",
+  "lines": 7,
+  "file": "blocks/181_c.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.2 Four-Layer Driver Model",
+  "sub": "9.2.4 Layer 4: Application Interface",
+  "idx": 182,
+  "kind": "c",
+  "lines": 5,
+  "file": "blocks/182_c.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.2 Four-Layer Driver Model",
+  "sub": "9.2.5 Layer Diagram",
+  "idx": 183,
+  "kind": "diagram",
+  "lines": 29,
+  "file": "blocks/183_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.3 UART Driver Case Study",
+  "sub": "9.3.1 Layer 1: Register-Level Access",
+  "idx": 184,
+  "kind": "c",
+  "lines": 39,
+  "file": "blocks/184_c.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.3 UART Driver Case Study",
+  "sub": "9.3.2 Layer 2: Vendor HAL Initialization",
+  "idx": 185,
+  "kind": "c",
+  "lines": 52,
+  "file": "blocks/185_c.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.3 UART Driver Case Study",
+  "sub": "9.3.3 Layer 3: RTOS-Aware Driver",
+  "idx": 186,
+  "kind": "c",
+  "lines": 164,
+  "file": "blocks/186_c.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.3 UART Driver Case Study",
+  "sub": "9.3.4 Layer 4: Application Interface",
+  "idx": 187,
+  "kind": "c",
+  "lines": 25,
+  "file": "blocks/187_c.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.3 UART Driver Case Study",
+  "sub": "9.3.4 Layer 4: Application Interface",
+  "idx": 188,
+  "kind": "c",
+  "lines": 36,
+  "file": "blocks/188_c.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.4 SPI Driver Case Study",
+  "sub": "9.4.2 Bus Sharing with Mutex",
+  "idx": 189,
+  "kind": "c",
+  "lines": 25,
+  "file": "blocks/189_c.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.4 SPI Driver Case Study",
+  "sub": "9.4.3 Transaction-Based API",
+  "idx": 190,
+  "kind": "c",
+  "lines": 131,
+  "file": "blocks/190_c.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.4 SPI Driver Case Study",
+  "sub": "9.4.4 SPI Flash Example",
+  "idx": 191,
+  "kind": "c",
+  "lines": 14,
+  "file": "blocks/191_c.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.5 I2C Driver Case Study",
+  "sub": "9.5.2 Error Handling and Bus Recovery",
+  "idx": 192,
+  "kind": "c",
+  "lines": 43,
+  "file": "blocks/192_c.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.5 I2C Driver Case Study",
+  "sub": "9.5.3 Application-Level I2C API",
+  "idx": 193,
+  "kind": "c",
+  "lines": 26,
+  "file": "blocks/193_c.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.5 I2C Driver Case Study",
+  "sub": "9.5.4 Temperature Sensor Example",
+  "idx": 194,
+  "kind": "c",
+  "lines": 15,
+  "file": "blocks/194_c.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.6 CAN Bus Driver",
+  "sub": "9.6.2 FreeRTOS Integration",
+  "idx": 195,
+  "kind": "c",
+  "lines": 19,
+  "file": "blocks/195_c.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.6 CAN Bus Driver",
+  "sub": "9.6.3 Implementation",
+  "idx": 196,
+  "kind": "c",
+  "lines": 168,
+  "file": "blocks/196_c.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.7 The Fake HAL Pattern for Testing",
+  "sub": "9.7.2 The Solution: Compile-Time HAL Substitution",
+  "idx": 197,
+  "kind": "other",
+  "lines": 19,
+  "file": "blocks/197_other.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.7 The Fake HAL Pattern for Testing",
+  "sub": "9.7.3 Fake HAL Implementation",
+  "idx": 198,
+  "kind": "c",
+  "lines": 89,
+  "file": "blocks/198_c.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.7 The Fake HAL Pattern for Testing",
+  "sub": "9.7.4 Test Example",
+  "idx": 199,
+  "kind": "c",
+  "lines": 29,
+  "file": "blocks/199_c.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.8 Driver Design Patterns",
+  "sub": "9.8.1 Singleton Pattern with Handle Struct",
+  "idx": 200,
+  "kind": "c",
+  "lines": 13,
+  "file": "blocks/200_c.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.8 Driver Design Patterns",
+  "sub": "9.8.2 Callback Pattern",
+  "idx": 201,
+  "kind": "c",
+  "lines": 6,
+  "file": "blocks/201_c.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.8 Driver Design Patterns",
+  "sub": "9.8.3 Event-Driven Pattern",
+  "idx": 202,
+  "kind": "c",
+  "lines": 11,
+  "file": "blocks/202_c.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.8 Driver Design Patterns",
+  "sub": "9.8.4 Handle Pattern with Opaque Pointers",
+  "idx": 203,
+  "kind": "c",
+  "lines": 7,
+  "file": "blocks/203_c.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.9 QNX and Zephyr Portability Notes",
+  "sub": "9.9.1 QNX: Resource Managers",
+  "idx": 204,
+  "kind": "other-rtos",
+  "lines": 7,
+  "file": "blocks/204_other-rtos.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.9 QNX and Zephyr Portability Notes",
+  "sub": "9.9.2 Zephyr: Device Driver Model",
+  "idx": 205,
+  "kind": "other-rtos",
+  "lines": 12,
+  "file": "blocks/205_other-rtos.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.9 QNX and Zephyr Portability Notes",
+  "sub": "9.9.2 Zephyr: Device Driver Model",
+  "idx": 206,
+  "kind": "other-rtos",
+  "lines": 7,
+  "file": "blocks/206_other-rtos.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.11 Lab 9: Building a Reusable UART Driver",
+  "sub": "Part 1: Target Implementation",
+  "idx": 207,
+  "kind": "other",
+  "lines": 11,
+  "file": "blocks/207_other.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.11 Lab 9: Building a Reusable UART Driver",
+  "sub": "Part 1: Target Implementation",
+  "idx": 208,
+  "kind": "c",
+  "lines": 32,
+  "file": "blocks/208_c.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.11 Lab 9: Building a Reusable UART Driver",
+  "sub": "Part 2: Throughput Measurement",
+  "idx": 209,
+  "kind": "c",
+  "lines": 27,
+  "file": "blocks/209_c.txt"
+ },
+ {
+  "chapter": "Chapter 9: Device Driver Architecture and Peripheral Abstraction",
+  "section": "9.11 Lab 9: Building a Reusable UART Driver",
+  "sub": "Part 3: Fake HAL Testing on Host",
+  "idx": 210,
+  "kind": "shell",
+  "lines": 10,
+  "file": "blocks/210_shell.txt"
+ },
+ {
+  "chapter": "Chapter 10: Power Management and Tickless Idle",
+  "section": "10.1 Power Constraints in Embedded Systems",
+  "sub": "",
+  "idx": 211,
+  "kind": "other",
+  "lines": 1,
+  "file": "blocks/211_other.txt"
+ },
+ {
+  "chapter": "Chapter 10: Power Management and Tickless Idle",
+  "section": "10.1 Power Constraints in Embedded Systems",
+  "sub": "The Power Profile of a Typical Application",
+  "idx": 212,
+  "kind": "other",
+  "lines": 10,
+  "file": "blocks/212_other.txt"
+ },
+ {
+  "chapter": "Chapter 10: Power Management and Tickless Idle",
+  "section": "10.2 STM32 Low-Power Modes",
+  "sub": "Sleep Mode",
+  "idx": 213,
+  "kind": "c",
+  "lines": 3,
+  "file": "blocks/213_c.txt"
+ },
+ {
+  "chapter": "Chapter 10: Power Management and Tickless Idle",
+  "section": "10.2 STM32 Low-Power Modes",
+  "sub": "Stop Mode",
+  "idx": 214,
+  "kind": "c",
+  "lines": 8,
+  "file": "blocks/214_c.txt"
+ },
+ {
+  "chapter": "Chapter 10: Power Management and Tickless Idle",
+  "section": "10.2 STM32 Low-Power Modes",
+  "sub": "Standby Mode",
+  "idx": 215,
+  "kind": "c",
+  "lines": 6,
+  "file": "blocks/215_c.txt"
+ },
+ {
+  "chapter": "Chapter 10: Power Management and Tickless Idle",
+  "section": "10.3 FreeRTOS Tickless Idle",
+  "sub": "The Standard Idle Problem",
+  "idx": 216,
+  "kind": "other",
+  "lines": 7,
+  "file": "blocks/216_other.txt"
+ },
+ {
+  "chapter": "Chapter 10: Power Management and Tickless Idle",
+  "section": "10.3 FreeRTOS Tickless Idle",
+  "sub": "How Built-In Tickless Works",
+  "idx": 217,
+  "kind": "other",
+  "lines": 8,
+  "file": "blocks/217_other.txt"
+ },
+ {
+  "chapter": "Chapter 10: Power Management and Tickless Idle",
+  "section": "10.3 FreeRTOS Tickless Idle",
+  "sub": "Key Configuration Macros",
+  "idx": 218,
+  "kind": "c",
+  "lines": 16,
+  "file": "blocks/218_c.txt"
+ },
+ {
+  "chapter": "Chapter 10: Power Management and Tickless Idle",
+  "section": "10.4 Custom Tickless Implementation for Stop Mode",
+  "sub": "Step-by-Step Implementation",
+  "idx": 219,
+  "kind": "c",
+  "lines": 2,
+  "file": "blocks/219_c.txt"
+ },
+ {
+  "chapter": "Chapter 10: Power Management and Tickless Idle",
+  "section": "10.4 Custom Tickless Implementation for Stop Mode",
+  "sub": "Step-by-Step Implementation",
+  "idx": 220,
+  "kind": "c",
+  "lines": 4,
+  "file": "blocks/220_c.txt"
+ },
+ {
+  "chapter": "Chapter 10: Power Management and Tickless Idle",
+  "section": "10.4 Custom Tickless Implementation for Stop Mode",
+  "sub": "Step-by-Step Implementation",
+  "idx": 221,
+  "kind": "c",
+  "lines": 48,
+  "file": "blocks/221_c.txt"
+ },
+ {
+  "chapter": "Chapter 10: Power Management and Tickless Idle",
+  "section": "10.4 Custom Tickless Implementation for Stop Mode",
+  "sub": "Step-by-Step Implementation",
+  "idx": 222,
+  "kind": "c",
+  "lines": 18,
+  "file": "blocks/222_c.txt"
+ },
+ {
+  "chapter": "Chapter 10: Power Management and Tickless Idle",
+  "section": "10.4 Custom Tickless Implementation for Stop Mode",
+  "sub": "Step-by-Step Implementation",
+  "idx": 223,
+  "kind": "c",
+  "lines": 132,
+  "file": "blocks/223_c.txt"
+ },
+ {
+  "chapter": "Chapter 10: Power Management and Tickless Idle",
+  "section": "10.4 Custom Tickless Implementation for Stop Mode",
+  "sub": "Step-by-Step Implementation",
+  "idx": 224,
+  "kind": "c",
+  "lines": 8,
+  "file": "blocks/224_c.txt"
+ },
+ {
+  "chapter": "Chapter 10: Power Management and Tickless Idle",
+  "section": "10.5 Peripheral Power Management",
+  "sub": "Disabling Unused Peripheral Clocks",
+  "idx": 225,
+  "kind": "c",
+  "lines": 5,
+  "file": "blocks/225_c.txt"
+ },
+ {
+  "chapter": "Chapter 10: Power Management and Tickless Idle",
+  "section": "10.5 Peripheral Power Management",
+  "sub": "GPIO Power Optimization",
+  "idx": 226,
+  "kind": "c",
+  "lines": 2,
+  "file": "blocks/226_c.txt"
+ },
+ {
+  "chapter": "Chapter 10: Power Management and Tickless Idle",
+  "section": "10.6 Power Profiling and Measurement",
+  "sub": "Measurement Techniques",
+  "idx": 227,
+  "kind": "other",
+  "lines": 6,
+  "file": "blocks/227_other.txt"
+ },
+ {
+  "chapter": "Chapter 10: Power Management and Tickless Idle",
+  "section": "10.6 Power Profiling and Measurement",
+  "sub": "Worked Example: Battery Life Calculation",
+  "idx": 228,
+  "kind": "other",
+  "lines": 6,
+  "file": "blocks/228_other.txt"
+ },
+ {
+  "chapter": "Chapter 10: Power Management and Tickless Idle",
+  "section": "10.6 Power Profiling and Measurement",
+  "sub": "Worked Example: Battery Life Calculation",
+  "idx": 229,
+  "kind": "other",
+  "lines": 1,
+  "file": "blocks/229_other.txt"
+ },
+ {
+  "chapter": "Chapter 10: Power Management and Tickless Idle",
+  "section": "10.7 Design Patterns for Low Power",
+  "sub": "Event-Driven Architecture",
+  "idx": 230,
+  "kind": "c",
+  "lines": 15,
+  "file": "blocks/230_c.txt"
+ },
+ {
+  "chapter": "Chapter 10: Power Management and Tickless Idle",
+  "section": "10.7 Design Patterns for Low Power",
+  "sub": "Communication Batching",
+  "idx": 231,
+  "kind": "c",
+  "lines": 14,
+  "file": "blocks/231_c.txt"
+ },
+ {
+  "chapter": "Chapter 10: Power Management and Tickless Idle",
+  "section": "10.9 Common Pitfalls",
+  "sub": "Debug Probe Preventing Low-Power Entry",
+  "idx": 232,
+  "kind": "c",
+  "lines": 4,
+  "file": "blocks/232_c.txt"
+ },
+ {
+  "chapter": "Chapter 10: Power Management and Tickless Idle",
+  "section": "10.10 Lab 10: Tickless Idle Power Optimization",
+  "sub": "Hardware Setup",
+  "idx": 233,
+  "kind": "other",
+  "lines": 1,
+  "file": "blocks/233_other.txt"
+ },
+ {
+  "chapter": "Chapter 10: Power Management and Tickless Idle",
+  "section": "10.10 Lab 10: Tickless Idle Power Optimization",
+  "sub": "Part 1: Baseline Measurement (Standard Tick)",
+  "idx": 234,
+  "kind": "c",
+  "lines": 30,
+  "file": "blocks/234_c.txt"
+ },
+ {
+  "chapter": "Chapter 10: Power Management and Tickless Idle",
+  "section": "10.10 Lab 10: Tickless Idle Power Optimization",
+  "sub": "Part 2: Built-In Tickless Idle",
+  "idx": 235,
+  "kind": "c",
+  "lines": 3,
+  "file": "blocks/235_c.txt"
+ },
+ {
+  "chapter": "Chapter 10: Power Management and Tickless Idle",
+  "section": "10.10 Lab 10: Tickless Idle Power Optimization",
+  "sub": "Part 3: Custom Stop-Mode Tickless",
+  "idx": 236,
+  "kind": "c",
+  "lines": 4,
+  "file": "blocks/236_c.txt"
+ },
+ {
+  "chapter": "Chapter 10: Power Management and Tickless Idle",
+  "section": "10.10 Lab 10: Tickless Idle Power Optimization",
+  "sub": "Part 3: Custom Stop-Mode Tickless",
+  "idx": 237,
+  "kind": "c",
+  "lines": 11,
+  "file": "blocks/237_c.txt"
+ },
+ {
+  "chapter": "Chapter 11: Clock Configuration, Timing, and Temporal Determinism",
+  "section": "11.2 STM32F407 Clock Architecture",
+  "sub": "11.2.2 PLL Configuration",
+  "idx": 238,
+  "kind": "other",
+  "lines": 3,
+  "file": "blocks/238_other.txt"
+ },
+ {
+  "chapter": "Chapter 11: Clock Configuration, Timing, and Temporal Determinism",
+  "section": "11.2 STM32F407 Clock Architecture",
+  "sub": "11.2.3 Clock Tree",
+  "idx": 239,
+  "kind": "diagram",
+  "lines": 21,
+  "file": "blocks/239_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 11: Clock Configuration, Timing, and Temporal Determinism",
+  "section": "11.2 STM32F407 Clock Architecture",
+  "sub": "11.2.5 Flash Latency",
+  "idx": 240,
+  "kind": "c",
+  "lines": 5,
+  "file": "blocks/240_c.txt"
+ },
+ {
+  "chapter": "Chapter 11: Clock Configuration, Timing, and Temporal Determinism",
+  "section": "11.2 STM32F407 Clock Architecture",
+  "sub": "11.2.6 Clock Security System (CSS)",
+  "idx": 241,
+  "kind": "c",
+  "lines": 6,
+  "file": "blocks/241_c.txt"
+ },
+ {
+  "chapter": "Chapter 11: Clock Configuration, Timing, and Temporal Determinism",
+  "section": "11.3 SysTick Timer and RTOS Tick",
+  "sub": "11.3.1 SysTick Architecture",
+  "idx": 242,
+  "kind": "c",
+  "lines": 7,
+  "file": "blocks/242_c.txt"
+ },
+ {
+  "chapter": "Chapter 11: Clock Configuration, Timing, and Temporal Determinism",
+  "section": "11.3 SysTick Timer and RTOS Tick",
+  "sub": "11.3.4 Tick Jitter: Causes and Measurement",
+  "idx": 243,
+  "kind": "c",
+  "lines": 32,
+  "file": "blocks/243_c.txt"
+ },
+ {
+  "chapter": "Chapter 11: Clock Configuration, Timing, and Temporal Determinism",
+  "section": "11.4 Hardware Timers for Precise Timing",
+  "sub": "11.4.2 Timer Configuration Fundamentals",
+  "idx": 244,
+  "kind": "other",
+  "lines": 1,
+  "file": "blocks/244_other.txt"
+ },
+ {
+  "chapter": "Chapter 11: Clock Configuration, Timing, and Temporal Determinism",
+  "section": "11.4 Hardware Timers for Precise Timing",
+  "sub": "11.4.3 Input Capture Mode",
+  "idx": 245,
+  "kind": "c",
+  "lines": 63,
+  "file": "blocks/245_c.txt"
+ },
+ {
+  "chapter": "Chapter 11: Clock Configuration, Timing, and Temporal Determinism",
+  "section": "11.4 Hardware Timers for Precise Timing",
+  "sub": "11.4.4 Output Compare Mode",
+  "idx": 246,
+  "kind": "c",
+  "lines": 4,
+  "file": "blocks/246_c.txt"
+ },
+ {
+  "chapter": "Chapter 11: Clock Configuration, Timing, and Temporal Determinism",
+  "section": "11.5 DWT Cycle Counter",
+  "sub": "11.5.2 Enabling the Cycle Counter",
+  "idx": 247,
+  "kind": "c",
+  "lines": 4,
+  "file": "blocks/247_c.txt"
+ },
+ {
+  "chapter": "Chapter 11: Clock Configuration, Timing, and Temporal Determinism",
+  "section": "11.5 DWT Cycle Counter",
+  "sub": "11.5.3 Resolution and Overflow",
+  "idx": 248,
+  "kind": "other",
+  "lines": 1,
+  "file": "blocks/248_other.txt"
+ },
+ {
+  "chapter": "Chapter 11: Clock Configuration, Timing, and Temporal Determinism",
+  "section": "11.5 DWT Cycle Counter",
+  "sub": "11.5.3 Resolution and Overflow",
+  "idx": 249,
+  "kind": "other",
+  "lines": 1,
+  "file": "blocks/249_other.txt"
+ },
+ {
+  "chapter": "Chapter 11: Clock Configuration, Timing, and Temporal Determinism",
+  "section": "11.5 DWT Cycle Counter",
+  "sub": "11.5.3 Resolution and Overflow",
+  "idx": 250,
+  "kind": "c",
+  "lines": 3,
+  "file": "blocks/250_c.txt"
+ },
+ {
+  "chapter": "Chapter 11: Clock Configuration, Timing, and Temporal Determinism",
+  "section": "11.5 DWT Cycle Counter",
+  "sub": "11.5.4 Conversion Macros",
+  "idx": 251,
+  "kind": "c",
+  "lines": 6,
+  "file": "blocks/251_c.txt"
+ },
+ {
+  "chapter": "Chapter 11: Clock Configuration, Timing, and Temporal Determinism",
+  "section": "11.5 DWT Cycle Counter",
+  "sub": "11.5.5 Code Example: Measuring Function Execution Time",
+  "idx": 252,
+  "kind": "c",
+  "lines": 47,
+  "file": "blocks/252_c.txt"
+ },
+ {
+  "chapter": "Chapter 11: Clock Configuration, Timing, and Temporal Determinism",
+  "section": "11.7 Temporal Determinism Strategies",
+  "sub": "11.7.1 Deterministic Memory Placement",
+  "idx": 253,
+  "kind": "c",
+  "lines": 11,
+  "file": "blocks/253_c.txt"
+ },
+ {
+  "chapter": "Chapter 11: Clock Configuration, Timing, and Temporal Determinism",
+  "section": "11.7 Temporal Determinism Strategies",
+  "sub": "11.7.2 Constant-Time Algorithms",
+  "idx": 254,
+  "kind": "c",
+  "lines": 9,
+  "file": "blocks/254_c.txt"
+ },
+ {
+  "chapter": "Chapter 11: Clock Configuration, Timing, and Temporal Determinism",
+  "section": "11.7 Temporal Determinism Strategies",
+  "sub": "11.7.3 Interrupt Management for Determinism",
+  "idx": 255,
+  "kind": "c",
+  "lines": 3,
+  "file": "blocks/255_c.txt"
+ },
+ {
+  "chapter": "Chapter 11: Clock Configuration, Timing, and Temporal Determinism",
+  "section": "11.7 Temporal Determinism Strategies",
+  "sub": "11.7.4 Drift-Free Periodic Execution",
+  "idx": 256,
+  "kind": "c",
+  "lines": 17,
+  "file": "blocks/256_c.txt"
+ },
+ {
+  "chapter": "Chapter 11: Clock Configuration, Timing, and Temporal Determinism",
+  "section": "11.8 Real-Time Clock (RTC) for Calendar Time",
+  "sub": "11.8.2 RTC Configuration",
+  "idx": 257,
+  "kind": "c",
+  "lines": 33,
+  "file": "blocks/257_c.txt"
+ },
+ {
+  "chapter": "Chapter 11: Clock Configuration, Timing, and Temporal Determinism",
+  "section": "11.11 Lab 11: Timing Accuracy and WCET Measurement",
+  "sub": "Complete Code Listing",
+  "idx": 258,
+  "kind": "c",
+  "lines": 236,
+  "file": "blocks/258_c.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.2 printf-Style Debugging",
+  "sub": "12.2.3 ITM — Instrumentation Trace Macrocell",
+  "idx": 259,
+  "kind": "c",
+  "lines": 11,
+  "file": "blocks/259_c.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.2 printf-Style Debugging",
+  "sub": "12.2.4 SEGGER RTT — Real-Time Transfer",
+  "idx": 260,
+  "kind": "c",
+  "lines": 7,
+  "file": "blocks/260_c.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.4 FreeRTOS Trace Hooks",
+  "sub": "12.4.2 The Flight Recorder Pattern",
+  "idx": 261,
+  "kind": "c",
+  "lines": 38,
+  "file": "blocks/261_c.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.4 FreeRTOS Trace Hooks",
+  "sub": "12.4.2 The Flight Recorder Pattern",
+  "idx": 262,
+  "kind": "c",
+  "lines": 66,
+  "file": "blocks/262_c.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.4 FreeRTOS Trace Hooks",
+  "sub": "12.4.3 Hooking the Kernel",
+  "idx": 263,
+  "kind": "c",
+  "lines": 20,
+  "file": "blocks/263_c.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.4 FreeRTOS Trace Hooks",
+  "sub": "12.4.4 GPIO Toggle for Oscilloscope Visualization",
+  "idx": 264,
+  "kind": "c",
+  "lines": 7,
+  "file": "blocks/264_c.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.5 Percepio Tracealyzer Integration",
+  "sub": "12.5.3 Integration Steps",
+  "idx": 265,
+  "kind": "c",
+  "lines": 5,
+  "file": "blocks/265_c.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.5 Percepio Tracealyzer Integration",
+  "sub": "12.5.3 Integration Steps",
+  "idx": 266,
+  "kind": "c",
+  "lines": 2,
+  "file": "blocks/266_c.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.5 Percepio Tracealyzer Integration",
+  "sub": "12.5.3 Integration Steps",
+  "idx": 267,
+  "kind": "c",
+  "lines": 16,
+  "file": "blocks/267_c.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.6 SEGGER SystemView Integration",
+  "sub": "12.6.3 Configuration",
+  "idx": 268,
+  "kind": "c",
+  "lines": 5,
+  "file": "blocks/268_c.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.6 SEGGER SystemView Integration",
+  "sub": "12.6.3 Configuration",
+  "idx": 269,
+  "kind": "c",
+  "lines": 5,
+  "file": "blocks/269_c.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.6 SEGGER SystemView Integration",
+  "sub": "12.6.5 Custom Markers",
+  "idx": 270,
+  "kind": "c",
+  "lines": 13,
+  "file": "blocks/270_c.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.7 Runtime Diagnostics APIs",
+  "sub": "12.7.1 vTaskList()",
+  "idx": 271,
+  "kind": "other",
+  "lines": 5,
+  "file": "blocks/271_other.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.7 Runtime Diagnostics APIs",
+  "sub": "12.7.2 vTaskGetRunTimeStats()",
+  "idx": 272,
+  "kind": "other",
+  "lines": 5,
+  "file": "blocks/272_other.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.7 Runtime Diagnostics APIs",
+  "sub": "12.7.2 vTaskGetRunTimeStats()",
+  "idx": 273,
+  "kind": "c",
+  "lines": 15,
+  "file": "blocks/273_c.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.7 Runtime Diagnostics APIs",
+  "sub": "12.7.3 uxTaskGetStackHighWaterMark()",
+  "idx": 274,
+  "kind": "c",
+  "lines": 5,
+  "file": "blocks/274_c.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.7 Runtime Diagnostics APIs",
+  "sub": "12.7.4 Queue Monitoring",
+  "idx": 275,
+  "kind": "c",
+  "lines": 2,
+  "file": "blocks/275_c.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.7 Runtime Diagnostics APIs",
+  "sub": "12.7.5 Building a Diagnostic Task",
+  "idx": 276,
+  "kind": "c",
+  "lines": 43,
+  "file": "blocks/276_c.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.8 Post-Mortem Analysis",
+  "sub": "12.8.1 Cortex-M4 Fault Registers",
+  "idx": 277,
+  "kind": "other",
+  "lines": 3,
+  "file": "blocks/277_other.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.8 Post-Mortem Analysis",
+  "sub": "12.8.2 Hard Fault Handler",
+  "idx": 278,
+  "kind": "c",
+  "lines": 53,
+  "file": "blocks/278_c.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.8 Post-Mortem Analysis",
+  "sub": "12.8.2 Hard Fault Handler",
+  "idx": 279,
+  "kind": "c",
+  "lines": 11,
+  "file": "blocks/279_c.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.8 Post-Mortem Analysis",
+  "sub": "12.8.3 Post-Reset Recovery",
+  "idx": 280,
+  "kind": "c",
+  "lines": 34,
+  "file": "blocks/280_c.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.11 Lab 12: Building a Flight Recorder and Diagnostic Console",
+  "sub": "Part A: Flight Recorder",
+  "idx": 281,
+  "kind": "linker",
+  "lines": 6,
+  "file": "blocks/281_linker.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.11 Lab 12: Building a Flight Recorder and Diagnostic Console",
+  "sub": "Part A: Flight Recorder",
+  "idx": 282,
+  "kind": "c",
+  "lines": 6,
+  "file": "blocks/282_c.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.11 Lab 12: Building a Flight Recorder and Diagnostic Console",
+  "sub": "Part B: Diagnostic Console",
+  "idx": 283,
+  "kind": "c",
+  "lines": 82,
+  "file": "blocks/283_c.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.11 Lab 12: Building a Flight Recorder and Diagnostic Console",
+  "sub": "Part B: Diagnostic Console",
+  "idx": 284,
+  "kind": "c",
+  "lines": 1,
+  "file": "blocks/284_c.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.11 Lab 12: Building a Flight Recorder and Diagnostic Console",
+  "sub": "Part C: Hard Fault Handler",
+  "idx": 285,
+  "kind": "linker",
+  "lines": 4,
+  "file": "blocks/285_linker.txt"
+ },
+ {
+  "chapter": "Chapter 12: Debugging, Tracing, and Runtime Diagnostics",
+  "section": "12.11 Lab 12: Building a Flight Recorder and Diagnostic Console",
+  "sub": "Part C: Hard Fault Handler",
+  "idx": 286,
+  "kind": "linker",
+  "lines": 7,
+  "file": "blocks/286_linker.txt"
+ },
+ {
+  "chapter": "Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",
+  "section": "13.2 ARM Cortex-M Fault Handlers",
+  "sub": "13.2.1 The Four Fault Types",
+  "idx": 287,
+  "kind": "c",
+  "lines": 8,
+  "file": "blocks/287_c.txt"
+ },
+ {
+  "chapter": "Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",
+  "section": "13.2 ARM Cortex-M Fault Handlers",
+  "sub": "13.2.2 Fault Status Registers",
+  "idx": 288,
+  "kind": "other",
+  "lines": 3,
+  "file": "blocks/288_other.txt"
+ },
+ {
+  "chapter": "Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",
+  "section": "13.2 ARM Cortex-M Fault Handlers",
+  "sub": "13.2.3 Extracting the Stacked PC",
+  "idx": 289,
+  "kind": "c",
+  "lines": 35,
+  "file": "blocks/289_c.txt"
+ },
+ {
+  "chapter": "Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",
+  "section": "13.3 Watchdog Timers",
+  "sub": "13.3.1 Independent Watchdog (IWDG)",
+  "idx": 290,
+  "kind": "other",
+  "lines": 1,
+  "file": "blocks/290_other.txt"
+ },
+ {
+  "chapter": "Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",
+  "section": "13.3 Watchdog Timers",
+  "sub": "13.3.1 Independent Watchdog (IWDG)",
+  "idx": 291,
+  "kind": "c",
+  "lines": 16,
+  "file": "blocks/291_c.txt"
+ },
+ {
+  "chapter": "Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",
+  "section": "13.3 Watchdog Timers",
+  "sub": "13.3.2 Window Watchdog (WWDG)",
+  "idx": 292,
+  "kind": "other",
+  "lines": 1,
+  "file": "blocks/292_other.txt"
+ },
+ {
+  "chapter": "Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",
+  "section": "13.3 Watchdog Timers",
+  "sub": "13.3.2 Window Watchdog (WWDG)",
+  "idx": 293,
+  "kind": "c",
+  "lines": 23,
+  "file": "blocks/293_c.txt"
+ },
+ {
+  "chapter": "Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",
+  "section": "13.4 Task-Level Health Monitoring",
+  "sub": "13.4.1 The Heartbeat Bitmap Pattern",
+  "idx": 294,
+  "kind": "diagram",
+  "lines": 11,
+  "file": "blocks/294_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",
+  "section": "13.4 Task-Level Health Monitoring",
+  "sub": "13.4.2 Implementation",
+  "idx": 295,
+  "kind": "c",
+  "lines": 88,
+  "file": "blocks/295_c.txt"
+ },
+ {
+  "chapter": "Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",
+  "section": "13.5 Stack Overflow Detection and Response",
+  "sub": "13.5.3 The Stack Overflow Hook",
+  "idx": 296,
+  "kind": "c",
+  "lines": 19,
+  "file": "blocks/296_c.txt"
+ },
+ {
+  "chapter": "Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",
+  "section": "13.6 Assertion Framework",
+  "sub": "13.6.1 configASSERT Implementation",
+  "idx": 297,
+  "kind": "c",
+  "lines": 35,
+  "file": "blocks/297_c.txt"
+ },
+ {
+  "chapter": "Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",
+  "section": "13.7 Safe-State Design",
+  "sub": "13.7.2 Implementation",
+  "idx": 298,
+  "kind": "c",
+  "lines": 24,
+  "file": "blocks/298_c.txt"
+ },
+ {
+  "chapter": "Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",
+  "section": "13.7 Safe-State Design",
+  "sub": "13.7.3 Protected Memory Placement",
+  "idx": 299,
+  "kind": "linker",
+  "lines": 3,
+  "file": "blocks/299_linker.txt"
+ },
+ {
+  "chapter": "Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",
+  "section": "13.8 Recovery Strategies",
+  "sub": "13.8.1 Task Restart",
+  "idx": 300,
+  "kind": "c",
+  "lines": 19,
+  "file": "blocks/300_c.txt"
+ },
+ {
+  "chapter": "Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",
+  "section": "13.8 Recovery Strategies",
+  "sub": "13.8.3 Full System Reset",
+  "idx": 301,
+  "kind": "c",
+  "lines": 6,
+  "file": "blocks/301_c.txt"
+ },
+ {
+  "chapter": "Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",
+  "section": "13.8 Recovery Strategies",
+  "sub": "13.8.4 Reset Cause Identification",
+  "idx": 302,
+  "kind": "c",
+  "lines": 13,
+  "file": "blocks/302_c.txt"
+ },
+ {
+  "chapter": "Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",
+  "section": "13.8 Recovery Strategies",
+  "sub": "13.8.5 Persistent Fault Counter",
+  "idx": 303,
+  "kind": "c",
+  "lines": 39,
+  "file": "blocks/303_c.txt"
+ },
+ {
+  "chapter": "Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",
+  "section": "13.9 QNX and Zephyr: Fault Management Approaches",
+  "sub": "13.9.2 Zephyr Fatal Error Handler",
+  "idx": 304,
+  "kind": "c",
+  "lines": 8,
+  "file": "blocks/304_c.txt"
+ },
+ {
+  "chapter": "Chapter 13: Fault Handling, Watchdogs, and System Health Monitoring",
+  "section": "13.11 Lab 13: Health Monitor with Crash Logging",
+  "sub": "13.11.2 Complete Implementation",
+  "idx": 305,
+  "kind": "c",
+  "lines": 260,
+  "file": "blocks/305_c.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.1 The Testing Challenge for RTOS Software",
+  "sub": "",
+  "idx": 306,
+  "kind": "other",
+  "lines": 6,
+  "file": "blocks/306_other.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.2 Unit Testing on Host",
+  "sub": "Dual Build Targets",
+  "idx": 307,
+  "kind": "cmake",
+  "lines": 34,
+  "file": "blocks/307_cmake.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.2 Unit Testing on Host",
+  "sub": "Dual Build Targets",
+  "idx": 308,
+  "kind": "shell",
+  "lines": 4,
+  "file": "blocks/308_shell.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.2 Unit Testing on Host",
+  "sub": "Dual Build Targets",
+  "idx": 309,
+  "kind": "shell",
+  "lines": 3,
+  "file": "blocks/309_shell.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.2 Unit Testing on Host",
+  "sub": "Code Example: Unity Test for a Moving Average Filter",
+  "idx": 310,
+  "kind": "c",
+  "lines": 19,
+  "file": "blocks/310_c.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.2 Unit Testing on Host",
+  "sub": "Code Example: Unity Test for a Moving Average Filter",
+  "idx": 311,
+  "kind": "c",
+  "lines": 54,
+  "file": "blocks/311_c.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.2 Unit Testing on Host",
+  "sub": "Code Example: Testing a State Machine with Stub Inputs",
+  "idx": 312,
+  "kind": "c",
+  "lines": 51,
+  "file": "blocks/312_c.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.3 The Fake HAL Pattern (Expanded)",
+  "sub": "Architecture",
+  "idx": 313,
+  "kind": "other",
+  "lines": 8,
+  "file": "blocks/313_other.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.3 The Fake HAL Pattern (Expanded)",
+  "sub": "Simulating Timing",
+  "idx": 314,
+  "kind": "c",
+  "lines": 15,
+  "file": "blocks/314_c.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.3 The Fake HAL Pattern (Expanded)",
+  "sub": "Simulating Timing",
+  "idx": 315,
+  "kind": "c",
+  "lines": 7,
+  "file": "blocks/315_c.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.3 The Fake HAL Pattern (Expanded)",
+  "sub": "Code Example: Fake I2C HAL with Programmable Responses",
+  "idx": 316,
+  "kind": "c",
+  "lines": 81,
+  "file": "blocks/316_c.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.3 The Fake HAL Pattern (Expanded)",
+  "sub": "Code Example: Fake I2C HAL with Programmable Responses",
+  "idx": 317,
+  "kind": "c",
+  "lines": 22,
+  "file": "blocks/317_c.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.4 Integration Testing",
+  "sub": "Code Example: Integration Test on FreeRTOS Simulator",
+  "idx": 318,
+  "kind": "c",
+  "lines": 72,
+  "file": "blocks/318_c.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.5 System Testing on Target",
+  "sub": "Test Harness Design",
+  "idx": 319,
+  "kind": "shell",
+  "lines": 6,
+  "file": "blocks/319_shell.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.5 System Testing on Target",
+  "sub": "Test Harness Design",
+  "idx": 320,
+  "kind": "c",
+  "lines": 11,
+  "file": "blocks/320_c.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.5 System Testing on Target",
+  "sub": "Timing Verification",
+  "idx": 321,
+  "kind": "c",
+  "lines": 7,
+  "file": "blocks/321_c.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.6 Hardware-in-the-Loop (HIL) Testing",
+  "sub": "HIL Rig Architecture",
+  "idx": 322,
+  "kind": "diagram",
+  "lines": 9,
+  "file": "blocks/322_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.6 Hardware-in-the-Loop (HIL) Testing",
+  "sub": "Scripted Test Sequences",
+  "idx": 323,
+  "kind": "cmake",
+  "lines": 25,
+  "file": "blocks/323_cmake.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.7 Code Coverage for Embedded",
+  "sub": "Coverage on Host Build",
+  "idx": 324,
+  "kind": "shell",
+  "lines": 11,
+  "file": "blocks/324_shell.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.8 Continuous Integration for Embedded",
+  "sub": "Pipeline Stages",
+  "idx": 325,
+  "kind": "other",
+  "lines": 22,
+  "file": "blocks/325_other.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.8 Continuous Integration for Embedded",
+  "sub": "Automated Flash and Test",
+  "idx": 326,
+  "kind": "config-other",
+  "lines": 16,
+  "file": "blocks/326_config-other.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.8 Continuous Integration for Embedded",
+  "sub": "GitHub Actions Example",
+  "idx": 327,
+  "kind": "config-other",
+  "lines": 55,
+  "file": "blocks/327_config-other.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.11 Lab 14: Building a Test Pipeline",
+  "sub": "Part 1: Unit Tests for a Circular Buffer",
+  "idx": 328,
+  "kind": "c",
+  "lines": 24,
+  "file": "blocks/328_c.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.11 Lab 14: Building a Test Pipeline",
+  "sub": "Part 1: Unit Tests for a Circular Buffer",
+  "idx": 329,
+  "kind": "c",
+  "lines": 69,
+  "file": "blocks/329_c.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.11 Lab 14: Building a Test Pipeline",
+  "sub": "Part 2: Fake UART HAL",
+  "idx": 330,
+  "kind": "c",
+  "lines": 43,
+  "file": "blocks/330_c.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.11 Lab 14: Building a Test Pipeline",
+  "sub": "Part 3: FreeRTOS Simulator Integration Test",
+  "idx": 331,
+  "kind": "cmake",
+  "lines": 19,
+  "file": "blocks/331_cmake.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.11 Lab 14: Building a Test Pipeline",
+  "sub": "Part 3: FreeRTOS Simulator Integration Test",
+  "idx": 332,
+  "kind": "other",
+  "lines": 2,
+  "file": "blocks/332_other.txt"
+ },
+ {
+  "chapter": "Chapter 14: Testing Real-Time Systems",
+  "section": "14.11 Lab 14: Building a Test Pipeline",
+  "sub": "Part 4: On-Target Test Harness",
+  "idx": 333,
+  "kind": "c",
+  "lines": 44,
+  "file": "blocks/333_c.txt"
+ },
+ {
+  "chapter": "Chapter 15: Common RTOS Pitfalls and Anti-Patterns",
+  "section": "15.2 Pitfall: Unbounded Priority Inversion",
+  "sub": "Code Example",
+  "idx": 334,
+  "kind": "c",
+  "lines": 42,
+  "file": "blocks/334_c.txt"
+ },
+ {
+  "chapter": "Chapter 15: Common RTOS Pitfalls and Anti-Patterns",
+  "section": "15.2 Pitfall: Unbounded Priority Inversion",
+  "sub": "Code Example",
+  "idx": 335,
+  "kind": "c",
+  "lines": 43,
+  "file": "blocks/335_c.txt"
+ },
+ {
+  "chapter": "Chapter 15: Common RTOS Pitfalls and Anti-Patterns",
+  "section": "15.3 Pitfall: Deadlock",
+  "sub": "Code Example",
+  "idx": 336,
+  "kind": "c",
+  "lines": 30,
+  "file": "blocks/336_c.txt"
+ },
+ {
+  "chapter": "Chapter 15: Common RTOS Pitfalls and Anti-Patterns",
+  "section": "15.3 Pitfall: Deadlock",
+  "sub": "Code Example",
+  "idx": 337,
+  "kind": "c",
+  "lines": 35,
+  "file": "blocks/337_c.txt"
+ },
+ {
+  "chapter": "Chapter 15: Common RTOS Pitfalls and Anti-Patterns",
+  "section": "15.4 Pitfall: Stack Overflow",
+  "sub": "Code Example",
+  "idx": 338,
+  "kind": "c",
+  "lines": 15,
+  "file": "blocks/338_c.txt"
+ },
+ {
+  "chapter": "Chapter 15: Common RTOS Pitfalls and Anti-Patterns",
+  "section": "15.4 Pitfall: Stack Overflow",
+  "sub": "Code Example",
+  "idx": 339,
+  "kind": "c",
+  "lines": 24,
+  "file": "blocks/339_c.txt"
+ },
+ {
+  "chapter": "Chapter 15: Common RTOS Pitfalls and Anti-Patterns",
+  "section": "15.5 Pitfall: Race Conditions on Shared Data",
+  "sub": "Code Example",
+  "idx": 340,
+  "kind": "c",
+  "lines": 21,
+  "file": "blocks/340_c.txt"
+ },
+ {
+  "chapter": "Chapter 15: Common RTOS Pitfalls and Anti-Patterns",
+  "section": "15.5 Pitfall: Race Conditions on Shared Data",
+  "sub": "Code Example",
+  "idx": 341,
+  "kind": "c",
+  "lines": 29,
+  "file": "blocks/341_c.txt"
+ },
+ {
+  "chapter": "Chapter 15: Common RTOS Pitfalls and Anti-Patterns",
+  "section": "15.6 Pitfall: ISR Calling Non-Thread-Safe APIs",
+  "sub": "Code Example",
+  "idx": 342,
+  "kind": "c",
+  "lines": 15,
+  "file": "blocks/342_c.txt"
+ },
+ {
+  "chapter": "Chapter 15: Common RTOS Pitfalls and Anti-Patterns",
+  "section": "15.6 Pitfall: ISR Calling Non-Thread-Safe APIs",
+  "sub": "Code Example",
+  "idx": 343,
+  "kind": "c",
+  "lines": 29,
+  "file": "blocks/343_c.txt"
+ },
+ {
+  "chapter": "Chapter 15: Common RTOS Pitfalls and Anti-Patterns",
+  "section": "15.7 Pitfall: Polling Instead of Blocking",
+  "sub": "Code Example",
+  "idx": 344,
+  "kind": "c",
+  "lines": 21,
+  "file": "blocks/344_c.txt"
+ },
+ {
+  "chapter": "Chapter 15: Common RTOS Pitfalls and Anti-Patterns",
+  "section": "15.7 Pitfall: Polling Instead of Blocking",
+  "sub": "Code Example",
+  "idx": 345,
+  "kind": "c",
+  "lines": 29,
+  "file": "blocks/345_c.txt"
+ },
+ {
+  "chapter": "Chapter 15: Common RTOS Pitfalls and Anti-Patterns",
+  "section": "15.8 Pitfall: Misusing vTaskDelay for Periodic Timing",
+  "sub": "Code Example",
+  "idx": 346,
+  "kind": "c",
+  "lines": 10,
+  "file": "blocks/346_c.txt"
+ },
+ {
+  "chapter": "Chapter 15: Common RTOS Pitfalls and Anti-Patterns",
+  "section": "15.8 Pitfall: Misusing vTaskDelay for Periodic Timing",
+  "sub": "Code Example",
+  "idx": 347,
+  "kind": "c",
+  "lines": 20,
+  "file": "blocks/347_c.txt"
+ },
+ {
+  "chapter": "Chapter 15: Common RTOS Pitfalls and Anti-Patterns",
+  "section": "15.9 Pitfall: Unbounded Priority Levels",
+  "sub": "Example: Priority Band Structure",
+  "idx": 348,
+  "kind": "c",
+  "lines": 18,
+  "file": "blocks/348_c.txt"
+ },
+ {
+  "chapter": "Chapter 15: Common RTOS Pitfalls and Anti-Patterns",
+  "section": "15.10 Pitfall: Memory Leaks and Heap Fragmentation",
+  "sub": "Code Example",
+  "idx": 349,
+  "kind": "c",
+  "lines": 13,
+  "file": "blocks/349_c.txt"
+ },
+ {
+  "chapter": "Chapter 15: Common RTOS Pitfalls and Anti-Patterns",
+  "section": "15.10 Pitfall: Memory Leaks and Heap Fragmentation",
+  "sub": "Code Example",
+  "idx": 350,
+  "kind": "c",
+  "lines": 18,
+  "file": "blocks/350_c.txt"
+ },
+ {
+  "chapter": "Chapter 15: Common RTOS Pitfalls and Anti-Patterns",
+  "section": "15.11 Pitfall: Starving the Idle Task",
+  "sub": "Prevention",
+  "idx": 351,
+  "kind": "c",
+  "lines": 18,
+  "file": "blocks/351_c.txt"
+ },
+ {
+  "chapter": "Chapter 15: Common RTOS Pitfalls and Anti-Patterns",
+  "section": "15.12 Pitfall: Interrupt Priority Misconfiguration",
+  "sub": "Code Example",
+  "idx": 352,
+  "kind": "c",
+  "lines": 19,
+  "file": "blocks/352_c.txt"
+ },
+ {
+  "chapter": "Chapter 15: Common RTOS Pitfalls and Anti-Patterns",
+  "section": "15.12 Pitfall: Interrupt Priority Misconfiguration",
+  "sub": "Code Example",
+  "idx": 353,
+  "kind": "c",
+  "lines": 29,
+  "file": "blocks/353_c.txt"
+ },
+ {
+  "chapter": "Chapter 15: Common RTOS Pitfalls and Anti-Patterns",
+  "section": "15.13 Pitfall: Global State and Hidden Coupling",
+  "sub": "Code Example",
+  "idx": 354,
+  "kind": "c",
+  "lines": 26,
+  "file": "blocks/354_c.txt"
+ },
+ {
+  "chapter": "Chapter 15: Common RTOS Pitfalls and Anti-Patterns",
+  "section": "15.13 Pitfall: Global State and Hidden Coupling",
+  "sub": "Code Example",
+  "idx": 355,
+  "kind": "c",
+  "lines": 36,
+  "file": "blocks/355_c.txt"
+ },
+ {
+  "chapter": "Chapter 15: Common RTOS Pitfalls and Anti-Patterns",
+  "section": "15.16 Lab 15: Pitfall Detection Workshop",
+  "sub": "Exercise 1: Identify the Pitfall",
+  "idx": 356,
+  "kind": "c",
+  "lines": 11,
+  "file": "blocks/356_c.txt"
+ },
+ {
+  "chapter": "Chapter 15: Common RTOS Pitfalls and Anti-Patterns",
+  "section": "15.16 Lab 15: Pitfall Detection Workshop",
+  "sub": "Exercise 1: Identify the Pitfall",
+  "idx": 357,
+  "kind": "c",
+  "lines": 8,
+  "file": "blocks/357_c.txt"
+ },
+ {
+  "chapter": "Chapter 15: Common RTOS Pitfalls and Anti-Patterns",
+  "section": "15.16 Lab 15: Pitfall Detection Workshop",
+  "sub": "Exercise 1: Identify the Pitfall",
+  "idx": 358,
+  "kind": "c",
+  "lines": 13,
+  "file": "blocks/358_c.txt"
+ },
+ {
+  "chapter": "Chapter 15: Common RTOS Pitfalls and Anti-Patterns",
+  "section": "15.16 Lab 15: Pitfall Detection Workshop",
+  "sub": "Exercise 1: Identify the Pitfall",
+  "idx": 359,
+  "kind": "c",
+  "lines": 19,
+  "file": "blocks/359_c.txt"
+ },
+ {
+  "chapter": "Chapter 15: Common RTOS Pitfalls and Anti-Patterns",
+  "section": "15.16 Lab 15: Pitfall Detection Workshop",
+  "sub": "Exercise 1: Identify the Pitfall",
+  "idx": 360,
+  "kind": "c",
+  "lines": 9,
+  "file": "blocks/360_c.txt"
+ },
+ {
+  "chapter": "Chapter 16: Security in Real-Time Embedded Systems",
+  "section": "16.2 Secure Boot and Chain of Trust",
+  "sub": "The Boot Chain",
+  "idx": 361,
+  "kind": "diagram",
+  "lines": 9,
+  "file": "blocks/361_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 16: Security in Real-Time Embedded Systems",
+  "section": "16.2 Secure Boot and Chain of Trust",
+  "sub": "Code Example: Simplified Boot Verification",
+  "idx": 362,
+  "kind": "c",
+  "lines": 103,
+  "file": "blocks/362_c.txt"
+ },
+ {
+  "chapter": "Chapter 16: Security in Real-Time Embedded Systems",
+  "section": "16.3 Memory Protection Unit (MPU) for Security",
+  "sub": "Code Example: Restricted Task Configuration",
+  "idx": 363,
+  "kind": "c",
+  "lines": 50,
+  "file": "blocks/363_c.txt"
+ },
+ {
+  "chapter": "Chapter 16: Security in Real-Time Embedded Systems",
+  "section": "16.4 Cryptographic Operations",
+  "sub": "Code Example: AES-128-GCM Encryption of Sensor Data",
+  "idx": 364,
+  "kind": "c",
+  "lines": 90,
+  "file": "blocks/364_c.txt"
+ },
+ {
+  "chapter": "Chapter 16: Security in Real-Time Embedded Systems",
+  "section": "16.5 Secure Communication",
+  "sub": "Code Example: HMAC-Authenticated CAN Message",
+  "idx": 365,
+  "kind": "c",
+  "lines": 105,
+  "file": "blocks/365_c.txt"
+ },
+ {
+  "chapter": "Chapter 16: Security in Real-Time Embedded Systems",
+  "section": "16.6 Over-the-Air (OTA) Firmware Updates",
+  "sub": "Update Architecture",
+  "idx": 366,
+  "kind": "diagram",
+  "lines": 13,
+  "file": "blocks/366_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 16: Security in Real-Time Embedded Systems",
+  "section": "16.6 Over-the-Air (OTA) Firmware Updates",
+  "sub": "Code Example: OTA Update State Machine",
+  "idx": 367,
+  "kind": "c",
+  "lines": 142,
+  "file": "blocks/367_c.txt"
+ },
+ {
+  "chapter": "Chapter 16: Security in Real-Time Embedded Systems",
+  "section": "16.10 Lab 16: Secure Boot and Authenticated Commands",
+  "sub": "Part B: HMAC-Authenticated UART Command Protocol",
+  "idx": 368,
+  "kind": "diagram",
+  "lines": 5,
+  "file": "blocks/368_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 16: Security in Real-Time Embedded Systems",
+  "section": "16.10 Lab 16: Secure Boot and Authenticated Commands",
+  "sub": "Part B: HMAC-Authenticated UART Command Protocol",
+  "idx": 369,
+  "kind": "c",
+  "lines": 97,
+  "file": "blocks/369_c.txt"
+ },
+ {
+  "chapter": "Chapter 17: RTOS Application Architecture and Design Patterns",
+  "section": "17.2 Layered Architecture",
+  "sub": "17.2.1 The Four Layers",
+  "idx": 370,
+  "kind": "diagram",
+  "lines": 15,
+  "file": "blocks/370_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 17: RTOS Application Architecture and Design Patterns",
+  "section": "17.2 Layered Architecture",
+  "sub": "17.2.3 Directory Structure",
+  "idx": 371,
+  "kind": "other",
+  "lines": 19,
+  "file": "blocks/371_other.txt"
+ },
+ {
+  "chapter": "Chapter 17: RTOS Application Architecture and Design Patterns",
+  "section": "17.3 Event-Driven Architecture",
+  "sub": "17.3.1 Events as First-Class Entities",
+  "idx": 372,
+  "kind": "c",
+  "lines": 15,
+  "file": "blocks/372_c.txt"
+ },
+ {
+  "chapter": "Chapter 17: RTOS Application Architecture and Design Patterns",
+  "section": "17.3 Event-Driven Architecture",
+  "sub": "17.3.2 Event Loop Pattern",
+  "idx": 373,
+  "kind": "c",
+  "lines": 29,
+  "file": "blocks/373_c.txt"
+ },
+ {
+  "chapter": "Chapter 17: RTOS Application Architecture and Design Patterns",
+  "section": "17.3 Event-Driven Architecture",
+  "sub": "17.3.3 Centralized Event Dispatcher",
+  "idx": 374,
+  "kind": "c",
+  "lines": 42,
+  "file": "blocks/374_c.txt"
+ },
+ {
+  "chapter": "Chapter 17: RTOS Application Architecture and Design Patterns",
+  "section": "17.4 Active Object Pattern",
+  "sub": "17.4.1 Concept",
+  "idx": 375,
+  "kind": "diagram",
+  "lines": 10,
+  "file": "blocks/375_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 17: RTOS Application Architecture and Design Patterns",
+  "section": "17.4 Active Object Pattern",
+  "sub": "17.4.3 Code Example: LED Controller Active Object",
+  "idx": 376,
+  "kind": "c",
+  "lines": 136,
+  "file": "blocks/376_c.txt"
+ },
+ {
+  "chapter": "Chapter 17: RTOS Application Architecture and Design Patterns",
+  "section": "17.5 Publish-Subscribe Pattern",
+  "sub": "17.5.1 Concept",
+  "idx": 377,
+  "kind": "diagram",
+  "lines": 5,
+  "file": "blocks/377_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 17: RTOS Application Architecture and Design Patterns",
+  "section": "17.5 Publish-Subscribe Pattern",
+  "sub": "17.5.2 Code Example: Sensor Data Pub-Sub System",
+  "idx": 378,
+  "kind": "c",
+  "lines": 54,
+  "file": "blocks/378_c.txt"
+ },
+ {
+  "chapter": "Chapter 17: RTOS Application Architecture and Design Patterns",
+  "section": "17.6 Command Pattern and Protocol Handlers",
+  "sub": "17.6.1 Command Descriptor",
+  "idx": 379,
+  "kind": "c",
+  "lines": 9,
+  "file": "blocks/379_c.txt"
+ },
+ {
+  "chapter": "Chapter 17: RTOS Application Architecture and Design Patterns",
+  "section": "17.6 Command Pattern and Protocol Handlers",
+  "sub": "17.6.2 Command Table and Dispatcher",
+  "idx": 380,
+  "kind": "c",
+  "lines": 35,
+  "file": "blocks/380_c.txt"
+ },
+ {
+  "chapter": "Chapter 17: RTOS Application Architecture and Design Patterns",
+  "section": "17.6 Command Pattern and Protocol Handlers",
+  "sub": "17.6.3 Serial Command Processor Task",
+  "idx": 381,
+  "kind": "c",
+  "lines": 15,
+  "file": "blocks/381_c.txt"
+ },
+ {
+  "chapter": "Chapter 17: RTOS Application Architecture and Design Patterns",
+  "section": "17.7 State Machine Patterns",
+  "sub": "17.7.1 Simple Switch-Case State Machine",
+  "idx": 382,
+  "kind": "c",
+  "lines": 2,
+  "file": "blocks/382_c.txt"
+ },
+ {
+  "chapter": "Chapter 17: RTOS Application Architecture and Design Patterns",
+  "section": "17.7 State Machine Patterns",
+  "sub": "17.7.2 Table-Driven State Machine",
+  "idx": 383,
+  "kind": "c",
+  "lines": 100,
+  "file": "blocks/383_c.txt"
+ },
+ {
+  "chapter": "Chapter 17: RTOS Application Architecture and Design Patterns",
+  "section": "17.8 Resource Management Patterns",
+  "sub": "17.8.1 RAII-Like Macros in C",
+  "idx": 384,
+  "kind": "c",
+  "lines": 20,
+  "file": "blocks/384_c.txt"
+ },
+ {
+  "chapter": "Chapter 17: RTOS Application Architecture and Design Patterns",
+  "section": "17.8 Resource Management Patterns",
+  "sub": "17.8.2 SPI Bus Broker Task",
+  "idx": 385,
+  "kind": "c",
+  "lines": 51,
+  "file": "blocks/385_c.txt"
+ },
+ {
+  "chapter": "Chapter 17: RTOS Application Architecture and Design Patterns",
+  "section": "17.9 System Startup and Shutdown",
+  "sub": "17.9.1 Phased Initialization",
+  "idx": 386,
+  "kind": "other",
+  "lines": 6,
+  "file": "blocks/386_other.txt"
+ },
+ {
+  "chapter": "Chapter 17: RTOS Application Architecture and Design Patterns",
+  "section": "17.9 System Startup and Shutdown",
+  "sub": "17.9.2 Code Example: Multi-Phase Startup with Event Group Sync",
+  "idx": 387,
+  "kind": "c",
+  "lines": 62,
+  "file": "blocks/387_c.txt"
+ },
+ {
+  "chapter": "Chapter 17: RTOS Application Architecture and Design Patterns",
+  "section": "17.12 Lab 17: Designing an Event-Driven Application",
+  "sub": "System Architecture",
+  "idx": 388,
+  "kind": "diagram",
+  "lines": 18,
+  "file": "blocks/388_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 17: RTOS Application Architecture and Design Patterns",
+  "section": "17.12 Lab 17: Designing an Event-Driven Application",
+  "sub": "Complete Code Listing",
+  "idx": 389,
+  "kind": "c",
+  "lines": 346,
+  "file": "blocks/389_c.txt"
+ },
+ {
+  "chapter": "Chapter 18: Certification, Standards, and Safety-Critical Development",
+  "section": "18.4 MISRA C Compliance",
+  "sub": "MISRA-Compliant Task Function",
+  "idx": 390,
+  "kind": "c",
+  "lines": 52,
+  "file": "blocks/390_c.txt"
+ },
+ {
+  "chapter": "Chapter 18: Certification, Standards, and Safety-Critical Development",
+  "section": "18.5 Traceability and Documentation",
+  "sub": "Bidirectional Traceability",
+  "idx": 391,
+  "kind": "other",
+  "lines": 9,
+  "file": "blocks/391_other.txt"
+ },
+ {
+  "chapter": "Chapter 18: Certification, Standards, and Safety-Critical Development",
+  "section": "18.6 V-Model Development Process",
+  "sub": "",
+  "idx": 392,
+  "kind": "diagram",
+  "lines": 16,
+  "file": "blocks/392_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 18: Certification, Standards, and Safety-Critical Development",
+  "section": "18.11 Lab 18: Creating a Certification Evidence Package",
+  "sub": "Step 4: Test Cases with MC/DC Coverage",
+  "idx": 393,
+  "kind": "c",
+  "lines": 3,
+  "file": "blocks/393_c.txt"
+ },
+ {
+  "chapter": "Chapter 19: Multi-Core RTOS: SMP and AMP Architectures",
+  "section": "19.3 FreeRTOS SMP",
+  "sub": "19.3.1 Configuration",
+  "idx": 394,
+  "kind": "c",
+  "lines": 9,
+  "file": "blocks/394_c.txt"
+ },
+ {
+  "chapter": "Chapter 19: Multi-Core RTOS: SMP and AMP Architectures",
+  "section": "19.3 FreeRTOS SMP",
+  "sub": "19.3.2 Task Affinity",
+  "idx": 395,
+  "kind": "c",
+  "lines": 65,
+  "file": "blocks/395_c.txt"
+ },
+ {
+  "chapter": "Chapter 19: Multi-Core RTOS: SMP and AMP Architectures",
+  "section": "19.3 FreeRTOS SMP",
+  "sub": "19.3.3 Scheduler and Synchronization Changes",
+  "idx": 396,
+  "kind": "c",
+  "lines": 6,
+  "file": "blocks/396_c.txt"
+ },
+ {
+  "chapter": "Chapter 19: Multi-Core RTOS: SMP and AMP Architectures",
+  "section": "19.3 FreeRTOS SMP",
+  "sub": "19.3.3 Scheduler and Synchronization Changes",
+  "idx": 397,
+  "kind": "c",
+  "lines": 16,
+  "file": "blocks/397_c.txt"
+ },
+ {
+  "chapter": "Chapter 19: Multi-Core RTOS: SMP and AMP Architectures",
+  "section": "19.4 AMP with FreeRTOS",
+  "sub": "19.4.1 Memory Map Separation",
+  "idx": 398,
+  "kind": "diagram",
+  "lines": 14,
+  "file": "blocks/398_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 19: Multi-Core RTOS: SMP and AMP Architectures",
+  "section": "19.4 AMP with FreeRTOS",
+  "sub": "19.4.1 Memory Map Separation",
+  "idx": 399,
+  "kind": "c",
+  "lines": 65,
+  "file": "blocks/399_c.txt"
+ },
+ {
+  "chapter": "Chapter 19: Multi-Core RTOS: SMP and AMP Architectures",
+  "section": "19.4 AMP with FreeRTOS",
+  "sub": "19.4.2 Boot Sequence",
+  "idx": 400,
+  "kind": "c",
+  "lines": 59,
+  "file": "blocks/400_c.txt"
+ },
+ {
+  "chapter": "Chapter 19: Multi-Core RTOS: SMP and AMP Architectures",
+  "section": "19.4 AMP with FreeRTOS",
+  "sub": "19.4.2 Boot Sequence",
+  "idx": 401,
+  "kind": "c",
+  "lines": 66,
+  "file": "blocks/401_c.txt"
+ },
+ {
+  "chapter": "Chapter 19: Multi-Core RTOS: SMP and AMP Architectures",
+  "section": "19.5 Inter-Core Communication",
+  "sub": "19.5.1 Shared Memory",
+  "idx": 402,
+  "kind": "c",
+  "lines": 20,
+  "file": "blocks/402_c.txt"
+ },
+ {
+  "chapter": "Chapter 19: Multi-Core RTOS: SMP and AMP Architectures",
+  "section": "19.5 Inter-Core Communication",
+  "sub": "19.5.2 Lock-Free SPSC Ring Buffer",
+  "idx": 403,
+  "kind": "c",
+  "lines": 60,
+  "file": "blocks/403_c.txt"
+ },
+ {
+  "chapter": "Chapter 19: Multi-Core RTOS: SMP and AMP Architectures",
+  "section": "19.5 Inter-Core Communication",
+  "sub": "19.5.4 OpenAMP and RPMsg",
+  "idx": 404,
+  "kind": "diagram",
+  "lines": 14,
+  "file": "blocks/404_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 19: Multi-Core RTOS: SMP and AMP Architectures",
+  "section": "19.6 Mixed-Criticality Systems",
+  "sub": "19.6.1 Architecture",
+  "idx": 405,
+  "kind": "diagram",
+  "lines": 12,
+  "file": "blocks/405_diagram.txt"
+ },
+ {
+  "chapter": "Chapter 19: Multi-Core RTOS: SMP and AMP Architectures",
+  "section": "19.8 QNX and Zephyr Multi-Core",
+  "sub": "19.8.2 Zephyr SMP and IPC",
+  "idx": 406,
+  "kind": "other-rtos",
+  "lines": 6,
+  "file": "blocks/406_other-rtos.txt"
+ },
+ {
+  "chapter": "Chapter 19: Multi-Core RTOS: SMP and AMP Architectures",
+  "section": "19.9 Common Pitfalls",
+  "sub": "Pitfall 1: False Sharing on Cache Lines",
+  "idx": 407,
+  "kind": "c",
+  "lines": 3,
+  "file": "blocks/407_c.txt"
+ },
+ {
+  "chapter": "Chapter 19: Multi-Core RTOS: SMP and AMP Architectures",
+  "section": "19.10 Lab 19: AMP Inter-Core Communication on STM32H7",
+  "sub": "19.10.1 Shared Memory Layout",
+  "idx": 408,
+  "kind": "c",
+  "lines": 57,
+  "file": "blocks/408_c.txt"
+ },
+ {
+  "chapter": "Chapter 19: Multi-Core RTOS: SMP and AMP Architectures",
+  "section": "19.10 Lab 19: AMP Inter-Core Communication on STM32H7",
+  "sub": "19.10.2 Core M7 Firmware (Producer)",
+  "idx": 409,
+  "kind": "c",
+  "lines": 79,
+  "file": "blocks/409_c.txt"
+ },
+ {
+  "chapter": "Chapter 19: Multi-Core RTOS: SMP and AMP Architectures",
+  "section": "19.10 Lab 19: AMP Inter-Core Communication on STM32H7",
+  "sub": "19.10.3 Core M4 Firmware (Consumer)",
+  "idx": 410,
+  "kind": "c",
+  "lines": 91,
+  "file": "blocks/410_c.txt"
+ },
+ {
+  "chapter": "Chapter 19: Multi-Core RTOS: SMP and AMP Architectures",
+  "section": "19.10 Lab 19: AMP Inter-Core Communication on STM32H7",
+  "sub": "19.10.4 Single-Core Simulation Variant",
+  "idx": 411,
+  "kind": "c",
+  "lines": 88,
+  "file": "blocks/411_c.txt"
+ },
+ {
+  "chapter": "Appendix D: FreeRTOSConfig.h Complete Reference",
+  "section": "",
+  "sub": "D.9 Recommended STM32F407 FreeRTOSConfig.h Template",
+  "idx": 412,
+  "kind": "c",
+  "lines": 62,
+  "file": "blocks/412_c.txt"
+ },
+ {
+  "chapter": "Appendix F: Development Environment Setup Guide",
+  "section": "F.1 Windows Setup",
+  "sub": "F.1.1 ARM GNU Toolchain",
+  "idx": 413,
+  "kind": "other",
+  "lines": 2,
+  "file": "blocks/413_other.txt"
+ },
+ {
+  "chapter": "Appendix F: Development Environment Setup Guide",
+  "section": "F.1 Windows Setup",
+  "sub": "F.1.2 CMake",
+  "idx": 414,
+  "kind": "shell",
+  "lines": 1,
+  "file": "blocks/414_shell.txt"
+ },
+ {
+  "chapter": "Appendix F: Development Environment Setup Guide",
+  "section": "F.1 Windows Setup",
+  "sub": "F.1.3 Build System (Ninja)",
+  "idx": 415,
+  "kind": "shell",
+  "lines": 1,
+  "file": "blocks/415_shell.txt"
+ },
+ {
+  "chapter": "Appendix F: Development Environment Setup Guide",
+  "section": "F.1 Windows Setup",
+  "sub": "F.1.4 OpenOCD",
+  "idx": 416,
+  "kind": "shell",
+  "lines": 1,
+  "file": "blocks/416_shell.txt"
+ },
+ {
+  "chapter": "Appendix F: Development Environment Setup Guide",
+  "section": "F.1 Windows Setup",
+  "sub": "F.1.6 Git",
+  "idx": 417,
+  "kind": "shell",
+  "lines": 1,
+  "file": "blocks/417_shell.txt"
+ },
+ {
+  "chapter": "Appendix F: Development Environment Setup Guide",
+  "section": "F.1 Windows Setup",
+  "sub": "F.1.7 Python",
+  "idx": 418,
+  "kind": "shell",
+  "lines": 2,
+  "file": "blocks/418_shell.txt"
+ },
+ {
+  "chapter": "Appendix F: Development Environment Setup Guide",
+  "section": "F.1 Windows Setup",
+  "sub": "F.1.7 Python",
+  "idx": 419,
+  "kind": "other-rtos",
+  "lines": 1,
+  "file": "blocks/419_other-rtos.txt"
+ },
+ {
+  "chapter": "Appendix F: Development Environment Setup Guide",
+  "section": "F.1 Windows Setup",
+  "sub": "F.1.8 VS Code and Extensions",
+  "idx": 420,
+  "kind": "config-other",
+  "lines": 4,
+  "file": "blocks/420_config-other.txt"
+ },
+ {
+  "chapter": "Appendix F: Development Environment Setup Guide",
+  "section": "F.1 Windows Setup",
+  "sub": "F.1.9 Verification Checklist",
+  "idx": 421,
+  "kind": "other-rtos",
+  "lines": 7,
+  "file": "blocks/421_other-rtos.txt"
+ },
+ {
+  "chapter": "Appendix F: Development Environment Setup Guide",
+  "section": "F.2 Linux Setup (Ubuntu 22.04+)",
+  "sub": "F.2.1 APT Packages",
+  "idx": 422,
+  "kind": "other",
+  "lines": 4,
+  "file": "blocks/422_other.txt"
+ },
+ {
+  "chapter": "Appendix F: Development Environment Setup Guide",
+  "section": "F.2 Linux Setup (Ubuntu 22.04+)",
+  "sub": "F.2.2 Zephyr West Tool",
+  "idx": 423,
+  "kind": "other-rtos",
+  "lines": 3,
+  "file": "blocks/423_other-rtos.txt"
+ },
+ {
+  "chapter": "Appendix F: Development Environment Setup Guide",
+  "section": "F.2 Linux Setup (Ubuntu 22.04+)",
+  "sub": "F.2.3 Udev Rules for ST-Link",
+  "idx": 424,
+  "kind": "shell",
+  "lines": 12,
+  "file": "blocks/424_shell.txt"
+ },
+ {
+  "chapter": "Appendix F: Development Environment Setup Guide",
+  "section": "F.2 Linux Setup (Ubuntu 22.04+)",
+  "sub": "F.2.3 Udev Rules for ST-Link",
+  "idx": 425,
+  "kind": "shell",
+  "lines": 1,
+  "file": "blocks/425_shell.txt"
+ },
+ {
+  "chapter": "Appendix F: Development Environment Setup Guide",
+  "section": "F.2 Linux Setup (Ubuntu 22.04+)",
+  "sub": "F.2.4 VS Code on Linux",
+  "idx": 426,
+  "kind": "shell",
+  "lines": 2,
+  "file": "blocks/426_shell.txt"
+ },
+ {
+  "chapter": "Appendix F: Development Environment Setup Guide",
+  "section": "F.2 Linux Setup (Ubuntu 22.04+)",
+  "sub": "F.2.4 VS Code on Linux",
+  "idx": 427,
+  "kind": "config-other",
+  "lines": 4,
+  "file": "blocks/427_config-other.txt"
+ },
+ {
+  "chapter": "Appendix F: Development Environment Setup Guide",
+  "section": "F.3 macOS Setup",
+  "sub": "F.3.1 Homebrew Installations",
+  "idx": 428,
+  "kind": "other-rtos",
+  "lines": 3,
+  "file": "blocks/428_other-rtos.txt"
+ },
+ {
+  "chapter": "Appendix F: Development Environment Setup Guide",
+  "section": "F.3 macOS Setup",
+  "sub": "F.3.1 Homebrew Installations",
+  "idx": 429,
+  "kind": "shell",
+  "lines": 1,
+  "file": "blocks/429_shell.txt"
+ },
+ {
+  "chapter": "Appendix F: Development Environment Setup Guide",
+  "section": "F.3 macOS Setup",
+  "sub": "F.3.2 VS Code on macOS",
+  "idx": 430,
+  "kind": "config-other",
+  "lines": 4,
+  "file": "blocks/430_config-other.txt"
+ },
+ {
+  "chapter": "Appendix F: Development Environment Setup Guide",
+  "section": "F.5 Project Template",
+  "sub": "F.5.1 Directory Structure",
+  "idx": 431,
+  "kind": "diagram",
+  "lines": 26,
+  "file": "blocks/431_diagram.txt"
+ },
+ {
+  "chapter": "Appendix F: Development Environment Setup Guide",
+  "section": "F.5 Project Template",
+  "sub": "F.5.2 Build and Flash Commands",
+  "idx": 432,
+  "kind": "cmake",
+  "lines": 17,
+  "file": "blocks/432_cmake.txt"
+ },
+ {
+  "chapter": "Appendix F: Development Environment Setup Guide",
+  "section": "F.5 Project Template",
+  "sub": "F.5.2 Build and Flash Commands",
+  "idx": 433,
+  "kind": "shell",
+  "lines": 9,
+  "file": "blocks/433_shell.txt"
+ },
+ {
+  "chapter": "Appendix F: Development Environment Setup Guide",
+  "section": "F.5 Project Template",
+  "sub": "F.5.3 Debug Configuration (launch.json)",
+  "idx": 434,
+  "kind": "config-other",
+  "lines": 21,
+  "file": "blocks/434_config-other.txt"
+ },
+ {
+  "chapter": "Appendix F: Development Environment Setup Guide",
+  "section": "F.6 FreeRTOS Source Integration",
+  "sub": "F.6.1 Obtaining FreeRTOS",
+  "idx": 435,
+  "kind": "shell",
+  "lines": 3,
+  "file": "blocks/435_shell.txt"
+ },
+ {
+  "chapter": "Appendix F: Development Environment Setup Guide",
+  "section": "F.6 FreeRTOS Source Integration",
+  "sub": "F.6.2 Required Source Files",
+  "idx": 436,
+  "kind": "cmake",
+  "lines": 16,
+  "file": "blocks/436_cmake.txt"
+ },
+ {
+  "chapter": "Appendix F: Development Environment Setup Guide",
+  "section": "F.6 FreeRTOS Source Integration",
+  "sub": "F.6.5 FreeRTOSConfig.h Essentials",
+  "idx": 437,
+  "kind": "c",
+  "lines": 47,
+  "file": "blocks/437_c.txt"
+ }
+]
